@@ -26,4 +26,8 @@ To run the project as-is, simply clone the code or hold for a release; no extra 
 | Jayway JsonPath  | [Maven Repository](https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path) | Utilities for parsing JSON data                        |
 | Apache IOUtils   | [Maven Repository](https://mvnrepository.com/artifact/commons-io/commons-io)         | Streamlines the process of retrieving data from a link |
 
+| External Resource   | Link/Credit                                                                                   | Usage                                                         |
+|---------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------|
+| Speedrun.com Backup | [GitHub Repository](https://github.com/xwmtp/src-backup) by [xwmtp](https://github.com/xwmtp) | Gather preliminary json data from games for testing purposes. |
+
 ---
