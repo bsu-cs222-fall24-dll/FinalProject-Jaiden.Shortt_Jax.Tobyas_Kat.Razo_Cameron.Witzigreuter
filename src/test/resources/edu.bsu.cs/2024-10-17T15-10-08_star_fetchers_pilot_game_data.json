@@ -1,0 +1,723 @@
+{
+  "game": {
+    "data": {
+      "id": "m1mxlok6",
+      "names": {
+        "international": "Star Fetchers: Pilot",
+        "japanese": null,
+        "twitch": "Star Fetchers: Pilot"
+      },
+      "boostReceived": 0,
+      "boostDistinctDonors": 0,
+      "abbreviation": "star_fetchers_pilot",
+      "weblink": "https://www.speedrun.com/star_fetchers_pilot",
+      "discord": "https://discord.gg/DPg9KX2",
+      "released": 2020,
+      "release-date": "2020-01-17",
+      "ruleset": {
+        "show-milliseconds": true,
+        "require-verification": true,
+        "require-video": true,
+        "run-times": [
+          "realtime",
+          "ingame"
+        ],
+        "default-time": "ingame",
+        "emulators-allowed": true
+      },
+      "romhack": false,
+      "gametypes": [],
+      "platforms": {
+        "data": [
+          {
+            "id": "8gej2n93",
+            "name": "PC",
+            "released": 1970,
+            "links": [
+              {
+                "rel": "self",
+                "uri": "https://www.speedrun.com/api/v1/platforms/8gej2n93"
+              },
+              {
+                "rel": "games",
+                "uri": "https://www.speedrun.com/api/v1/games?platform=8gej2n93"
+              },
+              {
+                "rel": "runs",
+                "uri": "https://www.speedrun.com/api/v1/runs?platform=8gej2n93"
+              }
+            ]
+          }
+        ]
+      },
+      "regions": {
+        "data": []
+      },
+      "genres": [
+        "4n6w7r29"
+      ],
+      "engines": [],
+      "developers": [
+        "qe5vylzv"
+      ],
+      "publishers": [],
+      "moderators": {
+        "data": [
+          {
+            "id": "o8645n3j",
+            "names": {
+              "international": "zblazin",
+              "japanese": null
+            },
+            "supporterAnimation": false,
+            "pronouns": null,
+            "weblink": "https://www.speedrun.com/user/zblazin",
+            "name-style": {
+              "style": "gradient",
+              "color-from": {
+                "light": "#EE2222",
+                "dark": "#EE4444"
+              },
+              "color-to": {
+                "light": "#EE2222",
+                "dark": "#EE4444"
+              }
+            },
+            "role": "user",
+            "signup": "2017-04-09T23:18:57Z",
+            "location": {
+              "country": {
+                "code": "us",
+                "names": {
+                  "international": "United States",
+                  "japanese": null
+                }
+              },
+              "region": {
+                "code": "us/ca",
+                "names": {
+                  "international": "California, USA",
+                  "japanese": null
+                }
+              }
+            },
+            "twitch": {
+              "uri": "https://www.twitch.tv/roaringblaze"
+            },
+            "hitbox": null,
+            "youtube": {
+              "uri": "https://www.youtube.com/channel/UCU9kwE2TcLsC-aGNirkNrtA"
+            },
+            "twitter": {
+              "uri": "https://www.twitter.com/zblazin"
+            },
+            "speedrunslive": null,
+            "assets": {
+              "icon": {
+                "uri": null
+              },
+              "supporterIcon": null,
+              "image": {
+                "uri": "https://www.speedrun.com/static/user/o8645n3j/image?v=b012227"
+              }
+            },
+            "links": [
+              {
+                "rel": "self",
+                "uri": "https://www.speedrun.com/api/v1/users/o8645n3j"
+              },
+              {
+                "rel": "runs",
+                "uri": "https://www.speedrun.com/api/v1/runs?user=o8645n3j"
+              },
+              {
+                "rel": "games",
+                "uri": "https://www.speedrun.com/api/v1/games?moderator=o8645n3j"
+              },
+              {
+                "rel": "personal-bests",
+                "uri": "https://www.speedrun.com/api/v1/users/o8645n3j/personal-bests"
+              }
+            ]
+          },
+          {
+            "id": "7j4dqgwj",
+            "names": {
+              "international": "osuepo",
+              "japanese": null
+            },
+            "supporterAnimation": false,
+            "pronouns": "",
+            "weblink": "https://www.speedrun.com/user/osuepo",
+            "name-style": {
+              "style": "gradient",
+              "color-from": {
+                "light": "#900090",
+                "dark": "#A010A0"
+              },
+              "color-to": {
+                "light": "#900090",
+                "dark": "#A010A0"
+              }
+            },
+            "role": "user",
+            "signup": "2018-04-01T09:40:48Z",
+            "location": null,
+            "twitch": null,
+            "hitbox": null,
+            "youtube": null,
+            "twitter": null,
+            "speedrunslive": null,
+            "assets": {
+              "icon": {
+                "uri": null
+              },
+              "supporterIcon": null,
+              "image": {
+                "uri": null
+              }
+            },
+            "links": [
+              {
+                "rel": "self",
+                "uri": "https://www.speedrun.com/api/v1/users/7j4dqgwj"
+              },
+              {
+                "rel": "runs",
+                "uri": "https://www.speedrun.com/api/v1/runs?user=7j4dqgwj"
+              },
+              {
+                "rel": "games",
+                "uri": "https://www.speedrun.com/api/v1/games?moderator=7j4dqgwj"
+              },
+              {
+                "rel": "personal-bests",
+                "uri": "https://www.speedrun.com/api/v1/users/7j4dqgwj/personal-bests"
+              }
+            ]
+          },
+          {
+            "id": "jmopr9e8",
+            "names": {
+              "international": "Micadurp",
+              "japanese": null
+            },
+            "supporterAnimation": false,
+            "pronouns": null,
+            "weblink": "https://www.speedrun.com/user/Micadurp",
+            "name-style": {
+              "style": "gradient",
+              "color-from": {
+                "light": "#7AB941",
+                "dark": "#8AC951"
+              },
+              "color-to": {
+                "light": "#7AB941",
+                "dark": "#8AC951"
+              }
+            },
+            "role": "user",
+            "signup": "2020-01-29T17:43:16Z",
+            "location": null,
+            "twitch": null,
+            "hitbox": null,
+            "youtube": null,
+            "twitter": null,
+            "speedrunslive": null,
+            "assets": {
+              "icon": {
+                "uri": null
+              },
+              "supporterIcon": null,
+              "image": {
+                "uri": "https://www.speedrun.com/static/user/jmopr9e8/image?v=007f043"
+              }
+            },
+            "links": [
+              {
+                "rel": "self",
+                "uri": "https://www.speedrun.com/api/v1/users/jmopr9e8"
+              },
+              {
+                "rel": "runs",
+                "uri": "https://www.speedrun.com/api/v1/runs?user=jmopr9e8"
+              },
+              {
+                "rel": "games",
+                "uri": "https://www.speedrun.com/api/v1/games?moderator=jmopr9e8"
+              },
+              {
+                "rel": "personal-bests",
+                "uri": "https://www.speedrun.com/api/v1/users/jmopr9e8/personal-bests"
+              }
+            ]
+          },
+          {
+            "id": "jn32qp2x",
+            "names": {
+              "international": "xambdi",
+              "japanese": null
+            },
+            "supporterAnimation": false,
+            "pronouns": null,
+            "weblink": "https://www.speedrun.com/user/xambdi",
+            "name-style": {
+              "style": "gradient",
+              "color-from": {
+                "light": "#A259C5",
+                "dark": "#C279E5"
+              },
+              "color-to": {
+                "light": "#A259C5",
+                "dark": "#C279E5"
+              }
+            },
+            "role": "user",
+            "signup": "2020-03-19T13:26:48Z",
+            "location": null,
+            "twitch": null,
+            "hitbox": null,
+            "youtube": null,
+            "twitter": null,
+            "speedrunslive": null,
+            "assets": {
+              "icon": {
+                "uri": null
+              },
+              "supporterIcon": null,
+              "image": {
+                "uri": "https://www.speedrun.com/static/user/jn32qp2x/image?v=09e2a6b"
+              }
+            },
+            "links": [
+              {
+                "rel": "self",
+                "uri": "https://www.speedrun.com/api/v1/users/jn32qp2x"
+              },
+              {
+                "rel": "runs",
+                "uri": "https://www.speedrun.com/api/v1/runs?user=jn32qp2x"
+              },
+              {
+                "rel": "games",
+                "uri": "https://www.speedrun.com/api/v1/games?moderator=jn32qp2x"
+              },
+              {
+                "rel": "personal-bests",
+                "uri": "https://www.speedrun.com/api/v1/users/jn32qp2x/personal-bests"
+              }
+            ]
+          },
+          {
+            "id": "8ew0n0d8",
+            "names": {
+              "international": "PunMister",
+              "japanese": null
+            },
+            "supporterAnimation": false,
+            "pronouns": "He/Him",
+            "weblink": "https://www.speedrun.com/user/PunMister",
+            "name-style": {
+              "style": "gradient",
+              "color-from": {
+                "light": "#900090",
+                "dark": "#A010A0"
+              },
+              "color-to": {
+                "light": "#900090",
+                "dark": "#A010A0"
+              }
+            },
+            "role": "user",
+            "signup": "2023-02-23T09:56:52Z",
+            "location": null,
+            "twitch": null,
+            "hitbox": null,
+            "youtube": null,
+            "twitter": null,
+            "speedrunslive": null,
+            "assets": {
+              "icon": {
+                "uri": "https://www.speedrun.com/static/user/8ew0n0d8/icon?v=9e3908d"
+              },
+              "supporterIcon": null,
+              "image": {
+                "uri": "https://www.speedrun.com/static/user/8ew0n0d8/image?v=5197602"
+              }
+            },
+            "links": [
+              {
+                "rel": "self",
+                "uri": "https://www.speedrun.com/api/v1/users/8ew0n0d8"
+              },
+              {
+                "rel": "runs",
+                "uri": "https://www.speedrun.com/api/v1/runs?user=8ew0n0d8"
+              },
+              {
+                "rel": "games",
+                "uri": "https://www.speedrun.com/api/v1/games?moderator=8ew0n0d8"
+              },
+              {
+                "rel": "personal-bests",
+                "uri": "https://www.speedrun.com/api/v1/users/8ew0n0d8/personal-bests"
+              }
+            ]
+          }
+        ]
+      },
+      "created": "2020-03-14T16:06:25Z",
+      "assets": {
+        "logo": {
+          "uri": "https://www.speedrun.com/static/theme/zr0l3vrm/logo?v=0e0eaae"
+        },
+        "cover-tiny": {
+          "uri": "https://www.speedrun.com/static/game/m1mxlok6/cover?v=519871a"
+        },
+        "cover-small": {
+          "uri": "https://www.speedrun.com/static/game/m1mxlok6/cover?v=519871a"
+        },
+        "cover-medium": {
+          "uri": "https://www.speedrun.com/static/game/m1mxlok6/cover?v=519871a"
+        },
+        "cover-large": {
+          "uri": "https://www.speedrun.com/static/game/m1mxlok6/cover?v=519871a"
+        },
+        "icon": {
+          "uri": "https://www.speedrun.com/images/1st.png"
+        },
+        "trophy-1st": {
+          "uri": "https://www.speedrun.com/images/1st.png"
+        },
+        "trophy-2nd": {
+          "uri": "https://www.speedrun.com/images/2nd.png"
+        },
+        "trophy-3rd": {
+          "uri": "https://www.speedrun.com/images/3rd.png"
+        },
+        "trophy-4th": {
+          "uri": null
+        },
+        "background": {
+          "uri": "https://www.speedrun.com/static/theme/zr0l3vrm/background?v=c08fdb8"
+        },
+        "foreground": {
+          "uri": null
+        }
+      },
+      "links": [
+        {
+          "rel": "self",
+          "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6"
+        },
+        {
+          "rel": "runs",
+          "uri": "https://www.speedrun.com/api/v1/runs?game=m1mxlok6"
+        },
+        {
+          "rel": "levels",
+          "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6/levels"
+        },
+        {
+          "rel": "categories",
+          "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6/categories"
+        },
+        {
+          "rel": "variables",
+          "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6/variables"
+        },
+        {
+          "rel": "records",
+          "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6/records"
+        },
+        {
+          "rel": "series",
+          "uri": "https://www.speedrun.com/api/v1/series/yr4gon12"
+        },
+        {
+          "rel": "derived-games",
+          "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6/derived-games"
+        },
+        {
+          "rel": "romhacks",
+          "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6/derived-games"
+        },
+        {
+          "rel": "leaderboard",
+          "uri": "https://www.speedrun.com/api/v1/leaderboards/m1mxlok6/category/9kvogqj2"
+        }
+      ]
+    }
+  },
+  "categories": {
+    "data": [
+      {
+        "id": "9kvogqj2",
+        "name": "Pilot",
+        "weblink": "https://www.speedrun.com/star_fetchers_pilot#Mash",
+        "type": "per-game",
+        "rules": "Speedrun category for the full run of the Star Fetchers Pilot (Episode 0), macros are **NOT allowed in Mash%**, runs using a macro to spam E goes under Macro%.\nListed time should be **In-Game Time** shown at the end of the run during the credits sequence. Video must show both the **Star Fetchers Pilot main menu screen** and the **beginning of the end credits with the IGT visible.**\n\nSimplified List of Rules\n\n1. Provide Audio and Video\r\n2. No Splicing Runs\r\n3. No Macros (unless in Macro% and only to spam E)\n4. No TAS Tools\r\n5. No manipulation of text or game modding\r\n6. Run must be completed in a single continuous segment\n\nFull list of rules can be found in this document here: [https://docs.google.com/document/d/19TH9sEv8lmr8vor-0yNzVDuysxLMSXeBWCuPWPpNkc8/edit?usp=sharing](https://docs.google.com/document/d/19TH9sEv8lmr8vor-0yNzVDuysxLMSXeBWCuPWPpNkc8/edit?usp=sharing)",
+        "players": {
+          "type": "exactly",
+          "value": 1
+        },
+        "miscellaneous": false,
+        "links": [
+          {
+            "rel": "self",
+            "uri": "https://www.speedrun.com/api/v1/categories/9kvogqj2"
+          },
+          {
+            "rel": "game",
+            "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6"
+          },
+          {
+            "rel": "variables",
+            "uri": "https://www.speedrun.com/api/v1/categories/9kvogqj2/variables"
+          },
+          {
+            "rel": "records",
+            "uri": "https://www.speedrun.com/api/v1/categories/9kvogqj2/records"
+          },
+          {
+            "rel": "runs",
+            "uri": "https://www.speedrun.com/api/v1/runs?category=9kvogqj2"
+          },
+          {
+            "rel": "leaderboard",
+            "uri": "https://www.speedrun.com/api/v1/leaderboards/m1mxlok6/category/9kvogqj2"
+          }
+        ],
+        "variables": {
+          "data": [
+            {
+              "id": "r8rrzz58",
+              "name": "Mash E or Macro",
+              "category": null,
+              "scope": {
+                "type": "full-game"
+              },
+              "mandatory": true,
+              "user-defined": false,
+              "obsoletes": true,
+              "values": {
+                "_note": "`choices` is deprecated, please use `values` instead",
+                "choices": {
+                  "14ovjpwq": "Mash%",
+                  "19293vjq": "Macro%"
+                },
+                "values": {
+                  "14ovjpwq": {
+                    "label": "Mash%",
+                    "rules": "",
+                    "flags": {
+                      "miscellaneous": false
+                    }
+                  },
+                  "19293vjq": {
+                    "label": "Macro%",
+                    "rules": "",
+                    "flags": {
+                      "miscellaneous": false
+                    }
+                  }
+                },
+                "default": "14ovjpwq"
+              },
+              "is-subcategory": true,
+              "links": [
+                {
+                  "rel": "self",
+                  "uri": "https://www.speedrun.com/api/v1/variables/r8rrzz58"
+                },
+                {
+                  "rel": "game",
+                  "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "5dwv98lk",
+        "name": "Episode 1 Demo",
+        "weblink": "https://www.speedrun.com/star_fetchers_pilot#EP1Demo",
+        "type": "per-game",
+        "rules": "Speedrun category for the full run of the Star Fetchers Episode 1 Demo, macros are **NOT allowed in Mash%**, runs using a macro to spam E goes under Macro%.\nListed time should be **In-Game Time** shown at the end of the run during the credits sequence. Video must show both the **Episode 1 Demo main menu screen** and the **beginning of the end credits with the IGT visible.**\n\nSimplified List of Rules\n\n1. Provide Audio and Video\r\n2. No Splicing Runs\r\n3. No Macros (unless in Macro% and only to spam E)\n4. No TAS Tools\r\n5. No manipulation of text or game modding\r\n6. Run must be completed in a single continuous segment\n\nFull list of rules can be found in this document here: [https://docs.google.com/document/d/19TH9sEv8lmr8vor-0yNzVDuysxLMSXeBWCuPWPpNkc8/edit?usp=sharing](https://docs.google.com/document/d/19TH9sEv8lmr8vor-0yNzVDuysxLMSXeBWCuPWPpNkc8/edit?usp=sharing)",
+        "players": {
+          "type": "exactly",
+          "value": 1
+        },
+        "miscellaneous": false,
+        "links": [
+          {
+            "rel": "self",
+            "uri": "https://www.speedrun.com/api/v1/categories/5dwv98lk"
+          },
+          {
+            "rel": "game",
+            "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6"
+          },
+          {
+            "rel": "variables",
+            "uri": "https://www.speedrun.com/api/v1/categories/5dwv98lk/variables"
+          },
+          {
+            "rel": "records",
+            "uri": "https://www.speedrun.com/api/v1/categories/5dwv98lk/records"
+          },
+          {
+            "rel": "runs",
+            "uri": "https://www.speedrun.com/api/v1/runs?category=5dwv98lk"
+          },
+          {
+            "rel": "leaderboard",
+            "uri": "https://www.speedrun.com/api/v1/leaderboards/m1mxlok6/category/5dwv98lk"
+          }
+        ],
+        "variables": {
+          "data": [
+            {
+              "id": "r8rrzz58",
+              "name": "Mash E or Macro",
+              "category": null,
+              "scope": {
+                "type": "full-game"
+              },
+              "mandatory": true,
+              "user-defined": false,
+              "obsoletes": true,
+              "values": {
+                "_note": "`choices` is deprecated, please use `values` instead",
+                "choices": {
+                  "14ovjpwq": "Mash%",
+                  "19293vjq": "Macro%"
+                },
+                "values": {
+                  "14ovjpwq": {
+                    "label": "Mash%",
+                    "rules": "",
+                    "flags": {
+                      "miscellaneous": false
+                    }
+                  },
+                  "19293vjq": {
+                    "label": "Macro%",
+                    "rules": "",
+                    "flags": {
+                      "miscellaneous": false
+                    }
+                  }
+                },
+                "default": "14ovjpwq"
+              },
+              "is-subcategory": true,
+              "links": [
+                {
+                  "rel": "self",
+                  "uri": "https://www.speedrun.com/api/v1/variables/r8rrzz58"
+                },
+                {
+                  "rel": "game",
+                  "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "id": "wkpzzq0d",
+        "name": "Escape From Pork Belly",
+        "weblink": "https://www.speedrun.com/star_fetchers_pilot#escapefromporkbelly",
+        "type": "per-game",
+        "rules": "Speedrun category for the full run of the Star Fetchers Escape From Pork Belly DLC, macros are **NOT allowed in Mash%**, runs using a macro to spam E goes under Macro%.\nListed time should be **In-Game Time** shown at the end of the run during the credits sequence. Video must show both the **Escape From Pork Belly main menu screen** and the **beginning of the end credits with the IGT visible.**\n\nSimplified List of General Rules\n\n1. Provide Audio and Video\r\n2. No Splicing Runs\r\n3. No Macros (unless in Macro% and only to spam E)\n4. No TAS Tools\r\n5. No manipulation of text or game modding\r\n6. Run must be completed in a single continuous segment\n\nFull list of rules can be found in this document here: [https://docs.google.com/document/d/19TH9sEv8lmr8vor-0yNzVDuysxLMSXeBWCuPWPpNkc8/edit?usp=sharing](https://docs.google.com/document/d/19TH9sEv8lmr8vor-0yNzVDuysxLMSXeBWCuPWPpNkc8/edit?usp=sharing)",
+        "players": {
+          "type": "exactly",
+          "value": 1
+        },
+        "miscellaneous": false,
+        "links": [
+          {
+            "rel": "self",
+            "uri": "https://www.speedrun.com/api/v1/categories/wkpzzq0d"
+          },
+          {
+            "rel": "game",
+            "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6"
+          },
+          {
+            "rel": "variables",
+            "uri": "https://www.speedrun.com/api/v1/categories/wkpzzq0d/variables"
+          },
+          {
+            "rel": "records",
+            "uri": "https://www.speedrun.com/api/v1/categories/wkpzzq0d/records"
+          },
+          {
+            "rel": "runs",
+            "uri": "https://www.speedrun.com/api/v1/runs?category=wkpzzq0d"
+          },
+          {
+            "rel": "leaderboard",
+            "uri": "https://www.speedrun.com/api/v1/leaderboards/m1mxlok6/category/wkpzzq0d"
+          }
+        ],
+        "variables": {
+          "data": [
+            {
+              "id": "r8rrzz58",
+              "name": "Mash E or Macro",
+              "category": null,
+              "scope": {
+                "type": "full-game"
+              },
+              "mandatory": true,
+              "user-defined": false,
+              "obsoletes": true,
+              "values": {
+                "_note": "`choices` is deprecated, please use `values` instead",
+                "choices": {
+                  "14ovjpwq": "Mash%",
+                  "19293vjq": "Macro%"
+                },
+                "values": {
+                  "14ovjpwq": {
+                    "label": "Mash%",
+                    "rules": "",
+                    "flags": {
+                      "miscellaneous": false
+                    }
+                  },
+                  "19293vjq": {
+                    "label": "Macro%",
+                    "rules": "",
+                    "flags": {
+                      "miscellaneous": false
+                    }
+                  }
+                },
+                "default": "14ovjpwq"
+              },
+              "is-subcategory": true,
+              "links": [
+                {
+                  "rel": "self",
+                  "uri": "https://www.speedrun.com/api/v1/variables/r8rrzz58"
+                },
+                {
+                  "rel": "game",
+                  "uri": "https://www.speedrun.com/api/v1/games/m1mxlok6"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "levels": {
+    "data": []
+  }
+}
