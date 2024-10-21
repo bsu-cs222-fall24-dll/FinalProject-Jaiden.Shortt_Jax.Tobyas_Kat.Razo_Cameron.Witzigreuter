@@ -1,0 +1,28 @@
+Example CLI interaction:
+
+Generic:
+Enter game name: (User input "gameName" string) solitaire
+Enter speedrun category under ("gameName"): (User input "gameCategory") draw one
+Display how many speedruns? (User input "numberOfSpeedruns") 10
+
+Rank    Username        Date            Speedrun time
+#1      (Users)         (Dates)         (Times)
+#2      User-01         YYYY-MM-DD      H:MM:SS
+#3  .                   .               .
+.
+.
+#(numberOfSpeedruns)    .               .
+
+
+Solitaire example:
+Enter game name: solitaire
+Enter speedrun category under solitaire: draw one
+Display how many speedruns? 10
+
+Rank    Username        Date            Speedrun time
+#1      Bruxa           2022-03-20      0:00:05
+#2      Havenbreaker    2022-02-27      0:00:07
+#3  .                   .           .
+.
+.
+#10    ctclarke         2020-08-27      0:00:13
