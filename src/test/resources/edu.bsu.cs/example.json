@@ -1,0 +1,70 @@
+{
+  "name": "example.json",
+  "example_key": "example_value",
+  "example_array": [
+    "item 1",
+    "item 2",
+    "item 3"
+  ],
+  "example_map": {
+    "key 1": "value 1",
+    "key 2": "value 2",
+    "key 3": "value 3"
+  },
+  "example_map_array": [
+    {
+      "key A": "value A",
+      "key B": "value B"
+    },
+    {
+      "key C": "value C",
+      "key D": "value D"
+    },
+    {
+      "key E": "value E",
+      "key F": "value F"
+    }
+  ],
+  "example_for_deep_scan": [
+    {
+      "name": "Jaiden Shortt",
+      "username": "JaidenShortt",
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "team": "D"
+    },
+    {
+      "name": "Jax Tobyas",
+      "username": "JaxT05",
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "team": "D"
+    },
+    {
+      "name": "Kat Razo",
+      "username": "katrazo",
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "team": "D"
+    },
+    {
+      "name": "Cameron Witzigreuter",
+      "username": "Cameron311",
+      "list": [
+        "a",
+        "b",
+        "c"
+      ],
+      "team": "D"
+    }
+  ]
+}
