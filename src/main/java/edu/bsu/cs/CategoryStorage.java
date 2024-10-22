@@ -26,22 +26,32 @@ public class CategoryStorage extends DataStorage {
 
     @Override
     public String toString() {
+        StringBuilder linksBuilder = new StringBuilder();
+        for (Map<String,String> linkMap : links)
+            linksBuilder.append(String.format("%n> %s: %s", linkMap.get("rel"), linkMap.get("uri")));
+
+        String playersInfo = players.get("type") + " " + (players.get("value"));
+
         return String.format(
                 """
                 %s [%s]
+                
 
                 Rules:
                 -----------
+                **Players**
                 %s
-                ----------
-
-                Players: %s
-                ID: %s | Misc.: %b
-                [%s]
+                
+                %s
+                -----------
                 
                 Links:
-                %s""",
-                name, type, rules, players, id, miscellaneous, weblink, links
-        );
+                -----------%s
+                -----------
+                
+                ID: %s | Misc.: %b
+                [%s]""",
+                name, type, playersInfo, rules, linksBuilder, id, miscellaneous, weblink
+                );
     }
 }

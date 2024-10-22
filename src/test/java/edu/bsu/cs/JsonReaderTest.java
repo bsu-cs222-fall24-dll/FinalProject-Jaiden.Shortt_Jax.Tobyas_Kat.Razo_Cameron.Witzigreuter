@@ -89,7 +89,6 @@ public class JsonReaderTest {
     @Test
     public void test_readCategory() {
         CategoryStorage smsCategory = categoriesReader.readCategory("data[1]");
-        System.out.print("Super Mario Sunshine: ");
-        System.out.println(smsCategory);
+        System.out.printf("%nSuper Mario Sunshine: %s%n%n", smsCategory);
     }
 }
