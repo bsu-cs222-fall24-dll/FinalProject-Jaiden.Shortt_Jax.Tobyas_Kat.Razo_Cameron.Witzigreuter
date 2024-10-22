@@ -36,6 +36,9 @@ public class JsonReader {
     public String getValue(String keyToValueWithPath) {
         return (String) singleScan(keyToValueWithPath);
     }
+    public boolean getBoolean(String keyToBooleanWithPath) {
+        return (boolean) singleScan(keyToBooleanWithPath);
+    }
     public List<String> getListOfValues(String keyToArrayWithPath) {
         return (List<String>) singleScan(keyToArrayWithPath);
     }
@@ -61,4 +64,18 @@ public class JsonReader {
         String cleanList = roughList.toString();
         return List.of(cleanList.split(","));
     }
+
+    public CategoryStorage readCategory(String keyToCategory) {
+        return new CategoryStorage(
+                getValue(String.format("%s.id", keyToCategory)),
+                getValue(String.format("%s.name", keyToCategory)),
+                getValue(String.format("%s.weblink", keyToCategory)),
+                getValue(String.format("%s.type", keyToCategory)),
+                getValue(String.format("%s.rules", keyToCategory)),
+                getMap(String.format("%s.players", keyToCategory)),
+                getBoolean(String.format("%s.miscellaneous", keyToCategory)),
+                getListOfMaps(String.format("%s.links", keyToCategory))
+        );
+    }
+
 }

@@ -1,6 +1,7 @@
 {
   "name": "example.json",
   "example_key": "example_value",
+  "example_boolean": true,
   "example_array": [
     "item 1",
     "item 2",
