@@ -12,4 +12,14 @@ public record RunStorage(
 
         String date_submitted,
         String timeString
-) {}
+) {
+    @Override
+    public String toString(){
+
+        return playerLinks + "     " + date_submitted + "     " + timeString;
+    }
+}
+
+
+
+
