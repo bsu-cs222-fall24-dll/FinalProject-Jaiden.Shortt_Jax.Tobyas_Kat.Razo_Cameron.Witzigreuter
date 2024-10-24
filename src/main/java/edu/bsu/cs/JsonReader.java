@@ -1,10 +1,20 @@
 package edu.bsu.cs;
 
+import edu.bsu.cs.records.GameStorage;
+import edu.bsu.cs.records.CategoryStorage;
+import edu.bsu.cs.records.LeaderboardStorage;
+import edu.bsu.cs.records.RunStorage;
+
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
+import org.apache.commons.io.IOUtils;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 /* JsonPath documentation states the following:
  ^ > When using JsonPath in java its [sic] important to know what type you expect in your result.
@@ -19,63 +29,105 @@ import java.util.Map;
 public class JsonReader {
     private final Object JSON;
 
-    private JsonReader(String json) {
-        JSON = Configuration.defaultConfiguration().jsonProvider().parse(json);
-    }
     public static JsonReader createReader(String json) {
         return new JsonReader(json);
     }
-
-    private Object singleScan(String keyWithPath) {
-        return JsonPath.read(JSON, String.format("$.%s", keyWithPath));
-    }
-    private Object deepScan(String keyWithPath) {
-        return JsonPath.read(JSON, String.format("$..%s", keyWithPath));
+    private JsonReader(String json) {
+        JSON = Configuration.defaultConfiguration().jsonProvider().parse(json);
     }
 
-    public String getValue(String keyToValueWithPath) {
-        return (String) singleScan(keyToValueWithPath);
+    private String definiteScan(String keyPath) {
+        return JsonPath.read(JSON, String.format("$.%s", keyPath));
     }
-    public boolean getBoolean(String keyToBooleanWithPath) {
-        return (boolean) singleScan(keyToBooleanWithPath);
-    }
-    public List<String> getListOfValues(String keyToArrayWithPath) {
-        return (List<String>) singleScan(keyToArrayWithPath);
-    }
-    public Map<String, String> getMap(String keyToMapWithPath) {
-        return (Map<String, String>) singleScan(keyToMapWithPath);
-    }
-    public List<Map<String, String>> getListOfMaps(String keyToArrayWithPath) {
-        return (List<Map<String, String>>) singleScan(keyToArrayWithPath);
+    @SuppressWarnings("SameParameterValue")
+    private List<String> indefiniteScan(String key) {
+        return JsonPath.read(JSON, String.format("$..%s", key));
     }
 
-    public List<String> getAnyValuesAsList(String keyWithoutPath) {
-        StringBuilder roughList = new StringBuilder(deepScan(keyWithoutPath).toString());
-
-        roughList.delete(0, 1);
-        roughList.delete(roughList.length() - 1, roughList.length());
-
-        int indexOfQuote = roughList.indexOf("\"");
-        while (indexOfQuote != -1) {
-            roughList.delete(indexOfQuote, indexOfQuote + 1);
-            indexOfQuote = roughList.indexOf("\"");
-        }
-
-        String cleanList = roughList.toString();
-        return List.of(cleanList.split(","));
+    private int scanLength(String key) {
+        return JsonPath.read(JSON, String.format("$..%s.length()", key));
+    }
+    private int scanInt(String key) {
+        return JsonPath.read(JSON, String.format("$.%s", key));
     }
 
-    public CategoryStorage readCategory(String keyToCategory) {
-        return new CategoryStorage(
-                getValue(String.format("%s.id", keyToCategory)),
-                getValue(String.format("%s.name", keyToCategory)),
-                getValue(String.format("%s.weblink", keyToCategory)),
-                getValue(String.format("%s.type", keyToCategory)),
-                getValue(String.format("%s.rules", keyToCategory)),
-                getMap(String.format("%s.players", keyToCategory)),
-                getBoolean(String.format("%s.miscellaneous", keyToCategory)),
-                getListOfMaps(String.format("%s.links", keyToCategory))
+    public GameStorage createGame() {
+        return new GameStorage(
+                definiteScan("data.weblink"),
+                definiteScan("data.links[0].uri"),
+                definiteScan("data.id"),
+                definiteScan("data.names.international"),
+
+                definiteScan("data.links[3].uri")
         );
     }
 
+    public List<CategoryStorage> createCategoryList() {
+        int listSize = scanLength("data");
+        List<CategoryStorage> toReturn = new ArrayList<>(listSize);
+
+        for (int i = 0; i < listSize; i++) {
+            if (definiteScan(String.format("data[%d].type", i)).equals("per-game"))
+                toReturn.add(new CategoryStorage(
+                        definiteScan(String.format("data[%d].weblink", i)),
+                        definiteScan(String.format("data[%d].links[0].uri", i)),
+                        definiteScan(String.format("data[%d].id", i)),
+                        definiteScan(String.format("data[%d].name", i)),
+
+                        definiteScan(String.format("data[%d].links[5].uri", i)),
+                        definiteScan(String.format("data[%d].links[1].uri", i))
+                ));
+        }
+
+        return toReturn;
+    }
+
+    public LeaderboardStorage createLeaderboard(int maxRuns) throws IOException {
+        String webLink = definiteScan("data.weblink");
+
+        String gameLink = definiteScan("data.links[0].uri");
+        String categoryLink = definiteScan("data.links[1].uri");
+
+        String timing = definiteScan("data.timing");
+        LinkedHashMap<Integer, RunStorage> runs = new LinkedHashMap<>();
+
+        for (int i = 0; i < maxRuns && i < scanLength("data.runs"); i++) {
+            runs.put(
+                    scanInt(String.format("data.runs[%d].place", i)),
+                    WebApiHandler.getRunData(definiteScan(String.format("data.runs[%d].run.id", i)))
+            );
+        }
+
+        return new LeaderboardStorage(webLink, gameLink, categoryLink, timing, runs);
+    }
+
+    public RunStorage createRun() {
+        return new RunStorage(
+                definiteScan("data.weblink"),
+                definiteScan("data.links[0].uri"),
+                definiteScan("data.id"),
+
+                definiteScan("data.links[1].uri"),
+                definiteScan("data.links[2].uri"),
+                indefiniteScan("players[*].uri"),
+
+                definiteScan("data.submitted"),
+                definiteScan("data.times.primary")
+        );
+    }
+    public LeaderboardStorage test_createLeaderboard() throws IOException {
+        String webLink = definiteScan("data.weblink");
+
+        String gameLink = definiteScan("data.links[0].uri");
+        String categoryLink = definiteScan("data.links[1].uri");
+
+        String timing = definiteScan("data.timing");
+        LinkedHashMap<Integer, RunStorage> runs = new LinkedHashMap<>();
+
+        runs.put(1, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-anypercent-run1.json"), StandardCharsets.UTF_8)).createRun());
+        runs.put(2, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-anypercent-run2.json"), StandardCharsets.UTF_8)).createRun());
+        runs.put(3, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-anypercent-run3.json"), StandardCharsets.UTF_8)).createRun());
+
+        return new LeaderboardStorage(webLink, gameLink, categoryLink, timing, runs);
+    }
 }
