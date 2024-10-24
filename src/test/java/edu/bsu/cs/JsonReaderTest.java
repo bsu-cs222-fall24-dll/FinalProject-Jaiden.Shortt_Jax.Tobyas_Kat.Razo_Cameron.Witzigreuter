@@ -18,9 +18,9 @@ import java.util.List;
 public class JsonReaderTest {
     @BeforeAll
     public static void initializeJsonReaders() throws IOException {
-        String gameJson = IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-game.json"), StandardCharsets.UTF_8);
-        String categoryListJson = IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-categories.json"), StandardCharsets.UTF_8);
-        String leaderboardJson = IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-anypercent-leaderboard.json"), StandardCharsets.UTF_8);
+        String gameJson = IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-game.json"), StandardCharsets.UTF_8);
+        String categoryListJson = IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-categories.json"), StandardCharsets.UTF_8);
+        String leaderboardJson = IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-leaderboard.json"), StandardCharsets.UTF_8);
 
         gameReader = JsonReader.createReader(gameJson);
         categoryListReader = JsonReader.createReader(categoryListJson);

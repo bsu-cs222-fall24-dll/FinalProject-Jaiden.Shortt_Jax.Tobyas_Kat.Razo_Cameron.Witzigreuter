@@ -124,9 +124,9 @@ public class JsonReader {
         String timing = definiteScan("data.timing");
         LinkedHashMap<Integer, RunStorage> runs = new LinkedHashMap<>();
 
-        runs.put(1, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-anypercent-run1.json"), StandardCharsets.UTF_8)).createRun());
-        runs.put(2, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-anypercent-run2.json"), StandardCharsets.UTF_8)).createRun());
-        runs.put(3, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/speedgrabber/records/sms-anypercent-run3.json"), StandardCharsets.UTF_8)).createRun());
+        runs.put(1, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run1.json"), StandardCharsets.UTF_8)).createRun());
+        runs.put(2, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run2.json"), StandardCharsets.UTF_8)).createRun());
+        runs.put(3, JsonReader.createReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run3.json"), StandardCharsets.UTF_8)).createRun());
 
         return new LeaderboardStorage(webLink, gameLink, categoryLink, timing, runs);
     }

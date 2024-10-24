@@ -115,6 +115,82 @@
       ]
     },
     {
+      "id": "7kjqlxd3",
+      "name": "79 Shines",
+      "weblink": "https://www.speedrun.com/sms#79_Shines",
+      "type": "per-game",
+      "rules": "**Goal**\nCollect every Shine Sprite in every world, and beat the game (Defeat Bowser in Corona Mountain), for a grand total of 79 Shine Sprites.\n\n**Requirements**\n\n- Emulator and Nintendont is not allowed for runs faster than 2 hours 45 minutes.\r\n- Video proof is required for runs faster than 2 hours 45 minutes.",
+      "players": {
+        "type": "exactly",
+        "value": 1
+      },
+      "miscellaneous": true,
+      "links": [
+        {
+          "rel": "self",
+          "uri": "https://www.speedrun.com/api/v1/categories/7kjqlxd3"
+        },
+        {
+          "rel": "game",
+          "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+        },
+        {
+          "rel": "variables",
+          "uri": "https://www.speedrun.com/api/v1/categories/7kjqlxd3/variables"
+        },
+        {
+          "rel": "records",
+          "uri": "https://www.speedrun.com/api/v1/categories/7kjqlxd3/records"
+        },
+        {
+          "rel": "runs",
+          "uri": "https://www.speedrun.com/api/v1/runs?category=7kjqlxd3"
+        },
+        {
+          "rel": "leaderboard",
+          "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/7kjqlxd3"
+        }
+      ]
+    },
+    {
+      "id": "wkpmjjkr",
+      "name": "All Episodes",
+      "weblink": "https://www.speedrun.com/sms#All_Episodes",
+      "type": "per-game",
+      "rules": "**Goal**\nCollect every Shine Sprite obtained from completing episodes in the game worlds (8 per world), and beat the game (Defeat Bowser in Corona Mountain), for a grand total of 58 Shine Sprites.\n\n**Requirements**\n\n- Emulator and Nintendont is not allowed for runs faster than 1 hour 50 minutes.\r\n- Video proof is required for runs faster than 1 hour 50 minutes.",
+      "players": {
+        "type": "exactly",
+        "value": 1
+      },
+      "miscellaneous": true,
+      "links": [
+        {
+          "rel": "self",
+          "uri": "https://www.speedrun.com/api/v1/categories/wkpmjjkr"
+        },
+        {
+          "rel": "game",
+          "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+        },
+        {
+          "rel": "variables",
+          "uri": "https://www.speedrun.com/api/v1/categories/wkpmjjkr/variables"
+        },
+        {
+          "rel": "records",
+          "uri": "https://www.speedrun.com/api/v1/categories/wkpmjjkr/records"
+        },
+        {
+          "rel": "runs",
+          "uri": "https://www.speedrun.com/api/v1/runs?category=wkpmjjkr"
+        },
+        {
+          "rel": "leaderboard",
+          "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/wkpmjjkr"
+        }
+      ]
+    },
+    {
       "id": "xd1r95wk",
       "name": "Individual World",
       "weblink": "https://www.speedrun.com/sms",
@@ -289,6 +365,44 @@
         {
           "rel": "leaderboard",
           "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/ndx4ywj2"
+        }
+      ]
+    },
+    {
+      "id": "xk9e86v2",
+      "name": "20 Shines",
+      "weblink": "https://www.speedrun.com/sms#20_Shines",
+      "type": "per-game",
+      "rules": "**Goal**\nCollect 20 Shine Sprites (19 without including Airstrip).\nRace File must be used. This file is obtained by playing the game normally until reaching Delfino Plaza after the court cutscene, then saving and quitting.\nTiming ends when the Shine Sprite counter ticks over to the number 20.\n\n**Requirements**\n\n- The Timing Method variable is to be left blank for 20 Shines runs.  \r\n- Emulator and Nintendont is not allowed for runs faster than 22 minutes.  \r\n- Video proof is required for runs faster than 22 minutes.",
+      "players": {
+        "type": "exactly",
+        "value": 1
+      },
+      "miscellaneous": true,
+      "links": [
+        {
+          "rel": "self",
+          "uri": "https://www.speedrun.com/api/v1/categories/xk9e86v2"
+        },
+        {
+          "rel": "game",
+          "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+        },
+        {
+          "rel": "variables",
+          "uri": "https://www.speedrun.com/api/v1/categories/xk9e86v2/variables"
+        },
+        {
+          "rel": "records",
+          "uri": "https://www.speedrun.com/api/v1/categories/xk9e86v2/records"
+        },
+        {
+          "rel": "runs",
+          "uri": "https://www.speedrun.com/api/v1/runs?category=xk9e86v2"
+        },
+        {
+          "rel": "leaderboard",
+          "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/xk9e86v2"
         }
       ]
     }

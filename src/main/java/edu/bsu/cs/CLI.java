@@ -14,7 +14,7 @@ public class CLI {
     public static final Scanner consoleScanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
-        System.out.printf("%nPlease enter a game name, id, or abbreviation. (Ex. 'sms', or 'v1pxjz68')%n>> ");
+        System.out.printf("%nPlease enter a game id or abbreviation. (Ex. 'sms', or 'v1pxjz68')%n>> ");
         String gameNameInput = consoleScanner.nextLine();
 
         System.out.printf("%nSearching... ");
