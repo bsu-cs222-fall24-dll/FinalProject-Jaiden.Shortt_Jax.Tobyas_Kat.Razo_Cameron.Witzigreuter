@@ -1,1 +1,0 @@
-// .txt to avoid an error about the lack of JavaFX. That will be in iteration 2.

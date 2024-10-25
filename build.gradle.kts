@@ -1,9 +1,11 @@
 plugins {
     id("java")
+    id("application")
+    id("org.openjfx.javafxplugin") version "0.1.0"
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
+group = "edu.bsu.cs"
+version = "v0.2.0a"
 
 repositories {
     mavenCentral()
@@ -25,4 +27,13 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+application {
+    mainClass.set("edu.bsu.cs.application.LeaderboardApplication")
+}
+
+javafx {
+    version = "21"
+    modules("javafx.controls", "javafx.fxml")
 }
