@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public class LeaderboardApplication extends Application {
@@ -16,8 +15,9 @@ public class LeaderboardApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leaderboard-view.fxml"));
 
-        Scene scene = new Scene(new FXMLLoader().load(new FileInputStream("src/main/resources/edu.bsu.cs/application/leaderboard-view.fxml")));
+        Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setTitle("Leaderboard v0.2.0a");
         primaryStage.setScene(scene);
         primaryStage.show();
