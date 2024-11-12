@@ -11,12 +11,12 @@ public record RunStorage(
         List<String> playerLinks,
 
         String date_submitted,
-        String timeString
+        String primaryRunTime
 ) {
     @Override
     public String toString(){
 
-        return playerLinks + "     " + date_submitted + "     " + timeString;
+        return playerLinks + "     " + date_submitted + "     " + primaryRunTime;
     }
 }
 

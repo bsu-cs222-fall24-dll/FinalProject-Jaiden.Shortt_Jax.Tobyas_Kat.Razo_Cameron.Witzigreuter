@@ -1,71 +1,31 @@
 {
-  "name": "example.json",
-  "example_key": "example_value",
-  "example_boolean": true,
-  "example_array": [
-    "item 1",
-    "item 2",
-    "item 3"
-  ],
-  "example_map": {
-    "key 1": "value 1",
-    "key 2": "value 2",
-    "key 3": "value 3"
+  "example_string_key": "example_string_value",
+  "example_int_key": 0,
+  "example_double_key": 1.1,
+  "example_boolean_key": true,
+
+  "example_array_key": [1, 2, 3, 4, 5],
+
+  "example_map_key": {
+    "key_1": "value_1",
+    "key_2": "value_2",
+    "key_3": "value_3"
   },
-  "example_map_array": [
+
+  "example_map_array_key": [
     {
-      "key A": "value A",
-      "key B": "value B"
+      "key_1": "value_1A",
+      "key_2": "value_2A"
     },
     {
-      "key C": "value C",
-      "key D": "value D"
-    },
-    {
-      "key E": "value E",
-      "key F": "value F"
+      "key_1": "value_1B",
+      "key_2": "value_2B"
     }
   ],
-  "example_for_deep_scan": [
-    {
-      "name": "Jaiden Shortt",
-      "username": "JaidenShortt",
-      "list": [
-        "a",
-        "b",
-        "c"
-      ],
-      "team": "D"
-    },
-    {
-      "name": "Jax Tobyas",
-      "username": "JaxT05",
-      "list": [
-        "a",
-        "b",
-        "c"
-      ],
-      "team": "D"
-    },
-    {
-      "name": "Kat Razo",
-      "username": "katrazo",
-      "list": [
-        "a",
-        "b",
-        "c"
-      ],
-      "team": "D"
-    },
-    {
-      "name": "Cameron Witzigreuter",
-      "username": "Cameron311",
-      "list": [
-        "a",
-        "b",
-        "c"
-      ],
-      "team": "D"
-    }
-  ]
+
+  "example_map_of_maps_key": {
+    "map_1": {"key_1": "value_a", "key_2": "value_b"},
+    "map_2": {"key_1": "value_i", "key_2": "value_ii"},
+    "map_3": {"key_1": "value_alpha", "key_2": "value_beta"}
+  }
 }

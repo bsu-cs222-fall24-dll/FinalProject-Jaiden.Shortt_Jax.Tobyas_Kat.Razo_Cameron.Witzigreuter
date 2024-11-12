@@ -1,10 +1,10 @@
 package edu.bsu.cs;
 
-import org.apache.commons.io.IOUtils;
-import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.CategoryStorage;
+import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LeaderboardStorage;
 import edu.bsu.cs.records.RunStorage;
+import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,19 +30,19 @@ public class WebApiHandler {
         gameTitle = gameTitle.replace(' ', '_');
         gameTitle = URLEncoder.encode(gameTitle, StandardCharsets.UTF_8);
         String gameDataLink = String.format("https://www.speedrun.com/api/v1/games/%s", gameTitle);
-        return JsonReader.createReader(establishConnection(gameDataLink)).createGame();
+        return new JsonReader(establishConnection(gameDataLink)).createGame();
     }
 
     public static List<CategoryStorage> getCategoryData (GameStorage game) throws IOException {
-        return JsonReader.createReader(establishConnection(game.linkToCategories())).createCategoryList();
+        return new JsonReader(establishConnection(game.linkToCategories())).createCategoryList();
     }
 
     public static LeaderboardStorage getLeaderboardData (CategoryStorage category, int maxRuns) throws IOException {
-        return JsonReader.createReader(establishConnection(category.linkToLeaderboard())).createLeaderboard(maxRuns);
+        return new JsonReader(establishConnection(category.linkToLeaderboard())).createLeaderboard(maxRuns);
     }
 
     public static RunStorage getRunData (String runId) throws IOException {
         String runLink = String.format("https://www.speedrun.com/api/v1/runs/%s", runId);
-        return JsonReader.createReader(establishConnection(runLink)).createRun();
+        return new JsonReader(establishConnection(runLink)).createRun();
     }
 }

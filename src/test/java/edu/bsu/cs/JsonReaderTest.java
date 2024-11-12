@@ -1,5 +1,6 @@
 package edu.bsu.cs;
 
+import edu.bsu.cs.records.CategoryStorage;
 import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LeaderboardStorage;
 import edu.bsu.cs.records.RunStorage;
@@ -7,28 +8,86 @@ import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import edu.bsu.cs.records.CategoryStorage;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 public class JsonReaderTest {
     @BeforeAll
     public static void initializeJsonReaders() throws IOException {
-        String gameJson = IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-game.json"), StandardCharsets.UTF_8);
-        String categoryListJson = IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-categories.json"), StandardCharsets.UTF_8);
-        String leaderboardJson = IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-leaderboard.json"), StandardCharsets.UTF_8);
-
-        gameReader = JsonReader.createReader(gameJson);
-        categoryListReader = JsonReader.createReader(categoryListJson);
-        leaderboardReader = JsonReader.createReader(leaderboardJson);
+        exampleReader = new JsonReader(
+                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/example.json"), StandardCharsets.UTF_8));
+        gameReader = new JsonReader(
+                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-game.json"), StandardCharsets.UTF_8));
+        categoryListReader = new JsonReader(
+                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-categories.json"), StandardCharsets.UTF_8));
+        leaderboardReader = new JsonReader(
+                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-leaderboard.json"), StandardCharsets.UTF_8));
+        runReader = new JsonReader(
+                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run1.json"), StandardCharsets.UTF_8));
     }
-    static JsonReader gameReader;
-    static JsonReader categoryListReader;
-    static JsonReader leaderboardReader;
+    static JsonReader exampleReader, gameReader, categoryListReader, leaderboardReader, runReader;
+
+    @Test
+    public void test_definiteScan_String() {
+        String expected = "example_string_value";
+        String actual = (String) exampleReader.test_definiteScan("example_string_key");
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void test_definiteScan_int() {
+        int expected = 0;
+        int actual = (int) exampleReader.test_definiteScan("example_int_key");
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test
+    public void test_definiteScan_double() {
+        double expected = 1.1;
+        double actual = (double) exampleReader.test_definiteScan("example_double_key");
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test @SuppressWarnings("unchecked")
+    public void test_definiteScan_arrayAsList() {
+        List<Integer> expected = List.of(1, 2, 3, 4, 5);
+        List<Integer> actual = (List<Integer>) exampleReader.test_definiteScan("example_array_key");
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test @SuppressWarnings("unchecked")
+    public void test_definiteScan_Map() {
+        Map<String, String> expected = Map.of("key_1", "value_1", "key_2", "value_2", "key_3", "value_3");
+        Map<String, String> actual = (Map<String, String>) exampleReader.test_definiteScan("example_map_key");
+
+        Assertions.assertEquals(expected, actual);
+    }
+    @Test @SuppressWarnings("unchecked")
+    public void test_definiteScan_MapOfMaps() {
+        Map<String, Map<String, String>> expected = Map.of(
+                "map_1", Map.of("key_1", "value_a", "key_2", "value_b"),
+                "map_2", Map.of("key_1", "value_i", "key_2", "value_ii"),
+                "map_3", Map.of("key_1", "value_alpha", "key_2", "value_beta")
+        );
+        Map<String, Map<String, String>> actual =
+                (Map<String, Map<String, String>>) exampleReader.test_definiteScan("example_map_of_maps_key");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void test_indefiniteScan() {
+        List<String> expected = List.of("value_1", "value_1A", "value_1B", "value_a", "value_i", "value_alpha");
+        List<String> actual = exampleReader.test_indefiniteScan("key_1");
+
+        Assertions.assertEquals(expected, actual);
+    }
+
 
     @Test
     public void test_createGame() {
@@ -39,8 +98,9 @@ public class JsonReaderTest {
                     "Super Mario Sunshine",
 
                     "https://www.speedrun.com/api/v1/games/v1pxjz68/categories"
-            );
-            GameStorage actualGame = gameReader.createGame();
+        );
+        GameStorage actualGame = gameReader.createGame();
+
         Assertions.assertEquals(expectedGame, actualGame);
     }
 
@@ -80,5 +140,24 @@ public class JsonReaderTest {
         LeaderboardStorage actualLeaderboard = leaderboardReader.test_createLeaderboard();
 
         Assertions.assertEquals(expectedLeaderboard, actualLeaderboard);
+    }
+
+    @Test
+    public void test_createRun() {
+        RunStorage expectedRunStorage = new RunStorage(
+                "https://www.speedrun.com/sms/run/zppv46rz",
+                "https://www.speedrun.com/api/v1/runs/zppv46rz",
+                "zppv46rz",
+
+                "https://www.speedrun.com/api/v1/games/v1pxjz68",
+                "https://www.speedrun.com/api/v1/categories/z27o9gd0",
+                List.of("https://www.speedrun.com/api/v1/users/98r1n2qj"),
+
+                "2024-01-21T12:20:16Z",
+                "PT2H51M34S"
+        );
+        RunStorage actualRunStorage = runReader.createRun();
+
+        Assertions.assertEquals(expectedRunStorage, actualRunStorage);
     }
 }
