@@ -1,9 +1,6 @@
 package edu.bsu.cs;
 
-import edu.bsu.cs.records.CategoryStorage;
-import edu.bsu.cs.records.GameStorage;
-import edu.bsu.cs.records.LeaderboardStorage;
-import edu.bsu.cs.records.RunStorage;
+import edu.bsu.cs.records.*;
 import org.apache.commons.io.IOUtils;
 
 import java.io.IOException;
@@ -44,5 +41,22 @@ public class WebApiHandler {
     public static RunStorage getRunData (String runId) throws IOException {
         String runLink = String.format("https://www.speedrun.com/api/v1/runs/%s", runId);
         return new JsonReader(establishConnection(runLink)).createRun();
+    }
+
+    public static PlayerStorage getPlayerData (String playerlink) {
+        try {
+            String playerJson = establishConnection(playerlink);
+            JsonReader playerReader = new JsonReader(playerJson);
+
+            if (playerJson.contains("names"))
+                return playerReader.createUser();
+            else if (playerJson.contains("name"))
+                return playerReader.createGuest();
+            else
+                return new PlayerStorage(null, null, null, "<not found>");
+        }
+        catch (IOException EncodedPlayerIdYieldsNoPlayerException) {
+            return new PlayerStorage(null, null, null, "<id error>");
+        }
     }
 }

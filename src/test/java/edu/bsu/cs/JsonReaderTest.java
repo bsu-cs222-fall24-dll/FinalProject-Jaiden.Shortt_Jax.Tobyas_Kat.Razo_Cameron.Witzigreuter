@@ -1,9 +1,6 @@
 package edu.bsu.cs;
 
-import edu.bsu.cs.records.CategoryStorage;
-import edu.bsu.cs.records.GameStorage;
-import edu.bsu.cs.records.LeaderboardStorage;
-import edu.bsu.cs.records.RunStorage;
+import edu.bsu.cs.records.*;
 import org.apache.commons.io.IOUtils;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -29,8 +26,18 @@ public class JsonReaderTest {
                 IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-leaderboard.json"), StandardCharsets.UTF_8));
         runReader = new JsonReader(
                 IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run1.json"), StandardCharsets.UTF_8));
+        guestReader = new JsonReader(
+                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/example-guest.json"), StandardCharsets.UTF_8));
+        userReader = new JsonReader(
+                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/example-user.json"), StandardCharsets.UTF_8));
     }
-    static JsonReader exampleReader, gameReader, categoryListReader, leaderboardReader, runReader;
+    static JsonReader exampleReader,
+            gameReader,
+            categoryListReader,
+            leaderboardReader,
+            runReader,
+            guestReader,
+            userReader;
 
     @Test
     public void test_definiteScan_String() {
@@ -125,9 +132,11 @@ public class JsonReaderTest {
     @Test
     public void test_createLeaderboard() throws IOException {
         LinkedHashMap<Integer, RunStorage> expectedRuns = new LinkedHashMap<>();
-        expectedRuns.put(1, new RunStorage("https://www.speedrun.com/sms/run/zppv46rz", "https://www.speedrun.com/api/v1/runs/zppv46rz", "zppv46rz", "https://www.speedrun.com/api/v1/games/v1pxjz68", "https://www.speedrun.com/api/v1/categories/z27o9gd0", List.of("https://www.speedrun.com/api/v1/users/98r1n2qj"), "2024-01-21T12:20:16Z", "PT2H51M34S"));
-        expectedRuns.put(2, new RunStorage("https://www.speedrun.com/sms/run/megl1l9y", "https://www.speedrun.com/api/v1/runs/megl1l9y", "megl1l9y", "https://www.speedrun.com/api/v1/games/v1pxjz68", "https://www.speedrun.com/api/v1/categories/n2y3r8do", List.of("https://www.speedrun.com/api/v1/users/dx3ml28l"), "2024-09-17T02:51:23Z", "PT23M57S"));
-        expectedRuns.put(3, new RunStorage("https://www.speedrun.com/sms/run/yoxx36dy", "https://www.speedrun.com/api/v1/runs/yoxx36dy", "yoxx36dy", "https://www.speedrun.com/api/v1/games/v1pxjz68", "https://www.speedrun.com/api/v1/categories/n2y3r8do", List.of("https://www.speedrun.com/api/v1/users/8r3064w8"), "2024-10-05T05:59:20Z", "PT24M45S"));
+        PlayerStorage guest = guestReader.createGuest();
+        PlayerStorage user = userReader.createUser();
+        expectedRuns.put(1, new RunStorage("https://www.speedrun.com/sms/run/zppv46rz", "https://www.speedrun.com/api/v1/runs/zppv46rz", "zppv46rz", "https://www.speedrun.com/api/v1/games/v1pxjz68", "https://www.speedrun.com/api/v1/categories/z27o9gd0", List.of(guest, user), "2024-01-21T12:20:16Z", "PT2H51M34S"));
+        expectedRuns.put(2, new RunStorage("https://www.speedrun.com/sms/run/megl1l9y", "https://www.speedrun.com/api/v1/runs/megl1l9y", "megl1l9y", "https://www.speedrun.com/api/v1/games/v1pxjz68", "https://www.speedrun.com/api/v1/categories/n2y3r8do", List.of(guest, user), "2024-09-17T02:51:23Z", "PT23M57S"));
+        expectedRuns.put(3, new RunStorage("https://www.speedrun.com/sms/run/yoxx36dy", "https://www.speedrun.com/api/v1/runs/yoxx36dy", "yoxx36dy", "https://www.speedrun.com/api/v1/games/v1pxjz68", "https://www.speedrun.com/api/v1/categories/n2y3r8do", List.of(guest, user), "2024-10-05T05:59:20Z", "PT24M45S"));
 
         LeaderboardStorage expectedLeaderboard = new LeaderboardStorage(
                 "https://www.speedrun.com/sms#120_Shines",
@@ -143,7 +152,7 @@ public class JsonReaderTest {
     }
 
     @Test
-    public void test_createRun() {
+    public void test_createRun() throws IOException {
         RunStorage expectedRunStorage = new RunStorage(
                 "https://www.speedrun.com/sms/run/zppv46rz",
                 "https://www.speedrun.com/api/v1/runs/zppv46rz",
@@ -151,12 +160,15 @@ public class JsonReaderTest {
 
                 "https://www.speedrun.com/api/v1/games/v1pxjz68",
                 "https://www.speedrun.com/api/v1/categories/z27o9gd0",
-                List.of("https://www.speedrun.com/api/v1/users/98r1n2qj"),
+                List.of(
+                        guestReader.createGuest(),
+                        userReader.createUser()
+                ),
 
                 "2024-01-21T12:20:16Z",
                 "PT2H51M34S"
         );
-        RunStorage actualRunStorage = runReader.createRun();
+        RunStorage actualRunStorage = runReader.test_createRun();
 
         Assertions.assertEquals(expectedRunStorage, actualRunStorage);
     }

@@ -2,10 +2,7 @@ package edu.bsu.cs;
 
 import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
-import edu.bsu.cs.records.CategoryStorage;
-import edu.bsu.cs.records.GameStorage;
-import edu.bsu.cs.records.LeaderboardStorage;
-import edu.bsu.cs.records.RunStorage;
+import edu.bsu.cs.records.*;
 import org.apache.commons.io.IOUtils;
 
 import java.io.FileInputStream;
@@ -13,6 +10,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 /* JsonPath documentation states the following:
@@ -106,25 +104,66 @@ public class JsonReader {
         String timing = (String) definiteScan("data.timing");
         LinkedHashMap<Integer, RunStorage> runs = new LinkedHashMap<>();
 
-        runs.put(1, new JsonReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run1.json"), StandardCharsets.UTF_8)).createRun());
-        runs.put(2, new JsonReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run2.json"), StandardCharsets.UTF_8)).createRun());
-        runs.put(3, new JsonReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run3.json"), StandardCharsets.UTF_8)).createRun());
+        runs.put(1, new JsonReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run1.json"), StandardCharsets.UTF_8)).test_createRun());
+        runs.put(2, new JsonReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run2.json"), StandardCharsets.UTF_8)).test_createRun());
+        runs.put(3, new JsonReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-run3.json"), StandardCharsets.UTF_8)).test_createRun());
 
         return new LeaderboardStorage(webLink, gameLink, categoryLink, timing, runs);
     }
 
     public RunStorage createRun() {
+        String weblink = (String) definiteScan("data.weblink");
+        String selflink = (String) definiteScan("data.links[0].uri");
+        String id = (String) definiteScan("data.id");
+
+        String gamelink = (String) definiteScan("data.links[1].uri");
+        String categorylink = (String) definiteScan("data.links[2].uri");
+        List<PlayerStorage> players = new LinkedList<>();
+
+        String dateSubmitted = (String) definiteScan("data.submitted");
+        String primaryRunTime = (String) definiteScan("data.times.primary");
+
+        for (int i = 0; i < (int) definiteScan("data.players.length()"); i++)
+            players.add(WebApiHandler.getPlayerData((String) definiteScan(String.format("data.players[%d].uri", i))));
+
         return new RunStorage(
+                weblink, selflink, id, gamelink, categorylink, players, dateSubmitted, primaryRunTime
+        );
+    }
+    RunStorage test_createRun() throws IOException {
+        String weblink = (String) definiteScan("data.weblink");
+        String selflink = (String) definiteScan("data.links[0].uri");
+        String id = (String) definiteScan("data.id");
+
+        String gamelink = (String) definiteScan("data.links[1].uri");
+        String categorylink = (String) definiteScan("data.links[2].uri");
+        List<PlayerStorage> players = new LinkedList<>();
+
+        String dateSubmitted = (String) definiteScan("data.submitted");
+        String primaryRunTime = (String) definiteScan("data.times.primary");
+
+        players.add(new JsonReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/example-guest.json"), StandardCharsets.UTF_8)).createGuest());
+        players.add(new JsonReader(IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/example-user.json"), StandardCharsets.UTF_8)).createUser());
+
+        return new RunStorage(
+                weblink, selflink, id, gamelink, categorylink, players, dateSubmitted, primaryRunTime
+        );
+    }
+
+    public PlayerStorage createUser() {
+        return new PlayerStorage(
                 (String) definiteScan("data.weblink"),
                 (String) definiteScan("data.links[0].uri"),
                 (String) definiteScan("data.id"),
-
-                (String) definiteScan("data.links[1].uri"),
-                (String) definiteScan("data.links[2].uri"),
-                indefiniteScan("data.players[*].uri"),
-
-                (String) definiteScan("data.submitted"),
-                (String) definiteScan("data.times.primary")
+                (String) definiteScan("data.names.international")
+        );
+    }
+    public PlayerStorage createGuest() {
+        return new PlayerStorage(
+                null,
+                (String) definiteScan("data.links[0].uri"),
+                null,
+                (String) definiteScan("data.name")
         );
     }
 }

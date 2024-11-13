@@ -1,5 +1,8 @@
 package edu.bsu.cs.records;
 
+import org.ocpsoft.prettytime.PrettyTime;
+
+import java.time.Instant;
 import java.util.List;
 public record RunStorage(
         String webLink,
@@ -8,11 +11,23 @@ public record RunStorage(
 
         String gameLink,
         String categoryLink,
-        List<String> playerLinks,
+        List<PlayerStorage> players,
 
-        String date_submitted,
+        String dateSubmitted,
         String primaryRunTime
-) {}
+) {
+    private static final PrettyTime prettyTime = new PrettyTime();
+
+    public String playernamesForLeaderboard() {
+            return (players.size() > 1)
+                    ? players.get(0).name() + " [+]"
+                    : players.get(0).name();
+    }
+
+    public String prettyDateSubmitted() {
+        return prettyTime.format(Instant.parse(dateSubmitted));
+    }
+}
 
 
 

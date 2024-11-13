@@ -3,11 +3,9 @@ package edu.bsu.cs;
 import edu.bsu.cs.records.CategoryStorage;
 import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LeaderboardStorage;
-import org.ocpsoft.prettytime.PrettyTime;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
-import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -104,23 +102,27 @@ public class CLI {
             System.out.print(">> ");
             String userInput = consoleScanner.nextLine();
 
-            if (!userInput.equals("q"))
+            if (userInput.equals("q")) {
+                consoleScanner.close();
+                System.exit(1);
+            }
+            else
                 getAndPrintLeaderboard();
         }
     }
     private static void printLeaderboard() {
-        System.out.printf("%nLeaderboard for: %s%n%s%n", chosenCategory.name(), "-".repeat(20));
+        System.out.printf("%nLeaderboard for: %s [%s]%n%s%n", chosenGame.name(), chosenCategory.name(), "-".repeat(56));
 
         leaderboard.runs().forEach((key, value) -> System.out.printf(
-                "#%-3s %-61s %-16s %s%n",
+                "#%-3s %-21s %-18s %s%n",
 
                 key,
-                value.playerLinks(),
-                new PrettyTime().format(Instant.parse(value.date_submitted())),
+                value.playernamesForLeaderboard(),
+                value.prettyDateSubmitted(),
                 value.primaryRunTime()
         ));
 
-        System.out.println("-".repeat(20));
+        System.out.println("-".repeat(56));
     }
 
 
