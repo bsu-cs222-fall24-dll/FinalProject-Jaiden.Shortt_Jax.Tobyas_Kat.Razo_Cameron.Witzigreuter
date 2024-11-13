@@ -47,6 +47,7 @@ public class JsonReader {
         return indefiniteScan(key);
     }
 
+
     public GameStorage createGame() {
         return new GameStorage(
                 (String) definiteScan("data.weblink"),
