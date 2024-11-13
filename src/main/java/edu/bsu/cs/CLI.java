@@ -3,9 +3,11 @@ package edu.bsu.cs;
 import edu.bsu.cs.records.CategoryStorage;
 import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LeaderboardStorage;
+import org.ocpsoft.prettytime.PrettyTime;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+import java.time.Instant;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -109,7 +111,14 @@ public class CLI {
     private static void printLeaderboard() {
         System.out.printf("%nLeaderboard for: %s%n%s%n", chosenCategory.name(), "-".repeat(20));
 
-        leaderboard.runs().forEach((key, value) -> System.out.printf("#%-3s %s%n", key, value));
+        leaderboard.runs().forEach((key, value) -> System.out.printf(
+                "#%-3s %-61s %-16s %s%n",
+
+                key,
+                value.playerLinks(),
+                new PrettyTime().format(Instant.parse(value.date_submitted())),
+                value.primaryRunTime()
+        ));
 
         System.out.println("-".repeat(20));
     }
