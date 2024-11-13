@@ -8,6 +8,7 @@ The **third iteration** will provide users a timer to record their own time spli
 
 ---
 ## Build Instructions
+### ***Must be on JDK 21. Using an earlier version will cause compling errors and break the program.***
 To run the project as-is, simply clone the code or hold for a release, then run `Main.java`; no extra build instructions are necessary.  
 If you are unsure how to do this, see below.
 
