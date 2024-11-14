@@ -41,11 +41,12 @@ Load the code into your IDE, then run `LeaderboardApplication.java`
 | Cameron Witzigreuter | <kbd>[☍](https://github.com/Cameron311)</kbd>   `Cameron311`   | Co-author |
 | Mr. David L. Largent | <kbd>[☍](https://github.com/dllargent)</kbd>    `dllargent`    | Professor |
        
-| Dependency       | Source                                                                               | Usage                                                  |
-|------------------|--------------------------------------------------------------------------------------|--------------------------------------------------------|
-| SLF4J-NOP Logger | [Maven Repository](https://mvnrepository.com/artifact/org.slf4j/slf4j-nop)           | Removes logging warning                                |
-| Jayway JsonPath  | [Maven Repository](https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path) | Utilities for parsing JSON data                        |
-| Apache IOUtils   | [Maven Repository](https://mvnrepository.com/artifact/commons-io/commons-io)         | Streamlines the process of retrieving data from a link |
+| Dependency       | Source                                                                                   | Usage                                                  |
+|------------------|------------------------------------------------------------------------------------------|--------------------------------------------------------|
+| SLF4J-NOP Logger | [Maven Repository](https://mvnrepository.com/artifact/org.slf4j/slf4j-nop)               | Removes logging warning                                |
+| Jayway JsonPath  | [Maven Repository](https://mvnrepository.com/artifact/com.jayway.jsonpath/json-path)     | Utilities for parsing JSON data                        |
+| Apache IOUtils   | [Maven Repository](https://mvnrepository.com/artifact/commons-io/commons-io)             | Streamlines the process of retrieving data from a link |
+| PrettyTime       | [Maven Repository](https://mvnrepository.com/artifact/org.ocpsoft.prettytime/prettytime) | Formats times and dates into a "<#> <times> ago"       |
 
 | External Resource   | Link/Credit                                                                                   | Usage                                                         |
 |---------------------|-----------------------------------------------------------------------------------------------|---------------------------------------------------------------|
