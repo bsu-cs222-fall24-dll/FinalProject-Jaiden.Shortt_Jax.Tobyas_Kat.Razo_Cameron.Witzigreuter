@@ -2,6 +2,7 @@ package edu.bsu.cs;
 
 import org.junit.jupiter.api.BeforeAll;
 
+// See text block below.
 @SuppressWarnings("unused")
 public class WebApiHandlerTest {
     @BeforeAll

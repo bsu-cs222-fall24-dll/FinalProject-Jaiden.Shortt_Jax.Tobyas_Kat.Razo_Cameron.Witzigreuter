@@ -5,5 +5,6 @@ public record GameStorage(
         String id,
         String name,
 
-        String linkToCategories
+        String linkToCategories,
+        String linkToLevels
 ) {}

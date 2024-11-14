@@ -11,7 +11,7 @@ public class RunStorageTest {
         RunStorage singlePlayerRun = new RunStorage(
                 null, null, null, null, null,
                 List.of(new PlayerStorage(null, null, null, "player")),
-                null, null
+                -1, null, null
         );
         Assertions.assertEquals("player", singlePlayerRun.playernamesForLeaderboard());
 
@@ -21,15 +21,15 @@ public class RunStorageTest {
                         new PlayerStorage(null, null, null, "player"),
                         new PlayerStorage(null, null, null, "another player")
                 ),
-                null, null
+                -1, null, null
         );
-        Assertions.assertEquals("player [+]", twoPlayerRun.playernamesForLeaderboard());
+        Assertions.assertEquals("player, ...", twoPlayerRun.playernamesForLeaderboard());
     }
 
     @Test
     public void test_prettyDateSubmitted() {
         RunStorage run = new RunStorage(
-                null, null, null, null, null, null, "2024-01-21T12:20:16Z", null
+                null, null, null, null, null, null, -1, "2024-01-21T12:20:16Z", null
         );
 
         Assertions.assertEquals("10 months ago", run.prettyDateSubmitted());

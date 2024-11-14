@@ -1,13 +1,15 @@
 package edu.bsu.cs.records;
 
-import java.util.LinkedHashMap;
+import java.util.List;
+
 public record LeaderboardStorage(
         String weblink,
 
         String gameLink,
         String categoryLink,
+        String levelLink,
 
         String timing,
-        LinkedHashMap<Integer, RunStorage> runs
+        List<RunStorage> runs
 ) {}
 

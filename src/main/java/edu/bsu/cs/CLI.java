@@ -3,6 +3,7 @@ package edu.bsu.cs;
 import edu.bsu.cs.records.CategoryStorage;
 import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LeaderboardStorage;
+import edu.bsu.cs.records.RunStorage;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -17,6 +18,8 @@ public class CLI {
     private static List<CategoryStorage> categoryList;
     private static CategoryStorage chosenCategory;
     private static LeaderboardStorage leaderboard;
+
+    private static final boolean LEVELS_ARE_SUPPORTED = false;
 
     public static void main(String[] args) {
         printGamePromptAndGetChoice();
@@ -55,6 +58,11 @@ public class CLI {
         try {
             categoryList = WebApiHandler.getCategoryData(chosenGame);
 
+            if (!LEVELS_ARE_SUPPORTED)
+                for (int i = categoryList.size() - 1; i >= 0; i--)
+                    if (categoryList.get(i).type().equals("per-level"))
+                        categoryList.remove(i);
+
             printCategoryMenu();
             getCategoryChoice();
         }
@@ -91,13 +99,13 @@ public class CLI {
 
     private static void getAndPrintLeaderboard() {
         try {
-            leaderboard = WebApiHandler.getLeaderboardData(chosenCategory, 20);
+            leaderboard = WebApiHandler.getLeaderboardData(chosenGame, chosenCategory, null, 20, null);
             printLeaderboard();
         }
         catch (IOException e) {
             System.err.printf("An unexpected %s ocurred while getting the leaderboard.%n",
                     e.getClass().getSimpleName());
-            System.out.println("Press enter to try again, or q to abort the program.");
+            System.out.println("Press enter to try again, 'q' to abort the program, or 'see' to get a stacktrace.");
 
             System.out.print(">> ");
             String userInput = consoleScanner.nextLine();
@@ -106,6 +114,8 @@ public class CLI {
                 consoleScanner.close();
                 System.exit(1);
             }
+            else if (userInput.equals("see"))
+                e.printStackTrace(System.err);
             else
                 getAndPrintLeaderboard();
         }
@@ -113,38 +123,47 @@ public class CLI {
     private static void printLeaderboard() {
         System.out.printf("%nLeaderboard for: %s [%s]%n%s%n", chosenGame.name(), chosenCategory.name(), "-".repeat(56));
 
-        leaderboard.runs().forEach((key, value) -> System.out.printf(
-                "#%-3s %-21s %-18s %s%n",
+        for (RunStorage run : leaderboard.runs())
+            System.out.printf(
+                    "#%-3s %-21s %-18s %s%n",
 
-                key,
-                value.playernamesForLeaderboard(),
-                value.prettyDateSubmitted(),
-                value.primaryRunTime()
-        ));
+                    run.place(),
+                    run.playernamesForLeaderboard(),
+                    run.prettyDateSubmitted(),
+                    run.primaryRunTime()
+            );
 
         System.out.println("-".repeat(56));
     }
 
 
     private static void handleError(Exception e) {
+        String className = e.getClass().getSimpleName();
+
+        /* As a switch statement, the following if statement:
+         * - ignores pattern variables (creating four warnings)
+         * - misinterprets vertical and horizontal formatting
+         * - becomes less readable
+         *
+         * In light of these conflicts, the warning is hereby suppressed. */
+
+        //noinspection IfCanBeSwitch
         if (e instanceof UnknownHostException) {
-            System.err.printf("An %s occurred. Please ensure your device is connected to the internet.%n",
-                    e.getClass().getSimpleName());
+            System.err.printf("An %s occurred. Please ensure your device is connected to the internet.%n", className);
         }
         else if (e instanceof IOException) {
-            System.out.println();
+            System.err.printf("An %s occurred. The web destination may have been incorrect.%n", className);
         }
 
         else if (e instanceof NumberFormatException) {
-            System.err.println("That is not an integer.");
+            System.err.printf("That is not an integer.%n");
         }
         else if (e instanceof IndexOutOfBoundsException) {
-            System.err.println("That number is not in the category menu.");
+            System.err.printf("That number is not in the category menu.%n");
         }
 
         else {
-            System.err.printf("An unexpected %s occurred. Please see the stacktrace for more.%n",
-                    e.getClass().getSimpleName());
+            System.err.printf("An unexpected %s occurred. Please see the stacktrace for more.%n", className);
 
             System.out.print("Press enter to continue...");
             consoleScanner.nextLine();

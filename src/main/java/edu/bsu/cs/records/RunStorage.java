@@ -13,6 +13,7 @@ public record RunStorage(
         String categoryLink,
         List<PlayerStorage> players,
 
+        int place,
         String dateSubmitted,
         String primaryRunTime
 ) {
@@ -20,8 +21,8 @@ public record RunStorage(
 
     public String playernamesForLeaderboard() {
             return (players.size() > 1)
-                    ? players.get(0).name() + " [+]"
-                    : players.get(0).name();
+                    ? players.getFirst().name() + ", ..."
+                    : players.getFirst().name();
     }
 
     public String prettyDateSubmitted() {

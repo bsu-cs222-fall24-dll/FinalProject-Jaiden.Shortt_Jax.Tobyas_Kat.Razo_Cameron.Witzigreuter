@@ -1,18 +1,15 @@
 package edu.bsu.cs.records;
-public record CategoryStorage(
+
+public record LevelStorage(
         String weblink,
-        String selfLink,
+        String selflink,
         String id,
         String name,
 
-        String type,
-
-        String linkToGame
+        String gamelink
 ) {
     @Override
     public String toString() {
         return name;
     }
-
-
 }

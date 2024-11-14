@@ -12,7 +12,6 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 
-
 public class WebApiHandler {
 
     private static String establishConnection(String url) throws IOException {
@@ -23,27 +22,61 @@ public class WebApiHandler {
         return IOUtils.toString(inputStream, StandardCharsets.UTF_8);
     }
 
-    public static GameStorage getGameData (String gameTitle) throws IOException {
+    public static GameStorage getGameData(String gameTitle) throws IOException {
         gameTitle = gameTitle.replace(' ', '_');
         gameTitle = URLEncoder.encode(gameTitle, StandardCharsets.UTF_8);
         String gameDataLink = String.format("https://www.speedrun.com/api/v1/games/%s", gameTitle);
         return new JsonReader(establishConnection(gameDataLink)).createGame();
     }
 
-    public static List<CategoryStorage> getCategoryData (GameStorage game) throws IOException {
+    public static List<CategoryStorage> getCategoryData(GameStorage game) throws IOException {
         return new JsonReader(establishConnection(game.linkToCategories())).createCategoryList();
     }
-
-    public static LeaderboardStorage getLeaderboardData (CategoryStorage category, int maxRuns) throws IOException {
-        return new JsonReader(establishConnection(category.linkToLeaderboard())).createLeaderboard(maxRuns);
+    public static List<LevelStorage> getLevelData(GameStorage game) throws IOException {
+        return new JsonReader(establishConnection(game.linkToLevels())).createLevelList();
     }
 
-    public static RunStorage getRunData (String runId) throws IOException {
+    public static LeaderboardStorage getLeaderboardData(GameStorage game, CategoryStorage category, LevelStorage level, int maxRuns, String rawFilters) throws IOException {
+        StringBuilder leaderboardLinkBuilder = new StringBuilder();
+        if (rawFilters == null) {
+            leaderboardLinkBuilder.append(String.format("https://www.speedrun.com/api/v1/leaderboards/%s/", game.id()));
+
+            if (category.type().equals("per-level")) {
+                if (level == null)
+                    return null;
+
+                leaderboardLinkBuilder.append(String.format("level/%s/%s", level.id(), category.id()));
+            }
+            else // (category.type().equals("per-game"))
+                leaderboardLinkBuilder.append(String.format("category/%s", category.id()));
+
+            return new JsonReader(establishConnection(leaderboardLinkBuilder.toString())).createLeaderboard(maxRuns);
+        }
+        else {
+            leaderboardLinkBuilder.append(String.format("https://www.speedrun.com/api/v1/runs?game=%s", game.id()));
+            leaderboardLinkBuilder.append(String.format("&category=%s", category.id()));
+
+            if (level != null)
+                leaderboardLinkBuilder.append(String.format("&level=%s", level.id()));
+
+            leaderboardLinkBuilder.append(String.format("&%s", rawFilters));
+
+            String weblink = String.format("https://www.speedrun.com/%s#%s", game.id(), category.id());
+            String gameLink = game.selfLink();
+            String categoryLink = category.selfLink();
+            String levelLink = (level != null) ? level.selflink() : null;
+            List<RunStorage> runs = new JsonReader(establishConnection(leaderboardLinkBuilder.toString())).createRunList(maxRuns, true);
+
+            return new LeaderboardStorage(weblink, gameLink, categoryLink, levelLink, null, runs);
+        }
+    }
+
+    public static RunStorage getRunData(String runId, int place) throws IOException {
         String runLink = String.format("https://www.speedrun.com/api/v1/runs/%s", runId);
-        return new JsonReader(establishConnection(runLink)).createRun();
+        return new JsonReader(establishConnection(runLink)).createRun(place);
     }
 
-    public static PlayerStorage getPlayerData (String playerlink) {
+    public static PlayerStorage getPlayerData(String playerlink) {
         try {
             String playerJson = establishConnection(playerlink);
             JsonReader playerReader = new JsonReader(playerJson);
@@ -55,8 +88,8 @@ public class WebApiHandler {
             else
                 return new PlayerStorage(null, null, null, "<not found>");
         }
-        catch (IOException EncodedPlayerIdYieldsNoPlayerException) {
-            return new PlayerStorage(null, null, null, "<id error>");
+        catch (IOException EncodedPlayerIdIsMalformedException) {
+            return new PlayerStorage(null, null, null, "<Guest>");
         }
     }
 }
