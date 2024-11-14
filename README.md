@@ -8,7 +8,7 @@ The **third iteration** will provide users a timer to record their own time spli
 
 ---
 ## Build Instructions
-***Must be on JDK 21. Using an earlier version will cause compling errors and break the program.***
+***Must be on JDK 21. Using an earlier version will cause compiling errors and break the program.***
 
 
 ### Getting Set Up
