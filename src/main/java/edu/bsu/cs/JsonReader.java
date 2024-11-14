@@ -130,13 +130,11 @@ public class JsonReader {
 
         String gameLink = (String) definiteScan("data.links[0].uri");
         String categoryLink = (String) definiteScan("data.links[1].uri");
-        String levelLink = (pathExists("data.links[2]"))
-                ? (String) definiteScan("data.links[2].uri")
-                : null;
+        // levelLink = null
 
         String timing = (String) definiteScan("data.timing");
         List<RunStorage> runs = test_createRunList();
-        return new LeaderboardStorage(webLink, gameLink, categoryLink, levelLink, timing, runs);
+        return new LeaderboardStorage(webLink, gameLink, categoryLink, null, timing, runs);
     }
 
     public List<RunStorage> createRunList(int maxRuns, boolean justRuns) throws IOException {

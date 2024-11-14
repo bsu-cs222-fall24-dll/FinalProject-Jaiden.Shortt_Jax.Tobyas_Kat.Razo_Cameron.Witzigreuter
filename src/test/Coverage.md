@@ -4,7 +4,7 @@
 That said, `RunStorage.java` does include two extra methods, which are tested and covered.
 
 ### JsonReader
-Tests with Coverage return a result of 14/16 methods. This is because **two methods have test versions that do not implement web interactions, which replace the corresponding methods that do.**
+Tests with Coverage return a result of 15/18 methods. This is because **two methods have test versions that do not implement web interactions, which replace the corresponding methods that do.**
 
 ### Exclusions
 In this testing with coverage, the following packages and files are excluded:

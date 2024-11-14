@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -41,6 +42,27 @@ public class JsonReaderTest {
             guestReader,
             userReader;
 
+    @Test
+    public void throwIOExceptionForBadJson() {
+        boolean statusExceptionWasThrown = false;
+
+        try {
+            @SuppressWarnings("unused")
+            JsonReader jsonReaderWithBadJson =
+                    new JsonReader(IOUtils.toString((
+                            new FileInputStream("src/test/resources/edu.bsu.cs/status-404.json")), StandardCharsets.UTF_8));
+        }
+        catch (FileNotFoundException ignored) {}
+        catch (IOException jsonReaderThrewStatusException) {
+            statusExceptionWasThrown = true;
+        }
+        finally {
+            Assertions.assertTrue(statusExceptionWasThrown);
+        }
+    }
+
+    // Some tests here have unchecked casts. This is the nature of JsonPath.
+    // See the suppression at JsonReader.definiteScan() for more.
     @Test
     public void test_definiteScan_String() {
         String expected = "example_string_value";

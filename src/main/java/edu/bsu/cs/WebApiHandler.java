@@ -26,6 +26,7 @@ public class WebApiHandler {
         gameTitle = gameTitle.replace(' ', '_');
         gameTitle = URLEncoder.encode(gameTitle, StandardCharsets.UTF_8);
         String gameDataLink = String.format("https://www.speedrun.com/api/v1/games/%s", gameTitle);
+
         return new JsonReader(establishConnection(gameDataLink)).createGame();
     }
 
@@ -38,11 +39,13 @@ public class WebApiHandler {
 
     public static LeaderboardStorage getLeaderboardData(GameStorage game, CategoryStorage category, LevelStorage level, int maxRuns, String rawFilters) throws IOException {
         StringBuilder leaderboardLinkBuilder = new StringBuilder();
+        boolean levelIncluded = level != null;
+
         if (rawFilters == null) {
             leaderboardLinkBuilder.append(String.format("https://www.speedrun.com/api/v1/leaderboards/%s/", game.id()));
 
             if (category.type().equals("per-level")) {
-                if (level == null)
+                if (!levelIncluded)
                     return null;
 
                 leaderboardLinkBuilder.append(String.format("level/%s/%s", level.id(), category.id()));
@@ -56,7 +59,7 @@ public class WebApiHandler {
             leaderboardLinkBuilder.append(String.format("https://www.speedrun.com/api/v1/runs?game=%s", game.id()));
             leaderboardLinkBuilder.append(String.format("&category=%s", category.id()));
 
-            if (level != null)
+            if (levelIncluded)
                 leaderboardLinkBuilder.append(String.format("&level=%s", level.id()));
 
             leaderboardLinkBuilder.append(String.format("&%s", rawFilters));
@@ -64,7 +67,7 @@ public class WebApiHandler {
             String weblink = String.format("https://www.speedrun.com/%s#%s", game.id(), category.id());
             String gameLink = game.selfLink();
             String categoryLink = category.selfLink();
-            String levelLink = (level != null) ? level.selflink() : null;
+            String levelLink = (levelIncluded) ? level.selflink() : null;
             List<RunStorage> runs = new JsonReader(establishConnection(leaderboardLinkBuilder.toString())).createRunList(maxRuns, true);
 
             return new LeaderboardStorage(weblink, gameLink, categoryLink, levelLink, null, runs);
