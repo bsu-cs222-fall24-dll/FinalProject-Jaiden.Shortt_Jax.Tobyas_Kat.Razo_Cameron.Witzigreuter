@@ -8,21 +8,28 @@ The **third iteration** will provide users a timer to record their own time spli
 
 ---
 ## Build Instructions
-### ***Must be on JDK 21. Using an earlier version will cause compling errors and break the program.***
-To run the project as-is, simply clone the code or hold for a release, then run `Main.java`; no extra build instructions are necessary.  
-If you are unsure how to do this, see below.
+***Must be on JDK 21. Using an earlier version will cause compling errors and break the program.***
 
+
+### Getting Set Up
+To run this code, simply clone the code or download the latest release and open it in your IDE. Detailed cloning instructions can be seen below.
 <details>
    <summary><h3>Step-by-Step Instructions</h3></summary>
        <p>
-       1. <a href="https://www.jetbrains.com/idea/download/" itemprop="Download IntelliJ">Install IntelliJ IDEA</a> if you haven't already.
+       1. <a href="https://www.jetbrains.com/idea/download/" itemprop="Download IntelliJ">Install IntelliJ IDEA</a> if you haven't already, and make sure you have <a href="https://github.com/git-guides/install-git">the latest version of Git installed</a>. 
        <p>
        2. Once IntelliJ is open, navigate to <b>File > New > Project from Version Control</b>.
        <p>
        3. In the <kbd>URL</kbd> field, paste the link to this repository's code, which you can acquire by going to <kbd><> Code</kbd>.
        <p>
-       4. Once Gradle finishes building the project, run `Main.java`.
+       4. Once Gradle finishes building the project, you can run your code.
 </details>
+
+### To Run The Command Line Interface
+Load the code into your IDE, then run `Main.java`.  
+
+### To Run The JavaFX Graphical Interface
+Load the code into your IDE, then run `LeaderboardApplication.java`
 
 ---
 ## Attribution
