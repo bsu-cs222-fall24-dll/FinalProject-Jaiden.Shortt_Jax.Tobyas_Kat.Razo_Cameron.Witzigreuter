@@ -6,6 +6,8 @@ The **first iteration** allows users to lookup the top 10-20 speedrunners on a g
 The **second iteration** will allow users to see time splits on a given speedrun. It will run in a JavaFX GUI.  
 The **third iteration** will provide users a timer to record their own time splits. It will run in a JavaFX GUI.  
 
+<i><sup>For information about testing coverage, see <a href="https://github.com/bsu-cs222-fall24-dll/FinalProject-Jaiden.Shortt_Jax.Tobyas_Kat.Razo_Cameron.Witzigreuter/edit/master/src/test/Coverage.md">Coverage.md</a>.</sup></i>
+
 ---
 ## Build Instructions
 ***Must be on JDK 21. Using an earlier version will cause compiling errors and break the program.***
