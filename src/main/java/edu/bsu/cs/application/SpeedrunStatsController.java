@@ -17,7 +17,7 @@ import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LeaderboardController {
+public class SpeedrunStatsController {
     GameStorage activeGame;
     List<CategoryStorage> activeCategories;
     List<LevelStorage> activeLevels;
@@ -118,6 +118,7 @@ public class LeaderboardController {
     @FXML void showRecentRunsAsLeaderboard() {
         populateTableView(parseAndGetLeaderboard(true));
     }
+
     private LeaderboardStorage parseAndGetLeaderboard(boolean justRuns) {
         try {
             CategoryStorage selectedCategory = categoryChoiceBox.getValue();

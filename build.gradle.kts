@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "edu.bsu.cs"
-version = "v0.2.0"
+version = "v0.3.0a"
 
 repositories {
     mavenCentral()
@@ -33,7 +33,7 @@ tasks.test {
 }
 
 application {
-    mainClass.set("edu.bsu.cs.application.LeaderboardApplication")
+    mainClass.set("edu.bsu.cs.application.SpeedrunStatsApplication")
 }
 
 javafx {

@@ -5,8 +5,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 <?import java.lang.*?>
-<VBox alignment="CENTER" prefHeight="459.0" prefWidth="440.0" spacing="1.0" stylesheets="@styles/bootstrap3.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.application.LeaderboardController">
-   <Label fx:id="gameNameLabel" text="Current Game: None">
+<VBox alignment="CENTER" prefHeight="459.0" prefWidth="440.0" spacing="1.0" stylesheets="@styles/bootstrap3.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.application.SpeedrunStatsController">
+   <Label fx:id="gameNameLabel" text="Enter game ID/abv. and [Search Game] to start.">
       <font>
          <Font name="System Italic" size="12.0" />
       </font>

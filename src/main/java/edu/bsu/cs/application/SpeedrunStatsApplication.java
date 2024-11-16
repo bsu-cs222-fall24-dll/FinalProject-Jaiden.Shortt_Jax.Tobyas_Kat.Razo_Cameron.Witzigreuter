@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class LeaderboardApplication extends Application {
+public class SpeedrunStatsApplication extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -15,7 +15,7 @@ public class LeaderboardApplication extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leaderboard-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("speedrunstats-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
         primaryStage.setTitle("Speedrun Stats v0.3.0a");
