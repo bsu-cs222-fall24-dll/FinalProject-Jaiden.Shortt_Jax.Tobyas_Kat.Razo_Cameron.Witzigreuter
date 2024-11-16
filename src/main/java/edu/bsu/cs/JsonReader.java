@@ -4,6 +4,7 @@ import com.jayway.jsonpath.Configuration;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.PathNotFoundException;
 import edu.bsu.cs.records.*;
+import edu.bsu.cs.webapihandlers.PlayerHandler;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -153,7 +154,7 @@ public class JsonReader {
         String dateSubmitted;
         String primaryRunTime;
 
-        playersInRun = WebApiHandler.getPlayersFromLinksInRun((List<String>) scan(String.format(
+        playersInRun = PlayerHandler.getPlayersFromLinksInRun((List<String>) scan(String.format(
                 "%s.players[*].uri", keyToRootOfRun
         )));
 

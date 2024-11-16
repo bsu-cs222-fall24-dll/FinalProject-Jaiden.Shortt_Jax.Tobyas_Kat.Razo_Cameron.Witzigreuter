@@ -4,6 +4,9 @@ import edu.bsu.cs.records.CategoryStorage;
 import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LeaderboardStorage;
 import edu.bsu.cs.records.RunStorage;
+import edu.bsu.cs.webapihandlers.CategoryHandler;
+import edu.bsu.cs.webapihandlers.GameHandler;
+import edu.bsu.cs.webapihandlers.LeaderboardHandler;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -43,7 +46,7 @@ public class CLI {
             gameNameInput = consoleScanner.nextLine();
 
             System.out.printf("%nSearching... ");
-            chosenGame = WebApiHandler.getGameData(gameNameInput);
+            chosenGame = GameHandler.getGameData(gameNameInput);
             System.out.printf("Game Found! [%s]%n%n", chosenGame.name());
         }
         catch (Exception e) {
@@ -56,7 +59,7 @@ public class CLI {
 
     private static void printCategoryMenuAndGetChoice() {
         try {
-            categoryList = WebApiHandler.getCategoryData(chosenGame);
+            categoryList = CategoryHandler.getCategoryData(chosenGame);
 
             if (!LEVELS_ARE_SUPPORTED)
                 for (int i = categoryList.size() - 1; i >= 0; i--)
@@ -99,7 +102,7 @@ public class CLI {
 
     private static void getAndPrintLeaderboard() {
         try {
-            leaderboard = WebApiHandler.getLeaderboardData(chosenGame, chosenCategory, null, 20);
+            leaderboard = LeaderboardHandler.getLeaderboardData(chosenGame, chosenCategory, null, 20);
             printLeaderboard();
         }
         catch (IOException e) {
