@@ -4,10 +4,8 @@ import edu.bsu.cs.records.CategoryStorage;
 import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LeaderboardStorage;
 import edu.bsu.cs.records.LevelStorage;
-import edu.bsu.cs.webapihandlers.CategoryHandler;
 import edu.bsu.cs.webapihandlers.GameHandler;
 import edu.bsu.cs.webapihandlers.LeaderboardHandler;
-import edu.bsu.cs.webapihandlers.LevelHandler;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,12 +16,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class SpeedrunStatsController {
     GameStorage activeGame;
-    List<CategoryStorage> activeCategories;
-    List<LevelStorage> activeLevels;
     ObservableList<TableSpeedrunStorage> tableSpeedruns;
 
     @FXML private Label gameNameLabel;
@@ -65,13 +60,7 @@ public class SpeedrunStatsController {
             activeGame = GameHandler.getGameData(searchText);
             gameNameLabel.setText(String.format("Current Game: %s", activeGame.name()));
 
-            activeCategories = CategoryHandler.getCategoryData(activeGame);
             categoryChoiceBox.setDisable(false);
-
-            activeLevels = LevelHandler.getLevelData(activeGame);
-            levelChoiceBox.getItems().setAll(activeLevels);
-            if (!activeLevels.isEmpty())
-                levelChoiceBox.setValue(levelChoiceBox.getItems().getFirst());
             levelCheckbox.setDisable(false);
 
             configureChoiceBoxes();
@@ -92,12 +81,19 @@ public class SpeedrunStatsController {
         levelChoiceBox.setDisable(!shouldShowLevels);
         categoryChoiceBox.getItems().clear();
 
-        for (CategoryStorage activeCategory : activeCategories) {
-            if (shouldShowLevels && activeCategory.type().equals("per-level"))
-                categoryChoiceBox.getItems().add(activeCategory);
-            else if (!shouldShowLevels && activeCategory.type().equals("per-game"))
-                categoryChoiceBox.getItems().add(activeCategory);
+        for (CategoryStorage category : activeGame.categories()) {
+            if (shouldShowLevels && category.type().equals("per-level"))
+                categoryChoiceBox.getItems().add(category);
+            else if (!shouldShowLevels && category.type().equals("per-game"))
+                categoryChoiceBox.getItems().add(category);
         }
+        if (levelChoiceBox.getItems().isEmpty())
+            levelChoiceBox.getItems().setAll(activeGame.levels());
+
+        if (categoryChoiceBox.getValue() == null)
+            categoryChoiceBox.setValue(categoryChoiceBox.getItems().getFirst());
+        if (levelChoiceBox.getValue() == null && !activeGame.levels().isEmpty())
+            levelChoiceBox.setValue(levelChoiceBox.getItems().getFirst());
 
         categoryChoiceBox.setValue(categoryChoiceBox.getItems().getFirst());
     }

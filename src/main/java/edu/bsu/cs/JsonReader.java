@@ -53,39 +53,42 @@ public class JsonReader {
                 (String) scan("data.id"),
                 (String) scan("data.names.international"),
 
-                (String) scan("data.links[3].uri"),
-                (String) scan("data.links[2].uri")
+                getGameCategories(),
+                getGameLevels()
         );
     }
 
-    public List<CategoryStorage> createCategoryList() {
-        int listSize = (int) scan("data.length()");
-        List<CategoryStorage> toReturn = new ArrayList<>(listSize);
+    private List<CategoryStorage> getGameCategories() {
+        int numOfCategories = (int) scan("data.categories.data.length()");
+        List<CategoryStorage> categories = new ArrayList<>();
 
-        for (int i = 0; i < listSize; i++) {
-            toReturn.add(new CategoryStorage(
-                    (String) scan(String.format("data.[%d].id", i)),
-                    (String) scan(String.format("data.[%d].name", i)),
+        for (int i = 0; i < numOfCategories; i++)
+            categories.add(getCategoryAtPath(String.format("data.categories.data[%d]", i)));
 
-                    (String) scan(String.format("data.[%d].type", i))
-            ));
-        }
-
-        return toReturn;
+        return categories;
+    }
+    private CategoryStorage getCategoryAtPath(String path) {
+        return new CategoryStorage(
+                (String) scan(String.format("%s.id", path)),
+                (String) scan(String.format("%s.name", path)),
+                (String) scan(String.format("%s.type", path))
+        );
     }
 
-    public List<LevelStorage> createLevelList() {
-        int listSize = (int) scan("data.length()");
-        List<LevelStorage> toReturn = new ArrayList<>(listSize);
+    private List<LevelStorage> getGameLevels() {
+        int numOfLevels = (int) scan("data.levels.data.length()");
+        List<LevelStorage> levels = new ArrayList<>();
 
-        for (int i = 0; i < listSize; i++) {
-            toReturn.add(new LevelStorage(
-                    (String) scan(String.format("data.[%d].id", i)),
-                    (String) scan(String.format("data.[%d].name", i))
-            ));
-        }
+        for (int i = 0; i < numOfLevels; i++)
+            levels.add(getLevelAtPath(String.format("data.levels.data[%d]", i)));
 
-        return toReturn;
+        return levels;
+    }
+    private LevelStorage getLevelAtPath(String path) {
+        return new LevelStorage(
+                (String) scan(String.format("%s.id", path)),
+                (String) scan(String.format("%s.name", path))
+        );
     }
 
 

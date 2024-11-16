@@ -11,8 +11,10 @@ public class GameHandler extends WebApiHandler {
     public static GameStorage getGameData(String gameTitle) throws IOException {
         gameTitle = gameTitle.replace(' ', '_');
         gameTitle = URLEncoder.encode(gameTitle, StandardCharsets.UTF_8);
-        String gameDataLink = String.format("https://www.speedrun.com/api/v1/games/%s", gameTitle);
 
-        return new JsonReader(establishConnection(gameDataLink)).createGame();
+        String baseGameLink = String.format("https://www.speedrun.com/api/v1/games/%s", gameTitle);
+        String queryParameters = "?embed=categories,levels";
+
+        return new JsonReader(establishConnection(String.format("%s%s", baseGameLink, queryParameters))).createGame();
     }
 }

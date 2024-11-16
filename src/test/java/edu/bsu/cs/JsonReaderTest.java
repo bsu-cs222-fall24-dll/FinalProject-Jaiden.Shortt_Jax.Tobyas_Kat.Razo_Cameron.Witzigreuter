@@ -19,11 +19,7 @@ public class JsonReaderTest {
         exampleReader = new JsonReader(
                 IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/example.json"), StandardCharsets.UTF_8));
         gameReader = new JsonReader(
-                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-game.json"), StandardCharsets.UTF_8));
-        categoryListReader = new JsonReader(
-                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-categories.json"), StandardCharsets.UTF_8));
-        levelListReader = new JsonReader(
-                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-levels.json"), StandardCharsets.UTF_8));
+                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-game-with-embeds.json"), StandardCharsets.UTF_8));
         leaderboardReader = new JsonReader(
                 IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/sms-anypercent-leaderboard.json"), StandardCharsets.UTF_8));
         justRunsReader = new JsonReader(
@@ -44,8 +40,6 @@ public class JsonReaderTest {
     }
     static JsonReader exampleReader,
             gameReader,
-            categoryListReader,
-            levelListReader,
             leaderboardReader,
             justRunsReader,
             guestReader,
@@ -144,22 +138,14 @@ public class JsonReaderTest {
     public void test_createGame() {
         GameStorage expectedGame = new GameStorage(
                 "v1pxjz68", "Super Mario Sunshine",
-                "https://www.speedrun.com/api/v1/games/v1pxjz68/categories",
-                "https://www.speedrun.com/api/v1/games/v1pxjz68/levels"
+                getCategoriesForTest(),
+                getLevelsForTest()
         );
         GameStorage actualGame = gameReader.createGame();
 
         Assertions.assertEquals(expectedGame, actualGame);
     }
-
-    @Test
-    public void test_createCategoryList() {
-        List<CategoryStorage> expectedCategoryList = getCategoryListForTest();
-        List<CategoryStorage> actualCategoryList = categoryListReader.createCategoryList();
-
-        Assertions.assertEquals(expectedCategoryList, actualCategoryList);
-    }
-    private List<CategoryStorage> getCategoryListForTest() {
+    private List<CategoryStorage> getCategoriesForTest() {
         return List.of(
                 new CategoryStorage("n2y3r8do", "Any%", "per-game"),
                 new CategoryStorage("z27o9gd0", "120 Shines", "per-game"),
@@ -174,15 +160,7 @@ public class JsonReaderTest {
                 new CategoryStorage("xk9e86v2", "20 Shines", "per-game")
         );
     }
-
-    @Test
-    public void test_createLevelList() {
-        List<LevelStorage> expectedLevelList = getLevelListForTest();
-        List<LevelStorage> actualLevelList = levelListReader.createLevelList();
-
-        Assertions.assertEquals(expectedLevelList, actualLevelList);
-    }
-    private List<LevelStorage> getLevelListForTest() {
+    private List<LevelStorage> getLevelsForTest() {
         return List.of(
                 new LevelStorage("xd4e80wm", "Bianco Hills"),
                 new LevelStorage("nwlzepdv", "Bianco Hills Hoverless"),

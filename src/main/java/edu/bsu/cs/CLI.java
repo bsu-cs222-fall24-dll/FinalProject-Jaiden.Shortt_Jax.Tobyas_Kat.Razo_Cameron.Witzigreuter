@@ -4,21 +4,18 @@ import edu.bsu.cs.records.CategoryStorage;
 import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LeaderboardStorage;
 import edu.bsu.cs.records.RunStorage;
-import edu.bsu.cs.webapihandlers.CategoryHandler;
 import edu.bsu.cs.webapihandlers.GameHandler;
 import edu.bsu.cs.webapihandlers.LeaderboardHandler;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public class CLI {
     private static final Scanner consoleScanner = new Scanner(System.in);
 
     private static GameStorage chosenGame;
-    private static List<CategoryStorage> categoryList;
     private static CategoryStorage chosenCategory;
     private static LeaderboardStorage leaderboard;
 
@@ -59,12 +56,10 @@ public class CLI {
 
     private static void printCategoryMenuAndGetChoice() {
         try {
-            categoryList = CategoryHandler.getCategoryData(chosenGame);
-
             if (!LEVELS_ARE_SUPPORTED)
-                for (int i = categoryList.size() - 1; i >= 0; i--)
-                    if (categoryList.get(i).type().equals("per-level"))
-                        categoryList.remove(i);
+                for (int i = chosenGame.categories().size() - 1; i >= 0; i--)
+                    if (chosenGame.categories().get(i).type().equals("per-level"))
+                        chosenGame.categories().remove(i);
 
             printCategoryMenu();
             getCategoryChoice();
@@ -79,8 +74,8 @@ public class CLI {
     private static void printCategoryMenu() {
         System.out.printf("Enter # for desired Category.%n%s%n", "-".repeat(20));
 
-        for (int i = 1; i <= categoryList.size(); i++)
-            System.out.printf("* %-3s %s%n", String.format("%d.", i), categoryList.get(i - 1));
+        for (int i = 1; i <= chosenGame.categories().size(); i++)
+            System.out.printf("* %-3s %s%n", String.format("%d.", i), chosenGame.categories().get(i - 1));
 
         System.out.println("-".repeat(20));
     }
@@ -90,7 +85,7 @@ public class CLI {
 
         try {
             categoryChoiceInput = Integer.parseInt(consoleScanner.nextLine());
-            chosenCategory = categoryList.get(categoryChoiceInput - 1);
+            chosenCategory = chosenGame.categories().get(categoryChoiceInput - 1);
         }
         catch (Exception e) {
             handleError(e);

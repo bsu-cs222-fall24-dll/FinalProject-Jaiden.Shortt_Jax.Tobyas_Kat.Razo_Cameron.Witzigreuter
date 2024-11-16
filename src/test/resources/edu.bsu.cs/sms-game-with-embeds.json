@@ -1,0 +1,1060 @@
+{
+  "data": {
+    "id": "v1pxjz68",
+    "names": {
+      "international": "Super Mario Sunshine",
+      "japanese": "スーパーマリオサンシャイン",
+      "twitch": "Super Mario Sunshine"
+    },
+    "boostReceived": 11,
+    "boostDistinctDonors": 7,
+    "abbreviation": "sms",
+    "weblink": "https://www.speedrun.com/sms",
+    "discord": "https://discord.gg/jX38aXCv9y",
+    "released": 2002,
+    "release-date": "2002-07-19",
+    "ruleset": {
+      "show-milliseconds": true,
+      "require-verification": true,
+      "require-video": false,
+      "run-times": [
+        "realtime"
+      ],
+      "default-time": "realtime",
+      "emulators-allowed": true
+    },
+    "romhack": false,
+    "gametypes": [],
+    "platforms": [
+      "4p9z06rn",
+      "v06dk3e4",
+      "7m6ylw9p"
+    ],
+    "regions": [
+      "pr184lqn",
+      "e6lxy1dz",
+      "o316x197",
+      "p2g50lnk"
+    ],
+    "genres": [
+      "qdnqkn8k",
+      "jp23ox26"
+    ],
+    "engines": [],
+    "developers": [
+      "xv6dvx62"
+    ],
+    "publishers": [
+      "m0rvylrx"
+    ],
+    "moderators": {
+      "98r36381": "super-moderator",
+      "kj9k3lr8": "moderator",
+      "v8lng64x": "moderator",
+      "o86d5k0j": "moderator",
+      "zxz63me8": "moderator",
+      "j4rwe7m8": "moderator",
+      "j2wyv4lj": "super-moderator",
+      "xk1pzo7j": "moderator"
+    },
+    "created": "2014-12-07T12:50:20Z",
+    "assets": {
+      "logo": {
+        "uri": "https://www.speedrun.com/static/theme/q8gvyq80/logo?v=045fe23"
+      },
+      "cover-tiny": {
+        "uri": "https://www.speedrun.com/static/game/v1pxjz68/cover?v=899a4c6"
+      },
+      "cover-small": {
+        "uri": "https://www.speedrun.com/static/game/v1pxjz68/cover?v=899a4c6"
+      },
+      "cover-medium": {
+        "uri": "https://www.speedrun.com/static/game/v1pxjz68/cover?v=899a4c6"
+      },
+      "cover-large": {
+        "uri": "https://www.speedrun.com/static/game/v1pxjz68/cover?v=899a4c6"
+      },
+      "icon": {
+        "uri": "https://www.speedrun.com/static/theme/q8gvyq80/favicon?v=61d9059"
+      },
+      "trophy-1st": {
+        "uri": "https://www.speedrun.com/static/theme/q8gvyq80/1st?v=8c2f559"
+      },
+      "trophy-2nd": {
+        "uri": "https://www.speedrun.com/static/theme/q8gvyq80/2nd?v=3b81193"
+      },
+      "trophy-3rd": {
+        "uri": "https://www.speedrun.com/static/theme/q8gvyq80/3rd?v=b0301cd"
+      },
+      "trophy-4th": {
+        "uri": null
+      },
+      "background": {
+        "uri": "https://www.speedrun.com/static/theme/q8gvyq80/background?v=cf0364f"
+      },
+      "foreground": {
+        "uri": null
+      }
+    },
+    "links": [
+      {
+        "rel": "self",
+        "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+      },
+      {
+        "rel": "runs",
+        "uri": "https://www.speedrun.com/api/v1/runs?game=v1pxjz68"
+      },
+      {
+        "rel": "levels",
+        "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68/levels"
+      },
+      {
+        "rel": "categories",
+        "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68/categories"
+      },
+      {
+        "rel": "variables",
+        "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68/variables"
+      },
+      {
+        "rel": "records",
+        "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68/records"
+      },
+      {
+        "rel": "series",
+        "uri": "https://www.speedrun.com/api/v1/series/rv7emz49"
+      },
+      {
+        "rel": "derived-games",
+        "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68/derived-games"
+      },
+      {
+        "rel": "romhacks",
+        "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68/derived-games"
+      },
+      {
+        "rel": "leaderboard",
+        "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/n2y3r8do"
+      }
+    ],
+    "levels": {
+      "data": [
+        {
+          "id": "xd4e80wm",
+          "name": "Bianco Hills",
+          "weblink": "https://www.speedrun.com/sms/Bianco_Hills",
+          "rules": null,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/xd4e80wm"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/xd4e80wm/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/xd4e80wm/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/xd4e80wm/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=xd4e80wm"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/xd4e80wm/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "nwlzepdv",
+          "name": "Bianco Hills Hoverless",
+          "weblink": "https://www.speedrun.com/sms/Bianco_Hills_Hoverless",
+          "rules": "- Hover Nozzle is banned.",
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/nwlzepdv"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/nwlzepdv/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/nwlzepdv/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/nwlzepdv/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=nwlzepdv"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/nwlzepdv/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "xd0no09q",
+          "name": "Ricco Harbor",
+          "weblink": "https://www.speedrun.com/sms/Ricco_Harbor",
+          "rules": null,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/xd0no09q"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/xd0no09q/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/xd0no09q/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/xd0no09q/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=xd0no09q"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/xd0no09q/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "rw6gyn97",
+          "name": "Ricco Harbor Hoverless",
+          "weblink": "https://www.speedrun.com/sms/Ricco_Harbor_Hoverless",
+          "rules": "- Hover Nozzle is banned.",
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/rw6gyn97"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/rw6gyn97/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/rw6gyn97/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/rw6gyn97/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=rw6gyn97"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/rw6gyn97/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "n93l3790",
+          "name": "Gelato Beach",
+          "weblink": "https://www.speedrun.com/sms/Gelato_Beach",
+          "rules": null,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/n93l3790"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/n93l3790/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/n93l3790/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/n93l3790/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=n93l3790"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/n93l3790/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "z985l79l",
+          "name": "Gelato Beach Hoverless",
+          "weblink": "https://www.speedrun.com/sms/Gelato_Beach_Hoverless",
+          "rules": "- Hover Nozzle is banned.",
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/z985l79l"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/z985l79l/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/z985l79l/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/z985l79l/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=z985l79l"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/z985l79l/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "rdnxgnwm",
+          "name": "Pinna Park",
+          "weblink": "https://www.speedrun.com/sms/Pinna_Park",
+          "rules": null,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/rdnxgnwm"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/rdnxgnwm/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/rdnxgnwm/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/rdnxgnwm/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=rdnxgnwm"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/rdnxgnwm/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "ldyk0jw3",
+          "name": "Pinna Park Hoverless",
+          "weblink": "https://www.speedrun.com/sms/Pinna_Park_Hoverless",
+          "rules": "- Hover Nozzle is banned.",
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/ldyk0jw3"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/ldyk0jw3/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/ldyk0jw3/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/ldyk0jw3/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=ldyk0jw3"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/ldyk0jw3/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "ywe3pq9l",
+          "name": "Sirena Beach",
+          "weblink": "https://www.speedrun.com/sms/Sirena_Beach",
+          "rules": null,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/ywe3pq9l"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/ywe3pq9l/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/ywe3pq9l/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/ywe3pq9l/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=ywe3pq9l"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/ywe3pq9l/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "69z606d1",
+          "name": "Sirena Beach Hoverless",
+          "weblink": "https://www.speedrun.com/sms/Sirena_Beach_Hoverless",
+          "rules": "- Hover Nozzle is banned.",
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/69z606d1"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/69z606d1/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/69z606d1/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/69z606d1/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=69z606d1"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/69z606d1/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "r9gn8qd2",
+          "name": "Noki Bay",
+          "weblink": "https://www.speedrun.com/sms/Noki_Bay",
+          "rules": null,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/r9gn8qd2"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/r9gn8qd2/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/r9gn8qd2/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/r9gn8qd2/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=r9gn8qd2"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/r9gn8qd2/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "o9xo069l",
+          "name": "Noki Bay Hoverless",
+          "weblink": "https://www.speedrun.com/sms/Noki_Bay_Hoverless",
+          "rules": "- Hover Nozzle is banned.",
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/o9xo069l"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/o9xo069l/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/o9xo069l/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/o9xo069l/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=o9xo069l"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/o9xo069l/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "495zn29p",
+          "name": "Pianta Village",
+          "weblink": "https://www.speedrun.com/sms/Pianta_Village",
+          "rules": null,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/495zn29p"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/495zn29p/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/495zn29p/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/495zn29p/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=495zn29p"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/495zn29p/xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "rdqoqmwx",
+          "name": "Pianta Village Hoverless",
+          "weblink": "https://www.speedrun.com/sms/Pianta_Village_Hoverless",
+          "rules": "- Hover Nozzle is banned.",
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/levels/rdqoqmwx"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "categories",
+              "uri": "https://www.speedrun.com/api/v1/levels/rdqoqmwx/categories"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/levels/rdqoqmwx/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/levels/rdqoqmwx/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?level=rdqoqmwx"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/level/rdqoqmwx/xd1r95wk"
+            }
+          ]
+        }
+      ]
+    },
+    "categories": {
+      "data": [
+        {
+          "id": "n2y3r8do",
+          "name": "Any%",
+          "weblink": "https://www.speedrun.com/sms#Any",
+          "type": "per-game",
+          "rules": "",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": false,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/n2y3r8do"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/n2y3r8do/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/n2y3r8do/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=n2y3r8do"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/n2y3r8do"
+            }
+          ]
+        },
+        {
+          "id": "z27o9gd0",
+          "name": "120 Shines",
+          "weblink": "https://www.speedrun.com/sms#120_Shines",
+          "type": "per-game",
+          "rules": "**Goal**\nCollect every Shine Sprite in the game for a grand total of 120 Shine Sprites.\n\n**Requirements**\n\n- Emulator and Nintendont is not allowed for runs faster than 3 hours 40 minutes.\r\n- Video proof is required for runs faster than 3 hours 40 minutes.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": false,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/z27o9gd0"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/z27o9gd0/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/z27o9gd0/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=z27o9gd0"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/z27o9gd0"
+            }
+          ]
+        },
+        {
+          "id": "xk9n9y20",
+          "name": "96 Shines",
+          "weblink": "https://www.speedrun.com/sms#96_Shines",
+          "type": "per-game",
+          "rules": "**Goal**\nCollect every Shine Sprite in the game, excluding those obtained from trading in blue coins, for a grand total of 96 Shine Sprites.\n\n**Requirements**\n\n- Emulator and Nintendont is not allowed for runs faster than 3 hours.\r\n- Video proof is required for runs faster than 3 hours.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": false,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/xk9n9y20"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/xk9n9y20/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/xk9n9y20/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=xk9n9y20"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/xk9n9y20"
+            }
+          ]
+        },
+        {
+          "id": "7kjqlxd3",
+          "name": "79 Shines",
+          "weblink": "https://www.speedrun.com/sms#79_Shines",
+          "type": "per-game",
+          "rules": "**Goal**\nCollect every Shine Sprite in every world, and beat the game (Defeat Bowser in Corona Mountain), for a grand total of 79 Shine Sprites.\n\n**Requirements**\n\n- Emulator and Nintendont is not allowed for runs faster than 2 hours 45 minutes.\r\n- Video proof is required for runs faster than 2 hours 45 minutes.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": true,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/7kjqlxd3"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/7kjqlxd3/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/7kjqlxd3/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=7kjqlxd3"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/7kjqlxd3"
+            }
+          ]
+        },
+        {
+          "id": "wkpmjjkr",
+          "name": "All Episodes",
+          "weblink": "https://www.speedrun.com/sms#All_Episodes",
+          "type": "per-game",
+          "rules": "**Goal**\nCollect every Shine Sprite obtained from completing episodes in the game worlds (8 per world), and beat the game (Defeat Bowser in Corona Mountain), for a grand total of 58 Shine Sprites.\n\n**Requirements**\n\n- Emulator and Nintendont is not allowed for runs faster than 1 hour 50 minutes.\r\n- Video proof is required for runs faster than 1 hour 50 minutes.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": true,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/wkpmjjkr"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/wkpmjjkr/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/wkpmjjkr/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=wkpmjjkr"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/wkpmjjkr"
+            }
+          ]
+        },
+        {
+          "id": "xd1r95wk",
+          "name": "Individual World",
+          "weblink": "https://www.speedrun.com/sms",
+          "type": "per-level",
+          "rules": "Complete episodes 1-7.\r\nIn Bianco Hills, you may skip episode 1.\r\nIn Pinna Park, you may perform Early Yoshi Go-round instead of episodes 5 and 6.\r\nAll forms of Gelato Beach Skip are banned.\r\nDo not use FLUDD in secret levels.\r\n\r\n\r\n- Timing starts when you select the first shine and ends when Mario holds up the final shine.\r\n- 1st place runs must include video.\r\n- Emulator, SD and USB are all banned.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": false,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/xd1r95wk"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/xd1r95wk/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/xd1r95wk/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=xd1r95wk"
+            }
+          ]
+        },
+        {
+          "id": "xd14l37d",
+          "name": "Any% Hoverless",
+          "weblink": "https://www.speedrun.com/sms#Any_Hoverless",
+          "type": "per-game",
+          "rules": "**Goal**\nBeat the game (Defeat Bowser in Corona Mountain) without using the Hover Nozzle.\n\n**Requirements**\n\n- Emulator and Nintendont is not allowed for runs faster than 1 hour 40 minutes.\r\n- Video proof is required for runs faster than 1 hour 40 minutes.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": false,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/xd14l37d"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/xd14l37d/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/xd14l37d/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=xd14l37d"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/xd14l37d"
+            }
+          ]
+        },
+        {
+          "id": "w203veo2",
+          "name": "All Shines",
+          "weblink": "https://www.speedrun.com/sms",
+          "type": "per-level",
+          "rules": "Collect all 11 Shines in the world (8 episodes, 2 hidden Shines, 100 coins)\r\nDo not use FLUDD when collecting the first Shines in Secret levels (e.g. Bianco 3, Pinna 2)\r\n\r\n- Timing starts when you select the first shine and ends when Mario holds up the final shine.\r\n- 1st place runs must include video.\r\n- Emulator, SD and USB are all banned.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": false,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/w203veo2"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/w203veo2/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/w203veo2/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=w203veo2"
+            }
+          ]
+        },
+        {
+          "id": "wdm6lm3k",
+          "name": "Full Completion",
+          "weblink": "https://www.speedrun.com/sms",
+          "type": "per-level",
+          "rules": "Complete all shines and collect every blue coin in the world.\r\nDo not use FLUDD when collecting the first Shines in Secret levels (e.g. Bianco 3, Pinna 2)\r\n\r\n- Timing starts when you select the first shine and ends when Mario holds up the final shine.\r\n- 1st place runs must include video.\r\n- Emulator, SD and USB are all banned.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": false,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/wdm6lm3k"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/wdm6lm3k/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/wdm6lm3k/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=wdm6lm3k"
+            }
+          ]
+        },
+        {
+          "id": "ndx4ywj2",
+          "name": "All Blue Coins",
+          "weblink": "https://www.speedrun.com/sms#All_Blue_Coins",
+          "type": "per-game",
+          "rules": "**Goal**\nCollect and trade in all 240 blue coins, then beat the game (Defeat Bowser in Corona Mountain), for a grand total of 68 Shine Sprites.\n\n**Requirements**\n\n- Emulator and Nintendont is not allowed for runs faster than 2 hours 20 minutes.\r\n- Video proof is required for runs faster than 2 hours 20 minutes.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": false,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/ndx4ywj2"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/ndx4ywj2/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/ndx4ywj2/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=ndx4ywj2"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/ndx4ywj2"
+            }
+          ]
+        },
+        {
+          "id": "xk9e86v2",
+          "name": "20 Shines",
+          "weblink": "https://www.speedrun.com/sms#20_Shines",
+          "type": "per-game",
+          "rules": "**Goal**\nCollect 20 Shine Sprites (19 without including Airstrip).\nRace File must be used. This file is obtained by playing the game normally until reaching Delfino Plaza after the court cutscene, then saving and quitting.\nTiming ends when the Shine Sprite counter ticks over to the number 20.\n\n**Requirements**\n\n- The Timing Method variable is to be left blank for 20 Shines runs.  \r\n- Emulator and Nintendont is not allowed for runs faster than 22 minutes.  \r\n- Video proof is required for runs faster than 22 minutes.",
+          "players": {
+            "type": "exactly",
+            "value": 1
+          },
+          "miscellaneous": true,
+          "links": [
+            {
+              "rel": "self",
+              "uri": "https://www.speedrun.com/api/v1/categories/xk9e86v2"
+            },
+            {
+              "rel": "game",
+              "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+              "rel": "variables",
+              "uri": "https://www.speedrun.com/api/v1/categories/xk9e86v2/variables"
+            },
+            {
+              "rel": "records",
+              "uri": "https://www.speedrun.com/api/v1/categories/xk9e86v2/records"
+            },
+            {
+              "rel": "runs",
+              "uri": "https://www.speedrun.com/api/v1/runs?category=xk9e86v2"
+            },
+            {
+              "rel": "leaderboard",
+              "uri": "https://www.speedrun.com/api/v1/leaderboards/v1pxjz68/category/xk9e86v2"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
