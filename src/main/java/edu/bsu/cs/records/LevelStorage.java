@@ -1,12 +1,8 @@
 package edu.bsu.cs.records;
 
 public record LevelStorage(
-        String weblink,
-        String selflink,
         String id,
-        String name,
-
-        String gamelink
+        String name
 ) {
     @Override
     public String toString() {

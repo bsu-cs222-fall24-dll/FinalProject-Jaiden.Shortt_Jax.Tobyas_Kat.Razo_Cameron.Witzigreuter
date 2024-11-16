@@ -1,27 +1,28 @@
 package edu.bsu.cs.application;
 
+import edu.bsu.cs.records.LeaderboardStorage;
 import edu.bsu.cs.records.RunStorage;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class TableSpeedrunStorage {
 
-    public TableSpeedrunStorage(RunStorage tableSpeedrun) {
-        placeProperty().set(tableSpeedrun.place());
-        usernameProperty().set(tableSpeedrun.playernamesForLeaderboard());
-        dateProperty().set(tableSpeedrun.prettyDateSubmitted());
-        runTimeProperty().set(tableSpeedrun.primaryRunTime());
+    public TableSpeedrunStorage(LeaderboardStorage leaderboard, int indexOfRun) {
+        RunStorage thisRun = leaderboard.runs().get(indexOfRun);
+
+        placeProperty().set(String.valueOf(leaderboard.runPlaces().get(indexOfRun)));
+        usernameProperty().set(thisRun.playernamesForLeaderboard());
+        dateProperty().set(thisRun.prettyDateSubmitted());
+        runTimeProperty().set(thisRun.primaryRunTime());
     }
 
 
-    private IntegerProperty place;
-    public IntegerProperty placeProperty() {
-        if (place == null) place = new SimpleIntegerProperty(this, "place");
+    private StringProperty place;
+    public StringProperty placeProperty() {
+        if (place == null) place = new SimpleStringProperty(this, "place");
         return place;
     }
-    public int getPlace() { return placeProperty().get(); }
+    public String getPlace() { return placeProperty().get(); }
 
     private StringProperty username;
     public StringProperty usernameProperty() {

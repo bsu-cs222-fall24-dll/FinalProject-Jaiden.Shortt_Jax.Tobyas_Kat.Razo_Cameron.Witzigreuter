@@ -18,7 +18,7 @@ public class LeaderboardApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leaderboard-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
-        primaryStage.setTitle("Speedrun Stats v0.2.0");
+        primaryStage.setTitle("Speedrun Stats v0.3.0a");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

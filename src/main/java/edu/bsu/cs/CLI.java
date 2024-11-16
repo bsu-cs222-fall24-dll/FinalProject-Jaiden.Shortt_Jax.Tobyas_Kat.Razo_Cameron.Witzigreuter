@@ -99,7 +99,7 @@ public class CLI {
 
     private static void getAndPrintLeaderboard() {
         try {
-            leaderboard = WebApiHandler.getLeaderboardData(chosenGame, chosenCategory, null, 20, null);
+            leaderboard = WebApiHandler.getLeaderboardData(chosenGame, chosenCategory, null, 20);
             printLeaderboard();
         }
         catch (IOException e) {
@@ -123,15 +123,18 @@ public class CLI {
     private static void printLeaderboard() {
         System.out.printf("%nLeaderboard for: %s [%s]%n%s%n", chosenGame.name(), chosenCategory.name(), "-".repeat(56));
 
-        for (RunStorage run : leaderboard.runs())
+        for (int i = 0; i < leaderboard.runs().size(); i++) {
+            RunStorage thisRun = leaderboard.runs().get(i);
+
             System.out.printf(
                     "#%-3s %-21s %-18s %s%n",
 
-                    run.place(),
-                    run.playernamesForLeaderboard(),
-                    run.prettyDateSubmitted(),
-                    run.primaryRunTime()
+                    leaderboard.runPlaces().get(i),
+                    thisRun.playernamesForLeaderboard(),
+                    thisRun.prettyDateSubmitted(),
+                    thisRun.primaryRunTime()
             );
+        }
 
         System.out.println("-".repeat(56));
     }

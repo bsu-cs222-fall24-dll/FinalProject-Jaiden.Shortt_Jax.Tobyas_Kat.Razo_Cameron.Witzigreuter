@@ -3,17 +3,12 @@ package edu.bsu.cs.records;
 import org.ocpsoft.prettytime.PrettyTime;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.List;
 public record RunStorage(
-        String webLink,
-        String selfLink,
-        String id,
-
-        String gameLink,
-        String categoryLink,
         List<PlayerStorage> players,
 
-        int place,
         String dateSubmitted,
         String primaryRunTime
 ) {
@@ -26,10 +21,20 @@ public record RunStorage(
     }
 
     public String prettyDateSubmitted() {
-        return prettyTime.format(Instant.parse(dateSubmitted));
+        if (dateSubmitted == null)
+            return "<no date found>";
+
+        try {
+            return prettyTime.format(Instant.parse(dateSubmitted));
+        }
+        catch (DateTimeParseException dateSubmittedDoesNotIncludeTimeException) {
+            String[] splitDate = dateSubmitted.split("-");
+            int[] splitDateAsInts = new int[splitDate.length];
+
+            for (int i = 0; i < splitDate.length; i++)
+                splitDateAsInts[i] = Integer.parseInt(splitDate[i]);
+
+            return prettyTime.format(LocalDate.of(splitDateAsInts[0], splitDateAsInts[1], splitDateAsInts[2]));
+        }
     }
 }
-
-
-
-

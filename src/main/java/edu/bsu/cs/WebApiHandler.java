@@ -3,6 +3,7 @@ package edu.bsu.cs;
 import edu.bsu.cs.records.*;
 import org.apache.commons.io.IOUtils;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
@@ -10,6 +11,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 
 public class WebApiHandler {
@@ -33,66 +35,59 @@ public class WebApiHandler {
     public static List<CategoryStorage> getCategoryData(GameStorage game) throws IOException {
         return new JsonReader(establishConnection(game.linkToCategories())).createCategoryList();
     }
+
     public static List<LevelStorage> getLevelData(GameStorage game) throws IOException {
         return new JsonReader(establishConnection(game.linkToLevels())).createLevelList();
     }
 
-    public static LeaderboardStorage getLeaderboardData(GameStorage game, CategoryStorage category, LevelStorage level, int maxRuns, String rawFilters) throws IOException {
+    public static LeaderboardStorage getLeaderboardData(GameStorage game, CategoryStorage category, LevelStorage level, int maxRuns) throws IOException {
         StringBuilder leaderboardLinkBuilder = new StringBuilder();
         boolean levelIncluded = level != null;
 
-        if (rawFilters == null) {
-            leaderboardLinkBuilder.append(String.format("https://www.speedrun.com/api/v1/leaderboards/%s/", game.id()));
+        leaderboardLinkBuilder.append(String.format("https://www.speedrun.com/api/v1/leaderboards/%s/", game.id()));
 
-            if (category.type().equals("per-level")) {
-                if (!levelIncluded)
-                    return null;
+        if (category.type().equals("per-level") && levelIncluded)
+            leaderboardLinkBuilder.append(String.format("level/%s/%s", level.id(), category.id()));
+        else // (category.type().equals("per-game"))
+            leaderboardLinkBuilder.append(String.format("category/%s", category.id()));
 
-                leaderboardLinkBuilder.append(String.format("level/%s/%s", level.id(), category.id()));
-            }
-            else // (category.type().equals("per-game"))
-                leaderboardLinkBuilder.append(String.format("category/%s", category.id()));
+        return new JsonReader(establishConnection(leaderboardLinkBuilder.toString())).createLeaderboard(maxRuns, false);
+    }
+    public static LeaderboardStorage getLeaderboardData(GameStorage game, CategoryStorage category, LevelStorage level, int maxRuns, String runsListInstructions) throws IOException {
+        StringBuilder runsListLinkBuilder = new StringBuilder("https://www.speedrun.com/api/v1/runs?");
+        boolean levelIncluded = level != null;
 
-            return new JsonReader(establishConnection(leaderboardLinkBuilder.toString())).createLeaderboard(maxRuns);
-        }
-        else {
-            leaderboardLinkBuilder.append(String.format("https://www.speedrun.com/api/v1/runs?game=%s", game.id()));
-            leaderboardLinkBuilder.append(String.format("&category=%s", category.id()));
+        runsListLinkBuilder.append(String.format("game=%s", game.id()));
+        runsListLinkBuilder.append(String.format("&category=%s", category.id()));
+        if (levelIncluded) runsListLinkBuilder.append(String.format("&level=%s", level.id()));
+        runsListLinkBuilder.append(String.format("&max=%d", maxRuns));
+        runsListLinkBuilder.append("&status=verified");
+        runsListLinkBuilder.append(String.format("&%s", runsListInstructions));
 
-            if (levelIncluded)
-                leaderboardLinkBuilder.append(String.format("&level=%s", level.id()));
+        List<RunStorage> runs =
+                new JsonReader(establishConnection(runsListLinkBuilder.toString())).createRunList(maxRuns, true);
 
-            leaderboardLinkBuilder.append(String.format("&%s", rawFilters));
+        List<String> runPlaces = new ArrayList<>();
+        for (RunStorage ignored : runs)
+            runPlaces.add("#");
 
-            String weblink = String.format("https://www.speedrun.com/%s#%s", game.id(), category.id());
-            String gameLink = game.selfLink();
-            String categoryLink = category.selfLink();
-            String levelLink = (levelIncluded) ? level.selflink() : null;
-            List<RunStorage> runs = new JsonReader(establishConnection(leaderboardLinkBuilder.toString())).createRunList(maxRuns, true);
-
-            return new LeaderboardStorage(weblink, gameLink, categoryLink, levelLink, null, runs);
-        }
+        return new LeaderboardStorage(runs, runPlaces);
     }
 
-    public static RunStorage getRunData(String runId, int place) throws IOException {
-        String runLink = String.format("https://www.speedrun.com/api/v1/runs/%s", runId);
-        return new JsonReader(establishConnection(runLink)).createRun(place);
-    }
+    public static List<PlayerStorage> getPlayersFromLinksInRun(List<String> playerLinks) throws IOException {
+        List<PlayerStorage> playersFromRun = new ArrayList<>();
 
-    public static PlayerStorage getPlayerData(String playerlink) {
+        for (String playerLink : playerLinks)
+            playersFromRun.add(WebApiHandler.getPlayerData(playerLink));
+
+        return playersFromRun;
+    }
+    public static PlayerStorage getPlayerData(String playerLink) throws IOException {
         try {
-            String playerJson = establishConnection(playerlink);
-            JsonReader playerReader = new JsonReader(playerJson);
-
-            if (playerJson.contains("names"))
-                return playerReader.createUser();
-            else if (playerJson.contains("name"))
-                return playerReader.createGuest();
-            else
-                return new PlayerStorage(null, null, null, "<not found>");
+            return new JsonReader(establishConnection(playerLink)).createPlayer();
         }
-        catch (IOException EncodedPlayerIdIsMalformedException) {
-            return new PlayerStorage(null, null, null, "<Guest>");
+        catch (FileNotFoundException guestPlayerHadIllegalNameForURLException) {
+            return new PlayerStorage("<Guest>");
         }
     }
 }

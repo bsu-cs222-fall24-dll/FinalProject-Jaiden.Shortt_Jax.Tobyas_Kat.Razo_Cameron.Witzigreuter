@@ -1,18 +1,14 @@
 package edu.bsu.cs.records;
 public record CategoryStorage(
-        String weblink,
-        String selfLink,
         String id,
         String name,
 
-        String type,
-
-        String linkToGame
+        String type
 ) {
     @Override
     public String toString() {
-        return name;
+        return (type.equals("per-game"))
+                ? name
+                : name + "*";
     }
-
-
 }

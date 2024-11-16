@@ -50,7 +50,7 @@
                <String fx:value="info" />
            </styleClass>
         </Button>
-        <Button fx:id="runsByDateButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showRecentLeaderboard" text="Show me runs by date submitted">
+        <Button fx:id="runsByDateButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#showRecentRunsAsLeaderboard" text="Show me runs by date submitted">
            <styleClass>
                <String fx:value="last" />
                <String fx:value="primary" />

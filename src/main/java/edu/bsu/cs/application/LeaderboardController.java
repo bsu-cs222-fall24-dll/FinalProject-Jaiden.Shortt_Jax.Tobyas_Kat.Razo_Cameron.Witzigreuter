@@ -1,7 +1,10 @@
 package edu.bsu.cs.application;
 
 import edu.bsu.cs.WebApiHandler;
-import edu.bsu.cs.records.*;
+import edu.bsu.cs.records.CategoryStorage;
+import edu.bsu.cs.records.GameStorage;
+import edu.bsu.cs.records.LeaderboardStorage;
+import edu.bsu.cs.records.LevelStorage;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -31,7 +34,7 @@ public class LeaderboardController {
     @FXML private Button runsByDateButton;
 
     @FXML private TableView<TableSpeedrunStorage> leaderboardTable;
-    @FXML private TableColumn<TableSpeedrunStorage, Integer> placeColumn;
+    @FXML private TableColumn<TableSpeedrunStorage, String> placeColumn;
     @FXML private TableColumn<TableSpeedrunStorage, String> usernameColumn;
     @FXML private TableColumn<TableSpeedrunStorage, String> dateColumn;
     @FXML private TableColumn<TableSpeedrunStorage, String> runTimeColumn;
@@ -102,27 +105,30 @@ public class LeaderboardController {
 
         leaderboardTable.getItems().clear();
 
-        for (RunStorage run : leaderboard.runs())
-            tableSpeedruns.add(new TableSpeedrunStorage(run));
+        for (int i = 0; i < leaderboard.runs().size(); i++)
+            tableSpeedruns.add(new TableSpeedrunStorage(leaderboard, i));
 
         leaderboardTable.setItems(FXCollections.observableList(tableSpeedruns));
         leaderboardTable.setDisable(false);
     }
 
     @FXML void showTopLeaderboard() {
-        populateTableView(parseAndGetLeaderboard(null));
+        populateTableView(parseAndGetLeaderboard(false));
     }
-    @FXML void showRecentLeaderboard() {
-        populateTableView(parseAndGetLeaderboard("orderby=submitted&direction=desc"));
+    @FXML void showRecentRunsAsLeaderboard() {
+        populateTableView(parseAndGetLeaderboard(true));
     }
-    private LeaderboardStorage parseAndGetLeaderboard(String rawFilters) {
+    private LeaderboardStorage parseAndGetLeaderboard(boolean justRuns) {
         try {
             CategoryStorage selectedCategory = categoryChoiceBox.getValue();
             LevelStorage selectedLevel = (levelCheckbox.isSelected())
                     ? levelChoiceBox.getValue()
                     : null;
 
-            return WebApiHandler.getLeaderboardData(activeGame, selectedCategory, selectedLevel, 20, rawFilters);
+            if (!justRuns)
+                return WebApiHandler.getLeaderboardData(activeGame, selectedCategory, selectedLevel, 20);
+            else
+                return WebApiHandler.getLeaderboardData(activeGame, selectedCategory, selectedLevel, 20, "orderby=submitted&direction=desc");
         }
         catch (Exception e) {
             handleException(e);

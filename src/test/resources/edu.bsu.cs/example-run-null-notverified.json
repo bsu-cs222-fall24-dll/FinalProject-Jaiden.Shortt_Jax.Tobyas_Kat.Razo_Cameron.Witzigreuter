@@ -1,0 +1,10 @@
+{
+    "data": {
+        "submitted": null,
+        "date": null,
+        "status": {
+            "status": "not-verified",
+            "verify-date": "ignored"
+        }
+    }
+}

@@ -1,17 +1,27 @@
 ## Test Coverage Analysis
-### Records
-**Records simply store public final data. This cannot exactly be put to a test.**  
-That said, `RunStorage.java` does include two extra methods, which are tested and covered.
+
+For analyzing test coverage,
+we utilize a modified "Test All in Project" configuration 
+that excludes classes and packages
+in order to obtain more accurate coverage values.
+Below are the details backing and clarifying the changes to the edited configuration.
 
 ### JsonReader
-Tests with Coverage return a result of 15/18 methods. This is because **two methods have test versions that do not implement web interactions, which replace the corresponding methods that do.**
+Tests with Coverage return a result of 11/14 methods. This is because **three methods have test versions that do not implement web interactions, which replace the corresponding methods that do.**
+
+These test methods are verbatim copies of their untested counterparts, _except for the reason they were created._
+
+| Untested Method       | Corresponding Test Method  | Reason                                          |
+|-----------------------|----------------------------|-------------------------------------------------|
+| `createLeaderboard()` | `test_createLeaderboard()` | Untested Method utilizes internet-enabled code. |
+| `createRunList()`     | `test_createRunList()`     | Untested Method utilizes internet-enabled code. |
+| `createRun()`         | `test_createRun()`         | Untested Method utilizes internet-enabled code. |
 
 ### Exclusions
 In this testing with coverage, the following packages and files are excluded:
 
-| File                                                       | Reason                           |
-|------------------------------------------------------------|----------------------------------|
-| `WebApiHandler.java`                                       | Web code should not be in tests. |
-| `CLI.java`                                                 | View-layer code.                 | 
-| `records` <sub><i>(except for `RunStorage.java`)</i></sub> | Simply stores public final data. |
-| `application`                                              | View-layer code.                 |                                           
+| File                 | Type         | Reason                                                      |
+|----------------------|--------------|-------------------------------------------------------------|
+| `WebApiHandler.java` | <kbd>Class   | Internet-enabled code should not be utilized in unit tests. |
+| `CLI.java`           | <kbd>Class   | View-layer code.                                            | 
+| `application`        | <kbd>Package | View-layer code.                                            |                                           

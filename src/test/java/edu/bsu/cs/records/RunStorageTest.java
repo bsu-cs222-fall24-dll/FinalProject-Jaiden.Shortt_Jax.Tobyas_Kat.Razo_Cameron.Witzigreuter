@@ -7,31 +7,66 @@ import java.util.List;
 
 public class RunStorageTest {
     @Test
-    public void test_playernamesForLeaderboard() {
-        RunStorage singlePlayerRun = new RunStorage(
-                null, null, null, null, null,
-                List.of(new PlayerStorage(null, null, null, "player")),
-                -1, null, null
+    public void test_playernamesForLeaderboard_onePlayer() {
+        RunStorage runWithOnePlayer = new RunStorage(
+                List.of(new PlayerStorage("player")),
+                "date", "time"
         );
-        Assertions.assertEquals("player", singlePlayerRun.playernamesForLeaderboard());
 
-        RunStorage twoPlayerRun = new RunStorage(
-                null, null, null, null, null,
-                List.of(
-                        new PlayerStorage(null, null, null, "player"),
-                        new PlayerStorage(null, null, null, "another player")
-                ),
-                -1, null, null
-        );
-        Assertions.assertEquals("player, ...", twoPlayerRun.playernamesForLeaderboard());
+        String expectedPlayernames = "player";
+        String actualPlayernames = runWithOnePlayer.playernamesForLeaderboard();
+
+        Assertions.assertEquals(expectedPlayernames, actualPlayernames);
     }
 
     @Test
-    public void test_prettyDateSubmitted() {
-        RunStorage run = new RunStorage(
-                null, null, null, null, null, null, -1, "2024-01-21T12:20:16Z", null
+    public void test_playernamesForLeaderboard_morePlayers() {
+        RunStorage runWithMorePlayers = new RunStorage(
+                List.of(new PlayerStorage("player 1"),
+                        new PlayerStorage("player 2")),
+                "date", "time"
         );
 
-        Assertions.assertEquals("10 months ago", run.prettyDateSubmitted());
+        String expectedPlayernames = "player 1, ...";
+        String actualPlayernames = runWithMorePlayers.playernamesForLeaderboard();
+
+        Assertions.assertEquals(expectedPlayernames, actualPlayernames);
+    }
+
+
+    @Test
+    public void test_prettyDateSubmitted_fromLocalDateTime() {
+        RunStorage runWithLocalDateTime = new RunStorage(
+                List.of(), "2024-01-21T12:20:16Z", "time"
+        );
+
+        String expectedPrettyDateAtTimeOfWriting = "10 months ago";
+        String actualPrettyDate = runWithLocalDateTime.prettyDateSubmitted();
+
+        Assertions.assertEquals(expectedPrettyDateAtTimeOfWriting, actualPrettyDate);
+    }
+
+    @Test
+    public void test_prettyDateSubmitted_fromLocalDate() {
+        RunStorage runWithLocalDate = new RunStorage(
+                List.of(), "2024-10-05", "time"
+        );
+
+        String expectedPrettyDateAtTimeOfWriting = "1 month ago";
+        String actualPrettyDate = runWithLocalDate.prettyDateSubmitted();
+
+        Assertions.assertEquals(expectedPrettyDateAtTimeOfWriting, actualPrettyDate);
+    }
+
+    @Test
+    public void test_prettyDateSubmitted_fromNull() {
+        RunStorage runWithNullDate = new RunStorage(
+                List.of(), null, "time"
+        );
+
+        String expectedPrettyDate = "<no date found>";
+        String actualPrettyDate = runWithNullDate.prettyDateSubmitted();
+
+        Assertions.assertEquals(expectedPrettyDate, actualPrettyDate);
     }
 }
