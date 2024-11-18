@@ -138,14 +138,15 @@ public class SpeedrunStatsController {
     }
 
     private void handleException(Exception e) {
+        e.printStackTrace(System.err);
         e = modifyException(e);
 
         Alert exceptionAlert = new Alert(Alert.AlertType.ERROR);
         exceptionAlert.setTitle("An error occurred!");
         exceptionAlert.setHeaderText(e.getClass().getSimpleName());
         exceptionAlert.setContentText(e.getMessage());
+        exceptionAlert.setHeight(500);
 
-        e.printStackTrace(System.err);
         exceptionAlert.showAndWait();
     }
     private Exception modifyException(Exception e) {
@@ -154,7 +155,7 @@ public class SpeedrunStatsController {
 
         //noinspection IfCanBeSwitch
         if (e instanceof FileNotFoundException)
-            return new FileNotFoundException(String.format("The following link is invalid: %s", e.getMessage()));
+            return new FileNotFoundException(String.format("No data was found for:%n%n%s", e.getMessage()));
 
         else if (e instanceof UnknownHostException)
             return new UnknownHostException("Please check your internet connection.");
@@ -164,5 +165,20 @@ public class SpeedrunStatsController {
 
         else
             return e;
+    }
+
+
+    @FXML void openTimerTool() {
+        Alert timerNyiAlert = new Alert(Alert.AlertType.INFORMATION);
+        timerNyiAlert.setTitle("Whoops!");
+        timerNyiAlert.setHeaderText("Not Yet Implemented");
+        timerNyiAlert.setContentText("Sorry, this tool is still under construction.");
+
+        timerNyiAlert.showAndWait();
+    }
+
+
+    @FXML void exit() {
+        System.exit(0);
     }
 }
