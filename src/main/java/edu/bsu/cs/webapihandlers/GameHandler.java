@@ -1,6 +1,6 @@
 package edu.bsu.cs.webapihandlers;
 
-import edu.bsu.cs.JsonReader;
+import edu.bsu.cs.jsonreaders.GameReader;
 import edu.bsu.cs.records.GameStorage;
 
 import java.io.IOException;
@@ -15,6 +15,6 @@ public class GameHandler extends WebApiHandler {
         String baseGameLink = String.format("https://www.speedrun.com/api/v1/games/%s", gameTitle);
         String queryParameters = "?embed=categories,levels";
 
-        return new JsonReader(establishConnection(String.format("%s%s", baseGameLink, queryParameters))).createGame();
+        return new GameReader(establishConnection(String.format("%s%s", baseGameLink, queryParameters))).createGame();
     }
 }

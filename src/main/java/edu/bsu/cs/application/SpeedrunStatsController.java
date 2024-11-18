@@ -6,6 +6,7 @@ import edu.bsu.cs.records.LeaderboardStorage;
 import edu.bsu.cs.records.LevelStorage;
 import edu.bsu.cs.webapihandlers.GameHandler;
 import edu.bsu.cs.webapihandlers.LeaderboardHandler;
+import edu.bsu.cs.webapihandlers.RunsListHandler;
 import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -126,9 +127,9 @@ public class SpeedrunStatsController {
                     : null;
 
             if (!justRuns)
-                return LeaderboardHandler.getLeaderboardData(activeGame, selectedCategory, selectedLevel, 20);
+                return LeaderboardHandler.getLeaderboard(activeGame, selectedCategory, selectedLevel, 20);
             else
-                return LeaderboardHandler.getLeaderboardData(activeGame, selectedCategory, selectedLevel, 20, "orderby=submitted&direction=desc");
+                return RunsListHandler.getRunsListWithLeaderboardParameters(activeGame, selectedCategory, selectedLevel, 20, "orderby=submitted&direction=desc");
         }
         catch (Exception e) {
             handleException(e);

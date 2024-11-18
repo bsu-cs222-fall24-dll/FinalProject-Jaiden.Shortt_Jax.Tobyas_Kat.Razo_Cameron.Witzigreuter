@@ -1,0 +1,406 @@
+{
+    "data": {
+        "weblink": "https://www.speedrun.com/sms#Any",
+        "game": "v1pxjz68",
+        "category": "n2y3r8do",
+        "level": null,
+        "platform": null,
+        "region": null,
+        "emulators": null,
+        "video-only": false,
+        "timing": "realtime",
+        "values": {},
+        "runs": [
+            {
+                "place": 1,
+                "run": {
+                    "id": "mrx0238m",
+                    "weblink": "https://www.speedrun.com/sms/run/mrx0238m",
+                    "game": "v1pxjz68",
+                    "level": null,
+                    "category": "n2y3r8do",
+                    "videos": {
+                        "links": [
+                            {
+                                "uri": "https://www.youtube.com/watch?v=RMX9JDf9RvE"
+                            }
+                        ]
+                    },
+                    "comment": null,
+                    "status": {
+                        "status": "verified",
+                        "examiner": "kj9k3lr8",
+                        "verify-date": "2024-10-16T21:40:52Z"
+                    },
+                    "players": [
+                        {
+                            "rel": "user",
+                            "id": "kjprmwk8",
+                            "uri": "https://www.speedrun.com/api/v1/users/kjprmwk8"
+                        }
+                    ],
+                    "date": "2024-09-26",
+                    "submitted": "2024-10-14T08:11:12Z",
+                    "times": {
+                        "primary": "PT17M24S",
+                        "primary_t": 1044,
+                        "realtime": "PT17M24S",
+                        "realtime_t": 1044,
+                        "realtime_noloads": null,
+                        "realtime_noloads_t": 0,
+                        "ingame": null,
+                        "ingame_t": 0
+                    },
+                    "system": {
+                        "platform": "v06dk3e4",
+                        "emulated": false,
+                        "region": "o316x197"
+                    },
+                    "splits": null,
+                    "values": {
+                        "2lggwk6l": "21gok6xq",
+                        "j845md4n": "gq7on0vl",
+                        "ylqxgz78": "qzn57z8q"
+                    }
+                }
+            },
+            {
+                "place": 2,
+                "run": {
+                    "id": "ydlx33vz",
+                    "weblink": "https://www.speedrun.com/sms/run/ydlx33vz",
+                    "game": "v1pxjz68",
+                    "level": null,
+                    "category": "n2y3r8do",
+                    "videos": {
+                        "links": [
+                            {
+                                "uri": "https://youtu.be/HLoZJawub6M"
+                            }
+                        ]
+                    },
+                    "comment": "mental block conquered\n\nalso W america",
+                    "status": {
+                        "status": "verified",
+                        "examiner": "xk1pzo7j",
+                        "verify-date": "2024-11-14T01:13:28Z"
+                    },
+                    "players": [
+                        {
+                            "rel": "user",
+                            "id": "8r3064w8",
+                            "uri": "https://www.speedrun.com/api/v1/users/8r3064w8"
+                        }
+                    ],
+                    "date": "2024-11-06",
+                    "submitted": "2024-11-07T02:19:28Z",
+                    "times": {
+                        "primary": "PT18M57S",
+                        "primary_t": 1137,
+                        "realtime": "PT18M57S",
+                        "realtime_t": 1137,
+                        "realtime_noloads": null,
+                        "realtime_noloads_t": 0,
+                        "ingame": null,
+                        "ingame_t": 0
+                    },
+                    "system": {
+                        "platform": "v06dk3e4",
+                        "emulated": false,
+                        "region": "o316x197"
+                    },
+                    "splits": {
+                        "rel": "splits.io",
+                        "uri": "https://splits.io/api/v3/runs/cpkt"
+                    },
+                    "values": {
+                        "2lggwk6l": "21gok6xq",
+                        "j845md4n": "gq7on0vl",
+                        "ylqxgz78": "qzn57z8q"
+                    }
+                }
+            },
+            {
+                "place": 3,
+                "run": {
+                    "id": "mrxglk2m",
+                    "weblink": "https://www.speedrun.com/sms/run/mrxglk2m",
+                    "game": "v1pxjz68",
+                    "level": null,
+                    "category": "n2y3r8do",
+                    "videos": {
+                        "links": [
+                            {
+                                "uri": "https://youtu.be/xopKYhpEy94"
+                            }
+                        ]
+                    },
+                    "comment": null,
+                    "status": {
+                        "status": "verified",
+                        "examiner": "xk1pzo7j",
+                        "verify-date": "2024-11-17T17:42:20Z"
+                    },
+                    "players": [
+                        {
+                            "rel": "user",
+                            "id": "qj23lpxk",
+                            "uri": "https://www.speedrun.com/api/v1/users/qj23lpxk"
+                        }
+                    ],
+                    "date": "2024-11-16",
+                    "submitted": "2024-11-17T05:16:37Z",
+                    "times": {
+                        "primary": "PT23M48S",
+                        "primary_t": 1428,
+                        "realtime": "PT23M48S",
+                        "realtime_t": 1428,
+                        "realtime_noloads": null,
+                        "realtime_noloads_t": 0,
+                        "ingame": null,
+                        "ingame_t": 0
+                    },
+                    "system": {
+                        "platform": "v06dk3e4",
+                        "emulated": false,
+                        "region": "o316x197"
+                    },
+                    "splits": null,
+                    "values": {
+                        "2lggwk6l": "gq7zyon1",
+                        "j845md4n": "gq7on0vl",
+                        "ylqxgz78": "qzn57z8q"
+                    }
+                }
+            }
+        ],
+        "links": [
+            {
+                "rel": "game",
+                "uri": "https://www.speedrun.com/api/v1/games/v1pxjz68"
+            },
+            {
+                "rel": "category",
+                "uri": "https://www.speedrun.com/api/v1/categories/n2y3r8do"
+            }
+        ],
+        "players": {
+            "data": [
+                {
+                    "rel": "user",
+                    "id": "kjprmwk8",
+                    "names": {
+                        "international": "Weegee",
+                        "japanese": null
+                    },
+                    "supporterAnimation": false,
+                    "pronouns": "He/Him",
+                    "weblink": "https://www.speedrun.com/user/Weegee",
+                    "name-style": {
+                        "style": "gradient",
+                        "color-from": {
+                            "light": "#249BCE",
+                            "dark": "#44BBEE"
+                        },
+                        "color-to": {
+                            "light": "#249BCE",
+                            "dark": "#44BBEE"
+                        }
+                    },
+                    "role": "user",
+                    "signup": "2015-08-17T17:23:06Z",
+                    "location": {
+                        "country": {
+                            "code": "us",
+                            "names": {
+                                "international": "United States",
+                                "japanese": null
+                            }
+                        },
+                        "region": {
+                            "code": "us/mi",
+                            "names": {
+                                "international": "Michigan, USA",
+                                "japanese": null
+                            }
+                        }
+                    },
+                    "twitch": {
+                        "uri": "https://www.twitch.tv/Weegee"
+                    },
+                    "hitbox": null,
+                    "youtube": {
+                        "uri": "https://www.youtube.com/user/Weegee+Speedruns"
+                    },
+                    "twitter": null,
+                    "speedrunslive": null,
+                    "assets": {
+                        "icon": {
+                            "uri": null
+                        },
+                        "supporterIcon": null,
+                        "image": {
+                            "uri": "https://www.speedrun.com/static/user/kjprmwk8/image?v=45449a6"
+                        }
+                    },
+                    "links": [
+                        {
+                            "rel": "self",
+                            "uri": "https://www.speedrun.com/api/v1/users/kjprmwk8"
+                        },
+                        {
+                            "rel": "runs",
+                            "uri": "https://www.speedrun.com/api/v1/runs?user=kjprmwk8"
+                        },
+                        {
+                            "rel": "games",
+                            "uri": "https://www.speedrun.com/api/v1/games?moderator=kjprmwk8"
+                        },
+                        {
+                            "rel": "personal-bests",
+                            "uri": "https://www.speedrun.com/api/v1/users/kjprmwk8/personal-bests"
+                        }
+                    ]
+                },
+                {
+                    "rel": "user",
+                    "id": "8r3064w8",
+                    "names": {
+                        "international": "JTown2909",
+                        "japanese": null
+                    },
+                    "supporterAnimation": false,
+                    "pronouns": null,
+                    "weblink": "https://www.speedrun.com/user/JTown2909",
+                    "name-style": {
+                        "style": "gradient",
+                        "color-from": {
+                            "light": "#EE2222",
+                            "dark": "#EE4444"
+                        },
+                        "color-to": {
+                            "light": "#DAA520",
+                            "dark": "#F0C03E"
+                        }
+                    },
+                    "role": "user",
+                    "signup": "2022-07-05T14:13:18Z",
+                    "location": {
+                        "country": {
+                            "code": "us",
+                            "names": {
+                                "international": "United States",
+                                "japanese": null
+                            }
+                        }
+                    },
+                    "twitch": null,
+                    "hitbox": null,
+                    "youtube": {
+                        "uri": "https://www.youtube.com/channel/UCo4JwPnVEl-iw1P7jrY_Asw"
+                    },
+                    "twitter": null,
+                    "speedrunslive": null,
+                    "assets": {
+                        "icon": {
+                            "uri": null
+                        },
+                        "supporterIcon": null,
+                        "image": {
+                            "uri": "https://www.speedrun.com/static/user/8r3064w8/image?v=c50436f"
+                        }
+                    },
+                    "links": [
+                        {
+                            "rel": "self",
+                            "uri": "https://www.speedrun.com/api/v1/users/8r3064w8"
+                        },
+                        {
+                            "rel": "runs",
+                            "uri": "https://www.speedrun.com/api/v1/runs?user=8r3064w8"
+                        },
+                        {
+                            "rel": "games",
+                            "uri": "https://www.speedrun.com/api/v1/games?moderator=8r3064w8"
+                        },
+                        {
+                            "rel": "personal-bests",
+                            "uri": "https://www.speedrun.com/api/v1/users/8r3064w8/personal-bests"
+                        }
+                    ]
+                },
+                {
+                    "rel": "user",
+                    "id": "qj23lpxk",
+                    "names": {
+                        "international": "Miton",
+                        "japanese": null
+                    },
+                    "supporterAnimation": false,
+                    "pronouns": "",
+                    "weblink": "https://www.speedrun.com/user/Miton",
+                    "name-style": {
+                        "style": "gradient",
+                        "color-from": {
+                            "light": "#009856",
+                            "dark": "#09B876"
+                        },
+                        "color-to": {
+                            "light": "#E762B5",
+                            "dark": "#F772C5"
+                        }
+                    },
+                    "role": "user",
+                    "signup": "2014-12-13T03:57:10Z",
+                    "location": {
+                        "country": {
+                            "code": "jp",
+                            "names": {
+                                "international": "Japan",
+                                "japanese": null
+                            }
+                        }
+                    },
+                    "twitch": {
+                        "uri": "https://www.twitch.tv/miton3t"
+                    },
+                    "hitbox": null,
+                    "youtube": {
+                        "uri": "https://www.youtube.com/channel/UCa8zVXcbJbqBInluc5sDmZQ"
+                    },
+                    "twitter": {
+                        "uri": "https://www.twitter.com/mittonton10"
+                    },
+                    "speedrunslive": null,
+                    "assets": {
+                        "icon": {
+                            "uri": null
+                        },
+                        "supporterIcon": null,
+                        "image": {
+                            "uri": "https://www.speedrun.com/static/user/qj23lpxk/image?v=27d8f6c"
+                        }
+                    },
+                    "links": [
+                        {
+                            "rel": "self",
+                            "uri": "https://www.speedrun.com/api/v1/users/qj23lpxk"
+                        },
+                        {
+                            "rel": "runs",
+                            "uri": "https://www.speedrun.com/api/v1/runs?user=qj23lpxk"
+                        },
+                        {
+                            "rel": "games",
+                            "uri": "https://www.speedrun.com/api/v1/games?moderator=qj23lpxk"
+                        },
+                        {
+                            "rel": "personal-bests",
+                            "uri": "https://www.speedrun.com/api/v1/users/qj23lpxk/personal-bests"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}

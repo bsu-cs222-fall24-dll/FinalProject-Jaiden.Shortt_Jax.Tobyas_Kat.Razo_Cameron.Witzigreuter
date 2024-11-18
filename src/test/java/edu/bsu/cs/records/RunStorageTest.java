@@ -9,7 +9,7 @@ public class RunStorageTest {
     @Test
     public void test_playernamesForLeaderboard_onePlayer() {
         RunStorage runWithOnePlayer = new RunStorage(
-                List.of(new PlayerStorage("player")),
+                List.of(new PlayerStorage("player", "selflink")),
                 "date", "time"
         );
 
@@ -22,8 +22,8 @@ public class RunStorageTest {
     @Test
     public void test_playernamesForLeaderboard_morePlayers() {
         RunStorage runWithMorePlayers = new RunStorage(
-                List.of(new PlayerStorage("player 1"),
-                        new PlayerStorage("player 2")),
+                List.of(new PlayerStorage("player 1", "selflink 1"),
+                        new PlayerStorage("player 2", "selflink 2")),
                 "date", "time"
         );
 

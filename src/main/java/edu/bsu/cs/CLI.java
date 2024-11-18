@@ -97,7 +97,7 @@ public class CLI {
 
     private static void getAndPrintLeaderboard() {
         try {
-            leaderboard = LeaderboardHandler.getLeaderboardData(chosenGame, chosenCategory, null, 20);
+            leaderboard = LeaderboardHandler.getLeaderboard(chosenGame, chosenCategory, null, 20);
             printLeaderboard();
         }
         catch (IOException e) {

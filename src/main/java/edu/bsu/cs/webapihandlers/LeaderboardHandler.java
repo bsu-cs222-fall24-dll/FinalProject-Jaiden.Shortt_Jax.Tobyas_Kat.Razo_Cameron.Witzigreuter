@@ -1,14 +1,15 @@
 package edu.bsu.cs.webapihandlers;
 
-import edu.bsu.cs.JsonReader;
-import edu.bsu.cs.records.*;
+import edu.bsu.cs.jsonreaders.LeaderboardReader;
+import edu.bsu.cs.records.CategoryStorage;
+import edu.bsu.cs.records.GameStorage;
+import edu.bsu.cs.records.LeaderboardStorage;
+import edu.bsu.cs.records.LevelStorage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class LeaderboardHandler extends WebApiHandler {
-    public static LeaderboardStorage getLeaderboardData(GameStorage game, CategoryStorage category, LevelStorage level, int maxRuns) throws IOException {
+    public static LeaderboardStorage getLeaderboard(GameStorage game, CategoryStorage category, LevelStorage level, int topPositions) throws IOException {
         StringBuilder leaderboardLinkBuilder = new StringBuilder();
         boolean levelIncluded = level != null;
 
@@ -19,26 +20,8 @@ public class LeaderboardHandler extends WebApiHandler {
         else // (category.type().equals("per-game"))
             leaderboardLinkBuilder.append(String.format("category/%s", category.id()));
 
-        return new JsonReader(establishConnection(leaderboardLinkBuilder.toString())).createLeaderboard(maxRuns, false);
-    }
-    public static LeaderboardStorage getLeaderboardData(GameStorage game, CategoryStorage category, LevelStorage level, int maxRuns, String runsListInstructions) throws IOException {
-        StringBuilder runsListLinkBuilder = new StringBuilder("https://www.speedrun.com/api/v1/runs?");
-        boolean levelIncluded = level != null;
+        leaderboardLinkBuilder.append(String.format("?embed=players&top=%d", topPositions));
 
-        runsListLinkBuilder.append(String.format("game=%s", game.id()));
-        runsListLinkBuilder.append(String.format("&category=%s", category.id()));
-        if (levelIncluded) runsListLinkBuilder.append(String.format("&level=%s", level.id()));
-        runsListLinkBuilder.append(String.format("&max=%d", maxRuns));
-        runsListLinkBuilder.append("&status=verified");
-        runsListLinkBuilder.append(String.format("&%s", runsListInstructions));
-
-        List<RunStorage> runs =
-                new JsonReader(establishConnection(runsListLinkBuilder.toString())).createRunList(maxRuns, true);
-
-        List<String> runPlaces = new ArrayList<>();
-        for (RunStorage ignored : runs)
-            runPlaces.add("#");
-
-        return new LeaderboardStorage(runs, runPlaces);
+        return new LeaderboardReader(establishConnection(leaderboardLinkBuilder.toString())).createLeaderboard();
     }
 }
