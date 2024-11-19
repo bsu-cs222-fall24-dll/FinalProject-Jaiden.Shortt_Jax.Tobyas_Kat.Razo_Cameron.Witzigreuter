@@ -64,6 +64,7 @@ public class SpeedrunStatsController {
             categoryChoiceBox.setDisable(false);
             levelCheckbox.setDisable(false);
 
+            levelChoiceBox.getItems().clear();
             configureChoiceBoxes();
 
             runsByPlaceButton.setDisable(false);
@@ -78,6 +79,11 @@ public class SpeedrunStatsController {
         }
     }
     @FXML void configureChoiceBoxes() {
+        if (activeGame.levels().isEmpty()) {
+            levelCheckbox.setSelected(false);
+            levelCheckbox.setDisable(true);
+        }
+
         boolean shouldShowLevels = levelCheckbox.isSelected();
         levelChoiceBox.setDisable(!shouldShowLevels);
         categoryChoiceBox.getItems().clear();
