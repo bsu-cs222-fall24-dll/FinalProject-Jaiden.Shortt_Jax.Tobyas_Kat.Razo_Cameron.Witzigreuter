@@ -22,4 +22,4 @@ In this testing with coverage, the following packages and files are excluded:
 |-------------------------------------------------|---------------------------------------|----------------------------------------------------------------------------------------------------------|
 | `webapihandlers`, except `RunsListHandler.java` | <kbd>Package</kbd>, except <kbd>Class | Internet-enabled code should not be utilized in unit tests, except 2/5 methods are not internet-enabled. |
 | `CLI.java`                                      | <kbd>Class                            | View-layer code.                                                                                         | 
-| `application`                                   | <kbd>Package                          | View-layer code.                                                                                         |                                           
+| `application`, except `application.log`         | <kbd>Package                          | View-layer code.                                                                                         |                                           

@@ -52,7 +52,8 @@ public class RunStorageTest {
                 List.of(), "2024-10-05", "time"
         );
 
-        String expectedPrettyDateAtTimeOfWriting = "1 month ago";
+        // Rounds the month up or down by 15 days since
+        String expectedPrettyDateAtTimeOfWriting = "2 months ago";
         String actualPrettyDate = runWithLocalDate.prettyDateSubmitted();
 
         Assertions.assertEquals(expectedPrettyDateAtTimeOfWriting, actualPrettyDate);
