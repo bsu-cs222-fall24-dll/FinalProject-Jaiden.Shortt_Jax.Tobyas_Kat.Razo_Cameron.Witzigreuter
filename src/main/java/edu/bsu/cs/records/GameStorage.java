@@ -1,9 +1,11 @@
 package edu.bsu.cs.records;
+
+import java.util.List;
+
 public record GameStorage(
-        String weblink,
-        String selfLink,
         String id,
         String name,
 
-        String linkToCategories
+        List<CategoryStorage> categories,
+        List<LevelStorage> levels
 ) {}

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "edu.bsu.cs"
-version = "v0.2.0a"
+version = "v0.3.0a"
 
 repositories {
     mavenCentral()
@@ -23,6 +23,9 @@ dependencies {
 
     // https://mvnrepository.com/artifact/commons-io/commons-io
     implementation("commons-io:commons-io:2.17.0")
+
+    // https://mvnrepository.com/artifact/org.ocpsoft.prettytime/prettytime
+    implementation("org.ocpsoft.prettytime:prettytime:5.0.9.Final")
 }
 
 tasks.test {
@@ -30,7 +33,7 @@ tasks.test {
 }
 
 application {
-    mainClass.set("edu.bsu.cs.application.LeaderboardApplication")
+    mainClass.set("edu.bsu.cs.application.SpeedrunStatsApplication")
 }
 
 javafx {
