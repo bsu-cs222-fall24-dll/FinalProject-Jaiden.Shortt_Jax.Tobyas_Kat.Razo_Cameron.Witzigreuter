@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<!--suppress XmlUnresolvedReference; The "Users" class is not yet implemented. -->
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<VBox prefHeight="463.0" prefWidth="457.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Users">
-   <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" prefHeight="53.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-image-width: 5;" text="Player Profile" textAlignment="CENTER">
-         <font>
-            <Font size="32.0" />
-         </font>
-         <graphic>
-         </graphic></Label>
-      <Separator prefHeight="9.0" prefWidth="512.0" style="-fx-background-color: black;" />
-      <HBox prefHeight="50.0" prefWidth="500.0" style="-fx-border-color: black;">
-         <children>
-            <DialogPane contentText="NinjaNugget" headerText="Name:" prefHeight="74.0" prefWidth="326.0" />
-            <DialogPane contentText="8dwmy3lj" headerText="ID:" prefHeight="74.0" prefWidth="287.0" />
-            <DialogPane contentText="User" headerText="Role:" prefHeight="74.0" prefWidth="211.0" />
-            <Separator prefWidth="200.0" />
-         </children></HBox>
-      <Separator prefHeight="10.0" prefWidth="512.0" style="-fx-background-color: black;" />
-      <HBox prefHeight="192.0" prefWidth="510.0">
-         <children>
-            <VBox prefHeight="260.0" prefWidth="255.0" style="-fx-border-color: black;">
-               <children>
-                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="261.0" text="Information" underline="true" />
-                  <DialogPane contentText="https://www.speedrun.com/user/NinjaNugget" headerText="Web Link:" />
-                  <DialogPane contentText="https://www.speedrun.com/api/v1/runs?user=8dwmy3lj" headerText="Runs:" prefHeight="32.0" prefWidth="253.0" />
-                  <DialogPane contentText="Null" headerText="HitBox:" />
-                  <DialogPane contentText="https://www.speedrun.com/api/v1/users/8dwmy3lj/personal-bests" headerText="Personal Bests:" />
-               </children>
-            </VBox>
-            <VBox prefHeight="260.0" prefWidth="255.0" style="-fx-border-color: black;">
-               <children>
-                  <Label alignment="CENTER" prefHeight="25.0" prefWidth="261.0" text="Socials" underline="true" />
-                  <DialogPane contentText="https://www.twitch.tv/ninjanuggettt" headerText="Twitch:" />
-                  <DialogPane contentText="Null" headerText="YouTube:" />
-                  <DialogPane contentText="Null" headerText="Twitter:" />
-                  <DialogPane contentText="Null" headerText="SpeedRunsLive:" />
-               </children></VBox>
-         </children></HBox>
-   </children>
+<?import javafx.scene.text.Font?>
+<VBox prefHeight="463.0" prefWidth="457.0" style="-fx-border-color: black;" xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="Users">
+   <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" prefHeight="53.0" prefWidth="600.0"
+          style="-fx-border-color: black; -fx-border-image-width: 5;" text="Player Profile" textAlignment="CENTER">
+      <font>
+         <Font size="32.0"/>
+      </font>
+      <graphic>
+      </graphic>
+   </Label>
+   <Separator prefHeight="9.0" prefWidth="512.0" style="-fx-background-color: black;"/>
+   <HBox prefHeight="50.0" prefWidth="500.0" style="-fx-border-color: black;">
+      <DialogPane contentText="NinjaNugget" headerText="Name:" prefHeight="74.0" prefWidth="326.0"/>
+      <DialogPane contentText="8dwmy3lj" headerText="ID:" prefHeight="74.0" prefWidth="287.0"/>
+      <DialogPane contentText="User" headerText="Role:" prefHeight="74.0" prefWidth="211.0"/>
+      <Separator prefWidth="200.0"/>
+   </HBox>
+   <Separator prefHeight="10.0" prefWidth="512.0" style="-fx-background-color: black;"/>
+   <HBox prefHeight="192.0" prefWidth="510.0">
+      <VBox prefHeight="260.0" prefWidth="255.0" style="-fx-border-color: black;">
+         <Label alignment="CENTER" prefHeight="25.0" prefWidth="261.0" text="Information" underline="true"/>
+         <DialogPane contentText="https://www.speedrun.com/user/NinjaNugget" headerText="Web Link:"/>
+         <DialogPane contentText="https://www.speedrun.com/api/v1/runs?user=8dwmy3lj" headerText="Runs:"
+                     prefHeight="32.0" prefWidth="253.0"/>
+         <DialogPane contentText="Null" headerText="HitBox:"/>
+         <DialogPane contentText="https://www.speedrun.com/api/v1/users/8dwmy3lj/personal-bests"
+                     headerText="Personal Bests:"/>
+      </VBox>
+      <VBox prefHeight="260.0" prefWidth="255.0" style="-fx-border-color: black;">
+         <Label alignment="CENTER" prefHeight="25.0" prefWidth="261.0" text="Socials" underline="true"/>
+         <DialogPane contentText="https://www.twitch.tv/ninjanuggettt" headerText="Twitch:"/>
+         <DialogPane contentText="Null" headerText="YouTube:"/>
+         <DialogPane contentText="Null" headerText="Twitter:"/>
+         <DialogPane contentText="Null" headerText="SpeedRunsLive:"/>
+      </VBox>
+   </HBox>
 </VBox>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.String?>
+<AnchorPane prefHeight="400.0" prefWidth="688.0" stylesheets="@../styles/bootstrap3.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.application.splitstopwatch.SplitStopwatchController">
+    <TableView fx:id="splitsTable" layoutX="239.0" layoutY="11.2" prefHeight="379.0" prefWidth="375.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <columns>
+            <TableColumn fx:id="splitsNameColumn" prefWidth="120.0" sortable="false" text="Split Name" />
+            <TableColumn fx:id="splitsTimeTotalColumn" editable="false" prefWidth="120.0" text="Total Time Elapsed" />
+            <TableColumn fx:id="splitsTimeSinceColumn" editable="false" minWidth="8.0" prefWidth="120.0" sortable="false" text="Time Since Previous" />
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+        </columnResizePolicy>
+    </TableView>
+    <VBox alignment="BOTTOM_CENTER" layoutY="11.2" prefHeight="379.0" prefWidth="208.0" spacing="10.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <Label fx:id="stopwatchTimeLabel" text="-:--.---">
+            <VBox.margin>
+                <Insets bottom="50.0" />
+            </VBox.margin>
+            <font>
+                <Font size="36.0" />
+            </font>
+        </Label>
+        <VBox alignment="TOP_CENTER" prefHeight="190.0" prefWidth="208.0" spacing="10.0">
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+            <HBox alignment="CENTER">
+                <Button mnemonicParsing="false" onAction="#startStopwatchAction" prefWidth="75.0" text="Start">
+                    <styleClass>
+                        <String fx:value="first" />
+                        <String fx:value="success" />
+                    </styleClass>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#stopStopwatchAction" prefWidth="75.0" text="Stop">
+                    <styleClass>
+                        <String fx:value="last" />
+                        <String fx:value="danger" />
+                    </styleClass>
+                </Button>
+            </HBox>
+            <Button mnemonicParsing="false" onAction="#addNewSplitAction" prefHeight="31.0" prefWidth="150.0" styleClass="info" text="Split" />
+            <Button mnemonicParsing="false" onAction="#clearAction" prefHeight="31.0" prefWidth="150.0" styleClass="warning" text="Clear" />
+            <Button mnemonicParsing="false" onAction="#saveToFileAction" prefHeight="31.0" prefWidth="150.0" text="Save">
+                <VBox.margin>
+                    <Insets bottom="-5.0" top="30.0" />
+                </VBox.margin>
+            </Button>
+        </VBox>
+    </VBox>
+</AnchorPane>
