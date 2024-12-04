@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import java.lang.String?>
 <AnchorPane prefHeight="400.0" prefWidth="688.0" stylesheets="@../styles/bootstrap3.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.application.splitstopwatch.SplitStopwatchController">
-    <TableView fx:id="splitsTable" layoutX="239.0" layoutY="11.2" prefHeight="379.0" prefWidth="375.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+    <TableView fx:id="splitsTable" editable="true" layoutX="239.0" layoutY="11.2" prefHeight="379.0" prefWidth="375.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="230.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
         <columns>
             <TableColumn fx:id="splitsNameColumn" prefWidth="120.0" sortable="false" text="Split Name" />
             <TableColumn fx:id="splitsTimeTotalColumn" editable="false" prefWidth="120.0" text="Total Time Elapsed" />

@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 import java.util.ArrayList;
 
@@ -27,6 +28,7 @@ public class SplitStopwatchController {
 
         splitsTable.getItems().clear();
         splitsNameColumn.setCellValueFactory(p -> new ReadOnlyObjectWrapper<>(p.getValue().getSplitName()));
+        splitsNameColumn.setCellFactory(TextFieldTableCell.forTableColumn());
         splitsTimeTotalColumn.setCellValueFactory(p -> new ReadOnlyObjectWrapper<>(p.getValue().getTimeTotal()));
         splitsTimeSinceColumn.setCellValueFactory(p -> new ReadOnlyObjectWrapper<>(p.getValue().getTimeSince()));
     }
