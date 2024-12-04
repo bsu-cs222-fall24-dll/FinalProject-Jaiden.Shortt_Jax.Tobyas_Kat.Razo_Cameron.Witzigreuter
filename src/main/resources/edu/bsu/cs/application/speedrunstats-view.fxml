@@ -11,7 +11,7 @@
             <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
         </Menu>
         <Menu mnemonicParsing="false" text="Tools">
-            <MenuItem mnemonicParsing="false" onAction="#openTimerTool" text="Open Timer Tool"/>
+            <MenuItem mnemonicParsing="false" onAction="#openTimerTool" text="Open Splits Stopwatch" />
         </Menu>
     </MenuBar>
     <VBox alignment="TOP_CENTER" prefHeight="466.0" prefWidth="410.0" spacing="2.0">

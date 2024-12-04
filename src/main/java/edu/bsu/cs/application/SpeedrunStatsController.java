@@ -11,7 +11,11 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -175,12 +179,18 @@ public class SpeedrunStatsController {
 
 
     @FXML void openTimerTool() {
-        Alert timerNyiAlert = new Alert(Alert.AlertType.INFORMATION);
-        timerNyiAlert.setTitle("Whoops!");
-        timerNyiAlert.setHeaderText("Not Yet Implemented");
-        timerNyiAlert.setContentText("Sorry, this tool is still under construction.");
+        try {
+            FXMLLoader splitStopwatchLoader = new FXMLLoader(getClass().getResource("splitstopwatch/splitstopwatch-view.fxml"));
+            Parent root = splitStopwatchLoader.load();
 
-        timerNyiAlert.showAndWait();
+            Stage splitStopwatchStage = new Stage();
+            splitStopwatchStage.setTitle("Split Stopwatch");
+            splitStopwatchStage.setScene(new Scene(root));
+            splitStopwatchStage.show();
+        }
+        catch (IOException e) {
+            handleException(e);
+        }
     }
 
 
