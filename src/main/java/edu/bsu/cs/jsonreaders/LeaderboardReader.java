@@ -43,7 +43,7 @@ public class LeaderboardReader extends JsonReader {
             toReturn.add(new RunStorage(
                     matchPlayersToRun(pathToThisRun),
                     getDateSubmitted(pathToThisRun),
-                    (String) scan(String.format("%s.times.primary", pathToThisRun))
+                    Double.parseDouble(String.valueOf(scan(String.format("%s.times.primary_t", pathToThisRun))))
             ));
         }
 

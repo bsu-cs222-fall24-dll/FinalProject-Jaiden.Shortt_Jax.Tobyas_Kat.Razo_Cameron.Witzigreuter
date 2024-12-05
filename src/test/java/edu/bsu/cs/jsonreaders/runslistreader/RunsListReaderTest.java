@@ -46,7 +46,7 @@ public class RunsListReaderTest {
                                 "user",
                                 getMap("1A")
                         )),
-                        "2024-11-17T12:04:01Z", "PT1H25M41S"
+                        "2024-11-17T12:04:01Z", 5141
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -56,7 +56,7 @@ public class RunsListReaderTest {
                                 "user",
                                 getMap("1B")
                         )),
-                        "2024-11-17T10:45:52Z", "PT1H14M48S"
+                        "2024-11-17T10:45:52Z", 4488
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -66,7 +66,7 @@ public class RunsListReaderTest {
                                 "user",
                                 getMap("1C")
                         )),
-                        "2024-11-17T05:16:37Z", "PT23M48S"
+                        "2024-11-17T05:16:37Z", 1428
                 )
         );
     }
@@ -88,7 +88,7 @@ public class RunsListReaderTest {
                                 "user",
                                 getMap("2A")
                         )),
-                        "submitted", "run1time"
+                        "submitted", 0
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -98,7 +98,7 @@ public class RunsListReaderTest {
                                 "guest",
                                 getMap("2B")
                         )),
-                        "date", "run2time"
+                        "date", 0
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -108,7 +108,7 @@ public class RunsListReaderTest {
                                 "guest",
                                 getMap("2C")
                         )),
-                        "verify-date", "run3time"
+                        "verify-date", 0
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -118,7 +118,7 @@ public class RunsListReaderTest {
                                 "guest",
                                 getMap("2D")
                         )),
-                        null, "run4time"
+                        null, 0
                 )
         );
     }

@@ -17,7 +17,7 @@ public class RunStorageTest {
                         "",
                         new LinkedHashMap<>()
                 )),
-                "date", "time"
+                "date", 0
         );
 
         String expectedPlayernames = "player";
@@ -33,7 +33,7 @@ public class RunStorageTest {
                         new PlayerStorage("player 1", "selflink 1", "", "", new LinkedHashMap<>()),
                         new PlayerStorage("player 2", "selflink 2", "", "", new LinkedHashMap<>())
                 ),
-                "date", "time"
+                "date", 0
         );
 
         String expectedPlayernames = "player 1, ...";
@@ -46,7 +46,7 @@ public class RunStorageTest {
     @Test
     public void test_prettyDateSubmitted_fromLocalDateTime() {
         RunStorage runWithLocalDateTime = new RunStorage(
-                List.of(), "2024-01-21T12:20:16Z", "time"
+                List.of(), "2024-01-21T12:20:16Z", 0
         );
 
         String expectedPrettyDateAtTimeOfWriting = "10 months ago";
@@ -58,7 +58,7 @@ public class RunStorageTest {
     @Test
     public void test_prettyDateSubmitted_fromLocalDate() {
         RunStorage runWithLocalDate = new RunStorage(
-                List.of(), "2024-10-05", "time"
+                List.of(), "2024-10-05", 0
         );
 
         // Rounds the month up or down by 15 days since
@@ -71,7 +71,7 @@ public class RunStorageTest {
     @Test
     public void test_prettyDateSubmitted_fromNull() {
         RunStorage runWithNullDate = new RunStorage(
-                List.of(), null, "time"
+                List.of(), null, 0
         );
 
         String expectedPrettyDate = "<no date found>";

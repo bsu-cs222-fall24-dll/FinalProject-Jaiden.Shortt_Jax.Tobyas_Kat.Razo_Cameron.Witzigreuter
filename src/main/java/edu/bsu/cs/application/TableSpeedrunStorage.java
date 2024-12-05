@@ -13,7 +13,7 @@ public class TableSpeedrunStorage {
         placeProperty().set(String.valueOf(leaderboard.runPlaces().get(indexOfRun)));
         usernameProperty().set(thisRun.playernamesForLeaderboard());
         dateProperty().set(thisRun.prettyDateSubmitted());
-        runTimeProperty().set(thisRun.primaryRunTime());
+        runTimeProperty().set(String.valueOf(thisRun.primaryRunTime()));
     }
 
 

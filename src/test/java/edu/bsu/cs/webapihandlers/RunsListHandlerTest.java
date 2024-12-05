@@ -31,7 +31,7 @@ public class RunsListHandlerTest {
                                 "user",
                                 getMap(1)
                         )),
-                        "2024-11-17T12:04:01Z", "PT1H25M41S"
+                        "2024-11-17T12:04:01Z", 5141
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -41,7 +41,7 @@ public class RunsListHandlerTest {
                                 "user",
                                 getMap(2)
                         )),
-                        "2024-11-17T10:45:52Z", "PT1H14M48S"
+                        "2024-11-17T10:45:52Z", 4488
                 ),
 
                 new RunStorage(
@@ -52,7 +52,7 @@ public class RunsListHandlerTest {
                                 "user",
                                 getMap(3)
                         )),
-                        "2024-11-17T05:16:37Z", "PT23M48S"
+                        "2024-11-17T05:16:37Z", 1428
                 )
         );
     }

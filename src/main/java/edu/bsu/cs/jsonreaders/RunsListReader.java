@@ -28,7 +28,7 @@ public class RunsListReader extends JsonReader {
     private RunStorage createRunWithPlayersAtPath(String path) {
         List<PlayerStorage> players = createPlayersAtPath(String.format("%s.players", path));
         String dateSubmitted = getDateSubmitted(path);
-        String primaryRunTime = (String) scan(String.format("%s.times.primary", path));
+        double primaryRunTime = Double.parseDouble(String.valueOf(scan(String.format("%s.times.primary_t", path))));
 
         return new RunStorage(players, dateSubmitted, primaryRunTime);
     }

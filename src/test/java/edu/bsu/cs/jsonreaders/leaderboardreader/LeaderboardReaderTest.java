@@ -47,7 +47,7 @@ public class LeaderboardReaderTest {
                                 "user",
                                 getMap("1A")
                         )),
-                        "2024-10-14T08:11:12Z", "PT17M24S"
+                        "2024-10-14T08:11:12Z", 1044
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -57,7 +57,7 @@ public class LeaderboardReaderTest {
                                 "user",
                                 getMap("1B")
                         )),
-                        "2024-11-07T02:19:28Z", "PT18M57S"
+                        "2024-11-07T02:19:28Z", 1137
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -67,7 +67,7 @@ public class LeaderboardReaderTest {
                                 "user",
                                 getMap("1C")
                         )),
-                        "2024-11-17T05:16:37Z", "PT23M48S"
+                        "2024-11-17T05:16:37Z", 1428
                 )
         );
         List<String> places = List.of("1", "2", "3");
@@ -93,7 +93,7 @@ public class LeaderboardReaderTest {
                                 "user",
                                 getMap("2A")
                         )),
-                        "submitted", "run1time"
+                        "submitted", 0
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -103,7 +103,7 @@ public class LeaderboardReaderTest {
                                 "guest",
                                 getMap("2B")
                         )),
-                        "date", "run2time"
+                        "date", 0
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -113,7 +113,7 @@ public class LeaderboardReaderTest {
                                 "guest",
                                 getMap("2C")
                         )),
-                        "verify-date", "run3time"
+                        "verify-date", 0
                 ),
                 new RunStorage(
                         List.of(new PlayerStorage(
@@ -123,7 +123,7 @@ public class LeaderboardReaderTest {
                                 "guest",
                                 getMap("2D")
                         )),
-                        null, "run4time"
+                        null, 0
                 )
         );
         List<String> places = List.of("1", "2", "3", "4");

@@ -16,7 +16,7 @@
                     "submitted": "submitted",
                     "date": "date",
                     "times": {
-                        "primary": "run1time"
+                        "primary_t": 0
                     }
                 }
             },
@@ -35,7 +35,7 @@
                     "submitted": null,
                     "date": "date",
                     "times": {
-                        "primary": "run2time"
+                        "primary_t": 0
                     }
                 }
             },
@@ -54,7 +54,7 @@
                     "submitted": null,
                     "date": null,
                     "times": {
-                        "primary": "run3time"
+                        "primary_t": 0
                     }
                 }
             },
@@ -72,7 +72,7 @@
                     "submitted": null,
                     "date": null,
                     "times": {
-                        "primary": "run4time"
+                        "primary_t": 0
                     }
                 }
             }

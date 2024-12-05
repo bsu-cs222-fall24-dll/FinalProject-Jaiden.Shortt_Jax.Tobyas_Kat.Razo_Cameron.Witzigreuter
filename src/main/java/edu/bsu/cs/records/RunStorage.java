@@ -10,7 +10,7 @@ public record RunStorage(
         List<PlayerStorage> players,
 
         String dateSubmitted,
-        String primaryRunTime
+        double primaryRunTime
 ) {
     private static final PrettyTime prettyTime = new PrettyTime();
 
