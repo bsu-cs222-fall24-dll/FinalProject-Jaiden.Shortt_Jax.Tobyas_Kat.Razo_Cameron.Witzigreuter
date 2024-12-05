@@ -1,5 +1,6 @@
-package edu.bsu.cs.jsonreaders;
+package edu.bsu.cs.jsonreaders.runslistreader;
 
+import edu.bsu.cs.jsonreaders.RunsListReader;
 import edu.bsu.cs.records.PlayerStorage;
 import edu.bsu.cs.records.RunStorage;
 import org.apache.commons.io.IOUtils;
@@ -7,21 +8,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class RunsListReaderTest {
     @BeforeAll
     public static void initializeRunsListReader() throws IOException {
-        smsRunsListReader = new RunsListReader(
-                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/jsonreaders/RunsListReader/sms-anypercent-runs-by-date.json"), StandardCharsets.UTF_8)
-        );
-        pseudoRunsListReader = new RunsListReader(
-                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/jsonreaders/RunsListReader/fake-runslist-for-players.json"), StandardCharsets.UTF_8)
-        );
+        smsRunsListReader = new RunsListReader(IOUtils.toString(Objects.requireNonNull(
+                RunsListReaderTest.class.getResourceAsStream("sms-anypercent-runs-by-date.json")),
+                StandardCharsets.UTF_8
+        ));
+        pseudoRunsListReader = new RunsListReader(IOUtils.toString(Objects.requireNonNull(
+                RunsListReaderTest.class.getResourceAsStream("fake-runslist-for-players.json")),
+                StandardCharsets.UTF_8
+        ));
     }
     static RunsListReader smsRunsListReader, pseudoRunsListReader;
 

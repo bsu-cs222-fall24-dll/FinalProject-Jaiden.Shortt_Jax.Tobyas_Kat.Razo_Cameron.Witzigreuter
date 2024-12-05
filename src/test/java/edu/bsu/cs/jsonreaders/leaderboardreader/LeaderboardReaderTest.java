@@ -1,5 +1,6 @@
-package edu.bsu.cs.jsonreaders;
+package edu.bsu.cs.jsonreaders.leaderboardreader;
 
+import edu.bsu.cs.jsonreaders.LeaderboardReader;
 import edu.bsu.cs.records.LeaderboardStorage;
 import edu.bsu.cs.records.PlayerStorage;
 import edu.bsu.cs.records.RunStorage;
@@ -8,21 +9,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class LeaderboardReaderTest {
     @BeforeAll
     public static void initializeLeaderboardReaders() throws IOException {
-        smsAnyPercentReader = new LeaderboardReader(
-                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/jsonreaders/LeaderboardReader/sms-anypercent-leaderboard-with-embeds.json"), StandardCharsets.UTF_8)
-        );
-        pseudoLeaderboardReader = new LeaderboardReader(
-                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/jsonreaders/LeaderboardReader/fake-leaderboard-for-players.json"), StandardCharsets.UTF_8)
-        );
+        smsAnyPercentReader = new LeaderboardReader(IOUtils.toString(Objects.requireNonNull(
+                LeaderboardReaderTest.class.getResourceAsStream("sms-anypercent-leaderboard-with-embeds.json")),
+                StandardCharsets.UTF_8
+        ));
+        pseudoLeaderboardReader = new LeaderboardReader(IOUtils.toString(Objects.requireNonNull(
+                LeaderboardReaderTest.class.getResourceAsStream("fake-leaderboard-for-players.json")),
+                StandardCharsets.UTF_8
+        ));
     }
     static LeaderboardReader smsAnyPercentReader, pseudoLeaderboardReader;
 

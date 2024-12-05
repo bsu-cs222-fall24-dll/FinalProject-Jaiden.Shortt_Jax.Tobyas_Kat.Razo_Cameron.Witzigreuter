@@ -1,5 +1,7 @@
-package edu.bsu.cs.jsonreaders;
+package edu.bsu.cs.jsonreaders.gamereader;
 
+import edu.bsu.cs.jsonreaders.GameReader;
+import edu.bsu.cs.jsonreaders.JsonReader;
 import edu.bsu.cs.records.CategoryStorage;
 import edu.bsu.cs.records.GameStorage;
 import edu.bsu.cs.records.LevelStorage;
@@ -8,17 +10,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Objects;
 
 public class GameReaderTest {
     @BeforeAll
     public static void initializeGameReaders() throws IOException {
-        smsGameReader = new GameReader(
-                IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/jsonreaders/GameReader/sms-game-with-embeds.json"), StandardCharsets.UTF_8)
-        );
+        smsGameReader = new GameReader(IOUtils.toString(Objects.requireNonNull(
+                GameReaderTest.class.getResourceAsStream("sms-game-with-embeds.json")),
+                StandardCharsets.UTF_8
+        ));
     }
     static GameReader smsGameReader;
 
@@ -32,9 +35,10 @@ public class GameReaderTest {
             // but to test its behavior upon construction.
             @SuppressWarnings("unused")
 
-            JsonReader jsonReaderWithBadJson = new GameReader(
-                    IOUtils.toString(new FileInputStream("src/test/resources/edu.bsu.cs/jsonreaders/GameReader/status-404.json"), StandardCharsets.UTF_8)
-            );
+            JsonReader jsonReaderWithBadJson = new GameReader(IOUtils.toString(Objects.requireNonNull(
+                    GameReaderTest.class.getResourceAsStream("status-404.json")),
+                    StandardCharsets.UTF_8
+            ));
         }
         catch (IOException jsonReaderThrewStatusErrorException) {
             gameReaderThrewErrorForStatus = true;
