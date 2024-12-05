@@ -7,7 +7,7 @@
 <?import javafx.scene.text.*?>
 
 <VBox prefHeight="463.0" prefWidth="457.0" stylesheets="@../styles/bootstrap3.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.application.playerprofile.PlayerProfileController">
-   <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" prefHeight="53.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-image-width: 5;" text="Player Profile" textAlignment="CENTER">
+   <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" prefHeight="53.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-image-width: 5;" text="User Profile" textAlignment="CENTER">
       <font>
          <Font size="32.0" />
       </font>
@@ -17,16 +17,16 @@
    <Separator prefHeight="9.0" prefWidth="512.0" style="-fx-background-color: black;" />
    <HBox prefHeight="50.0" prefWidth="500.0" style="-fx-border-color: black;">
       <VBox prefHeight="48.0" prefWidth="155.0">
-         <Label prefHeight="31.0" prefWidth="161.0" text="Name:"/>
-         <Label fx:id="userNameDisplayLabel" text="nameLabel"/>
+         <Label prefHeight="31.0" prefWidth="161.0" text="Name:" />
+         <Label fx:id="userNameDisplayLabel" text="nameLabel" />
       </VBox>
       <VBox prefHeight="48.0" prefWidth="162.0">
-         <Label prefHeight="72.0" prefWidth="46.0" text="Type:"/>
-         <Label fx:id="typeDisplayLabel" prefHeight="58.0" prefWidth="59.0" text="typeLabel"/>
+         <Label prefHeight="72.0" prefWidth="46.0" text="Type:" />
+         <Label fx:id="typeDisplayLabel" prefHeight="58.0" prefWidth="59.0" text="typeLabel" />
       </VBox>
       <VBox prefHeight="48.0" prefWidth="158.0">
-         <Label prefHeight="70.0" prefWidth="75.0" text="Web link:"/>
-         <Label fx:id="weblinkDisplayLabel" prefHeight="35.0" prefWidth="93.0" text="WeblinkLabel"/>
+         <Label prefHeight="70.0" prefWidth="75.0" text="Web link:" />
+         <Label fx:id="weblinkDisplayLabel" prefHeight="35.0" prefWidth="93.0" text="WeblinkLabel" />
       </VBox>
    </HBox>
    <Separator prefHeight="10.0" prefWidth="512.0" style="-fx-background-color: black;" />
@@ -34,15 +34,15 @@
       <VBox prefHeight="295.0" prefWidth="457.0" style="-fx-border-color: black;">
          <Label alignment="CENTER" prefHeight="25.0" prefWidth="456.0" text="Socials" underline="true" />
          <Label text="Twitch:" />
-         <Label fx:id="twitchDisplayLabel" prefHeight="47.0" prefWidth="77.0" text="TwitchLabel" />
+         <Label fx:id="twitchDisplayLabel" prefHeight="47.0" prefWidth="454.0" text="TwitchLabel" />
          <Label text="YouTube:" />
-         <Label fx:id="youtubeDisplayLabel" prefHeight="43.0" prefWidth="84.0" text="YoutubeLabel" />
+         <Label fx:id="youtubeDisplayLabel" prefHeight="43.0" prefWidth="454.0" text="YoutubeLabel" />
          <Label text="Twitter:" />
-         <Label fx:id="twitterDisplayLabel" prefHeight="47.0" prefWidth="74.0" text="TwitterLabel" />
+         <Label fx:id="twitterDisplayLabel" prefHeight="47.0" prefWidth="454.0" text="TwitterLabel" />
          <Label text="Speed Runs Live:" />
-         <Label fx:id="speedrunsLiveDisplayLabel" prefHeight="43.0" prefWidth="116.0" text="SpeedrunsliveLabel" />
+         <Label fx:id="speedrunsLiveDisplayLabel" prefHeight="43.0" prefWidth="456.0" text="SpeedrunsliveLabel" />
          <Label text="HitBox:" />
-         <Label fx:id="hitBoxDisplayLabel" prefHeight="42.0" prefWidth="86.0" text="HitBoxLabel" />
+         <Label fx:id="hitBoxDisplayLabel" prefHeight="42.0" prefWidth="458.0" text="HitBoxLabel" />
       </VBox>
    </HBox>
 </VBox>
