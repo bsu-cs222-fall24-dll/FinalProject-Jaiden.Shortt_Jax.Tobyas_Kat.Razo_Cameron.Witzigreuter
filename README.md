@@ -34,11 +34,12 @@ To run this code, simply clone the code or download the latest release and open 
 Load the code into your IDE, then run `Main.java`.  
 
 ### To Run The JavaFX Graphical Interface
-Load the code into your IDE, then run `LeaderboardApplication.java`
+Load the code into your IDE, then run the Gradle Task `Tasks > Application > run`.  
+To open the Splits Stopwatch, navigate to `Tools > Open Splits Stopwatch` in the main application's menubar.
 
 ## Searching For A Game
 Due to how the url is assembled, it's highly recommended that you have the game ID/token from the website url when you search.\
-*Ex: the url token for Super Mario Sunshine is 'SMS', while the ID is 'v1pxjz68'.*
+*Ex: the url token for Super Mario Sunshine is 'sms', while the ID is 'v1pxjz68'.*
 
 ---
 ## Attribution
