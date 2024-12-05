@@ -178,6 +178,22 @@ public class SpeedrunStatsController {
     }
 
 
+
+    @FXML void openPlayerProfile(){
+        try {
+            FXMLLoader playerProfileLoader = new FXMLLoader(getClass().getResource("playerprofile/playerprofile-view.fxml"));
+            Parent root = playerProfileLoader.load();
+
+            Stage playerProfileStage = new Stage();
+            playerProfileStage.setTitle("Profile");
+            playerProfileStage.setScene(new Scene(root));
+            playerProfileStage.show();
+        } catch (IOException e) {
+           handleException(e);
+        }
+    }
+
+
     @FXML void openTimerTool() {
         try {
             FXMLLoader splitStopwatchLoader = new FXMLLoader(getClass().getResource("splitstopwatch/splitstopwatch-view.fxml"));
