@@ -44,8 +44,8 @@
                 </Button>
             </HBox>
             <Button mnemonicParsing="false" onAction="#addNewSplitAction" prefHeight="31.0" prefWidth="150.0" styleClass="info" text="Split" />
-            <Button mnemonicParsing="false" onAction="#clearAction" prefHeight="31.0" prefWidth="150.0" styleClass="warning" text="Clear" />
-            <Button mnemonicParsing="false" onAction="#saveToFileAction" prefHeight="31.0" prefWidth="150.0" text="Save">
+            <Button mnemonicParsing="false" onAction="#resetAction" prefHeight="31.0" prefWidth="150.0" styleClass="warning" text="Reset" />
+            <Button mnemonicParsing="false" onAction="#saveToFileAction" disable="true" prefHeight="31.0" prefWidth="150.0" text="Save">
                 <VBox.margin>
                     <Insets bottom="-5.0" top="30.0" />
                 </VBox.margin>

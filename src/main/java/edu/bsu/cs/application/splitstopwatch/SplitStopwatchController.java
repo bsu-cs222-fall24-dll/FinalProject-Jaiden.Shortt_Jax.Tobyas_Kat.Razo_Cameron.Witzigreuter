@@ -12,6 +12,7 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import java.util.ArrayList;
 
 public class SplitStopwatchController {
+    Stopwatch stopwatch = new Stopwatch();
     ObservableList<Split> listOfSplitsForTable;
 
     @FXML private Label stopwatchTimeLabel;
@@ -36,20 +37,24 @@ public class SplitStopwatchController {
 
 
     @FXML void addNewSplitAction() {
-        listOfSplitsForTable.add(new Split("Time Total", "Time Since"));
+        listOfSplitsForTable.add(new Split(String.valueOf(stopwatch.getTimeElapsedFormatted()), "Time Since"));
         splitsTable.setItems(FXCollections.observableList(listOfSplitsForTable));
     }
 
-    @FXML void clearAction() {
-        stopwatchTimeLabel.setText("-:--.---");
+    @FXML void resetAction() {
+        stopwatch.resetStopwatch();
         splitsTable.getItems().clear();
     }
 
     @FXML void saveToFileAction() {}
 
-    @FXML void startStopwatchAction() {}
+    @FXML void startStopwatchAction() {
+        stopwatch.startStopwatch(stopwatchTimeLabel);
+    }
 
-    @FXML void stopStopwatchAction() {}
+    @FXML void stopStopwatchAction() {
+        stopwatch.stopStopwatch();
+    }
 
 
     // ...
