@@ -14,21 +14,21 @@ public class PlayerProfileController {
     @FXML private Label userNameDisplayLabel;
     @FXML private Label typeDisplayLabel;
     @FXML private Hyperlink weblinkHyperlink;
-    @FXML private Label twitchDisplayLabel;
-    @FXML private Label hitBoxDisplayLabel;
-    @FXML private Label youtubeDisplayLabel;
-    @FXML private Label twitterDisplayLabel;
-    @FXML private Label speedrunsLiveDisplayLabel;
+    @FXML private Hyperlink twitchHyperlink;
+    @FXML private Hyperlink hitBoxHyperlink;
+    @FXML private Hyperlink youtubeHyperlink;
+    @FXML private Hyperlink twitterHyperlink;
+    @FXML private Hyperlink speedrunsLiveHyperlink;
 
     public void inputPlayerInformation(PlayerStorage playerStorage){
         userNameDisplayLabel.setText(playerStorage.name());
         weblinkHyperlink.setText(playerStorage.weblink());
         typeDisplayLabel.setText(playerStorage.type());
-        twitchDisplayLabel.setText(playerStorage.socialMedias().get("twitch"));
-        hitBoxDisplayLabel.setText(playerStorage.socialMedias().get("hitbox"));
-        youtubeDisplayLabel.setText(playerStorage.socialMedias().get("youtube"));
-        twitterDisplayLabel.setText(playerStorage.socialMedias().get("twitter"));
-        speedrunsLiveDisplayLabel.setText(playerStorage.socialMedias().get("speedrunsLive"));
+        twitchHyperlink.setText(playerStorage.socialMedias().get("twitch"));
+        hitBoxHyperlink.setText(playerStorage.socialMedias().get("hitbox"));
+        youtubeHyperlink.setText(playerStorage.socialMedias().get("youtube"));
+        twitterHyperlink.setText(playerStorage.socialMedias().get("twitter"));
+        speedrunsLiveHyperlink.setText(playerStorage.socialMedias().get("speedrunsLive"));
     }
 
     public void openLinkAction(ActionEvent actionEvent) throws IOException {

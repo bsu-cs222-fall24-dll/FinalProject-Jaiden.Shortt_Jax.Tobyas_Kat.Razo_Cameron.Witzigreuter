@@ -50,42 +50,42 @@
             <padding>
                <Insets left="30.0" />
             </padding></Label>
-         <Label fx:id="twitchDisplayLabel" prefHeight="47.0" prefWidth="454.0" text="TwitchLabel">
+         <Hyperlink fx:id="twitchHyperlink" onAction="#openLinkAction" prefHeight="47.0" prefWidth="454.0" text="TwitchLabel">
             <padding>
                <Insets left="45.0" />
-            </padding></Label>
+            </padding></Hyperlink>
          <Label text="YouTube:" underline="true">
             <padding>
                <Insets left="30.0" />
             </padding></Label>
-         <Label fx:id="youtubeDisplayLabel" prefHeight="43.0" prefWidth="454.0" text="YoutubeLabel">
+         <Hyperlink fx:id="youtubeHyperlink" onAction="#openLinkAction" prefHeight="43.0" prefWidth="454.0" text="YoutubeLabel">
             <padding>
                <Insets left="45.0" />
-            </padding></Label>
+            </padding></Hyperlink>
          <Label text="Twitter:" underline="true">
             <padding>
                <Insets left="30.0" />
             </padding></Label>
-         <Label fx:id="twitterDisplayLabel" prefHeight="47.0" prefWidth="454.0" text="TwitterLabel">
+         <Hyperlink fx:id="twitterHyperlink" onAction="#openLinkAction" prefHeight="47.0" prefWidth="454.0" text="TwitterLabel">
             <padding>
                <Insets left="45.0" />
-            </padding></Label>
+            </padding></Hyperlink>
          <Label text="Speed Runs Live:" underline="true">
             <padding>
                <Insets left="30.0" />
             </padding></Label>
-         <Label fx:id="speedrunsLiveDisplayLabel" prefHeight="43.0" prefWidth="456.0" text="SpeedrunsliveLabel">
+         <Hyperlink fx:id="speedrunsLiveHyperlink" onAction="#openLinkAction" prefHeight="43.0" prefWidth="456.0" text="SpeedrunsliveLabel">
             <padding>
                <Insets left="45.0" />
-            </padding></Label>
+            </padding></Hyperlink>
          <Label text="HitBox:" underline="true">
             <padding>
                <Insets left="30.0" />
             </padding></Label>
-         <Label fx:id="hitBoxDisplayLabel" prefHeight="42.0" prefWidth="458.0" text="HitBoxLabel">
+         <Hyperlink fx:id="hitBoxHyperlink" onAction="#openLinkAction" prefHeight="42.0" prefWidth="458.0" text="HitBoxLabel">
             <padding>
                <Insets left="45.0" />
-            </padding></Label>
+            </padding></Hyperlink>
       </VBox>
    </HBox>
 </VBox>
