@@ -2,9 +2,12 @@
 # Final Project: Speedrun.com Leaderboard Changes
 This project shows a user recent changes to a leaderboard in any category of any game. Results can be filtered by top position and sorted by a few methods.
 
-The **first iteration** allows users to lookup the top 10-20 speedrunners on a given leaderboard. It runs in the Command-Line Interface.  
+The **first iteration** allows users to lookup the top 10-20 speedrunners on a given leaderboard. It runs in the Command-Line Interface.
+
 The **second iteration** contains a JavaFX UI that is more flexible and powerful than the CLI version.
-The **third iteration** provides users a timer to record their own time splits. It will run in a JavaFX GUI. This iteration also includes a **Splits Stopwatch**, which can be opened from the main JavaFX Application at `Tools > Open Splits Stopwatch`. Many JavaFX GUI features are also ported to the CLI.
+
+The **third iteration** provides users a timer to record their own time splits. It runs both in a JavaFX GUI and in the CLI.  
+This iteration also includes a **Splits Stopwatch**, which can be opened from the main JavaFX Application at `Tools > Open Splits Stopwatch`. Many JavaFX GUI features are also ported to the CLI.
 
 <i><sup>For information about testing coverage, see <a href="https://github.com/bsu-cs222-fall24-dll/FinalProject-Jaiden.Shortt_Jax.Tobyas_Kat.Razo_Cameron.Witzigreuter/edit/master/src/test/Coverage.md">Coverage.md</a>.</sup></i>
 
