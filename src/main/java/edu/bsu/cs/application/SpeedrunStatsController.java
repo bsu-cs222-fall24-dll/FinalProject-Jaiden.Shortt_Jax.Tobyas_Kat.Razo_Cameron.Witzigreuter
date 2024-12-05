@@ -1,9 +1,7 @@
 package edu.bsu.cs.application;
 
-import edu.bsu.cs.records.CategoryStorage;
-import edu.bsu.cs.records.GameStorage;
-import edu.bsu.cs.records.LeaderboardStorage;
-import edu.bsu.cs.records.LevelStorage;
+import edu.bsu.cs.application.playerprofile.PlayerProfileController;
+import edu.bsu.cs.records.*;
 import edu.bsu.cs.webapihandlers.GameHandler;
 import edu.bsu.cs.webapihandlers.LeaderboardHandler;
 import edu.bsu.cs.webapihandlers.RunsListHandler;
@@ -17,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import javafx.scene.input.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -178,8 +177,11 @@ public class SpeedrunStatsController {
     }
 
 
-
-    @FXML void openPlayerProfile(){
+    @FXML void openPlayerProfileWithSelectedCell(MouseEvent event) {
+        if (event.getClickCount() == 2)
+            openPlayerProfile(leaderboardTable.getSelectionModel().getSelectedItem().getPlayer());
+    }
+    private void openPlayerProfile(PlayerStorage player){
         try {
             FXMLLoader playerProfileLoader = new FXMLLoader(getClass().getResource("playerprofile/playerprofile-view.fxml"));
             Parent root = playerProfileLoader.load();
@@ -188,6 +190,10 @@ public class SpeedrunStatsController {
             playerProfileStage.setTitle("Profile");
             playerProfileStage.setScene(new Scene(root));
             playerProfileStage.show();
+
+            if (playerProfileLoader.getController() instanceof PlayerProfileController)
+                ((PlayerProfileController) playerProfileLoader.getController()).inputPlayerInformation(player);
+                
         } catch (IOException e) {
            handleException(e);
         }

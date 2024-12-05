@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<?import java.lang.*?>
-<VBox alignment="CENTER" prefHeight="495.0" prefWidth="418.0" stylesheets="@styles/bootstrap3.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.application.SpeedrunStatsController">
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="495.0" prefWidth="418.0" stylesheets="@styles/bootstrap3.css" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.application.SpeedrunStatsController">
     <MenuBar>
         <Menu mnemonicParsing="false" text="File">
             <MenuItem mnemonicParsing="false" onAction="#exit" text="Exit" />
@@ -71,7 +72,7 @@
             </Button>
         </HBox>
 
-        <TableView fx:id="leaderboardTable" disable="true" prefHeight="293.0" prefWidth="316.0">
+        <TableView fx:id="leaderboardTable" disable="true" onMouseClicked="#openPlayerProfileWithSelectedCell" prefHeight="293.0" prefWidth="316.0">
             <columns>
                 <TableColumn fx:id="placeColumn" prefWidth="49.1999996304512" text="Place" />
                 <TableColumn fx:id="usernameColumn" prefWidth="84.40002822875977" text="Username" />

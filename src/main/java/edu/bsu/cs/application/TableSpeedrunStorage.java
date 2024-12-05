@@ -1,20 +1,27 @@
 package edu.bsu.cs.application;
 
 import edu.bsu.cs.records.LeaderboardStorage;
+import edu.bsu.cs.records.PlayerStorage;
 import edu.bsu.cs.records.RunStorage;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class TableSpeedrunStorage {
+    private final RunStorage leaderboardRun;
 
     public TableSpeedrunStorage(LeaderboardStorage leaderboard, int indexOfRun) {
-        RunStorage thisRun = leaderboard.runs().get(indexOfRun);
+        leaderboardRun = leaderboard.runs().get(indexOfRun);
 
         placeProperty().set(String.valueOf(leaderboard.runPlaces().get(indexOfRun)));
-        usernameProperty().set(thisRun.playernamesForLeaderboard());
-        dateProperty().set(thisRun.prettyDateSubmitted());
-        runTimeProperty().set(String.valueOf(thisRun.primaryRunTime()));
+        usernameProperty().set(leaderboardRun.playernamesForLeaderboard());
+        dateProperty().set(leaderboardRun.prettyDateSubmitted());
+        runTimeProperty().set(String.valueOf(leaderboardRun.primaryRunTime()));
     }
+
+    public PlayerStorage getPlayer() {
+        return leaderboardRun.players().getFirst();
+    }
+
 
 
     private StringProperty place;
