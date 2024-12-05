@@ -4,6 +4,7 @@ import edu.bsu.cs.records.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class RunsListHandlerTest {
@@ -23,18 +24,67 @@ public class RunsListHandlerTest {
     private List<RunStorage> getRunsListForTest() {
         return List.of(
                 new RunStorage(
-                        List.of(new PlayerStorage("Nonag", "https://www.speedrun.com/api/v1/users/xkm3lk7j")),
+                        List.of(new PlayerStorage(
+                                "Nonag",
+                                "https://www.speedrun.com/api/v1/users/xkm3lk7j",
+                                "https://www.speedrun.com/user/Nonag",
+                                "user",
+                                getMap(1)
+                        )),
                         "2024-11-17T12:04:01Z", "PT1H25M41S"
                 ),
                 new RunStorage(
-                        List.of(new PlayerStorage("shionkun", "https://www.speedrun.com/api/v1/users/j40p3pl8")),
+                        List.of(new PlayerStorage(
+                                "shionkun",
+                                "https://www.speedrun.com/api/v1/users/j40p3pl8",
+                                "https://www.speedrun.com/user/shionkun",
+                                "user",
+                                getMap(2)
+                        )),
                         "2024-11-17T10:45:52Z", "PT1H14M48S"
                 ),
+
                 new RunStorage(
-                        List.of(new PlayerStorage("Miton", "https://www.speedrun.com/api/v1/users/qj23lpxk")),
+                        List.of(new PlayerStorage(
+                                "Miton",
+                                "https://www.speedrun.com/api/v1/users/qj23lpxk",
+                                "https://www.speedrun.com/user/Miton",
+                                "user",
+                                getMap(3)
+                        )),
                         "2024-11-17T05:16:37Z", "PT23M48S"
                 )
         );
+    }
+    private LinkedHashMap<String, String> getMap(int mapIndicator) {
+        LinkedHashMap<String, String> toReturn = new LinkedHashMap<>();
+
+        switch (mapIndicator) {
+            case 1 -> {
+                toReturn.put("twitch", "https://www.twitch.tv/Nonag");
+                toReturn.put("hitbox", "");
+                toReturn.put("youtube", "https://www.youtube.com/channel/UCgem0CvL7-mj9sntJmjsLzw");
+                toReturn.put("twitter", "");
+                toReturn.put("speedrunslive", "");
+            }
+            case 2 -> {
+                toReturn.put("twitch", "");
+                toReturn.put("hitbox", "");
+                toReturn.put("youtube", "");
+                toReturn.put("twitter", "");
+                toReturn.put("speedrunslive", "");
+            }
+            case 3 -> {
+                toReturn.put("twitch", "https://www.twitch.tv/miton3t");
+                toReturn.put("hitbox", "");
+                toReturn.put("youtube", "https://www.youtube.com/channel/UCa8zVXcbJbqBInluc5sDmZQ");
+                toReturn.put("twitter", "https://www.twitter.com/mittonton10");
+                toReturn.put("speedrunslive", "");
+            }
+
+        }
+
+        return toReturn;
     }
 
 

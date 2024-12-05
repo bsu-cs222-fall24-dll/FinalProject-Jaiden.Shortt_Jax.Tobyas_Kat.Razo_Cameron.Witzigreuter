@@ -6,6 +6,7 @@ import com.jayway.jsonpath.PathNotFoundException;
 import edu.bsu.cs.records.PlayerStorage;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 
 /* JsonPath documentation states the following:
  * > When using JsonPath in java its [sic] important to know what type you expect in your result.
@@ -31,6 +32,12 @@ public abstract class JsonReader {
         return JsonPath.read(JSON, String.format("$.%s", keyPath));
     }
 
+    protected String scanForUriIfNotNull(String keyPath) {
+        return (pathExists(String.format("%s.uri", keyPath)))
+                ? (String) scan(String.format("%s.uri", keyPath))
+                : "";
+    }
+
     protected boolean pathExists(String key) {
         try {
             scan(key);
@@ -47,12 +54,32 @@ public abstract class JsonReader {
         boolean playerIsUser = pathExists(String.format("%s.id", keyToRootOfPlayer));
 
         String name = (String) ((playerIsUser)
-                        ? scan(String.format("%s.names.international", keyToRootOfPlayer))
-                        : scan(String.format("%s.name", keyToRootOfPlayer)));
+                ? scan(String.format("%s.names.international", keyToRootOfPlayer))
+                : scan(String.format("%s.name", keyToRootOfPlayer)));
 
         String selflink = (String) scan(String.format("%s.links[0].uri", keyToRootOfPlayer));
+        String weblink = (String) ((playerIsUser)
+                ? scan(String.format("%s.weblink", keyToRootOfPlayer)) : "");
 
-        return new PlayerStorage(name, selflink);
+        String type = (playerIsUser) ? "user" : "guest";
+
+        LinkedHashMap<String, String> socials = readSocialMedias(keyToRootOfPlayer, playerIsUser);
+
+        return new PlayerStorage(name, selflink, weblink, type, socials);
+    }
+    private LinkedHashMap<String, String> readSocialMedias(String keyToRootOfPlayer, boolean playerIsUser) {
+        LinkedHashMap<String, String> socialsToReturn = new LinkedHashMap<>();
+
+        if (!playerIsUser)
+            return socialsToReturn;
+
+        socialsToReturn.put("twitch", scanForUriIfNotNull(String.format("%s.twitch", keyToRootOfPlayer)));
+        socialsToReturn.put("hitbox", scanForUriIfNotNull(String.format("%s.hitbox", keyToRootOfPlayer)));
+        socialsToReturn.put("youtube",scanForUriIfNotNull(String.format("%s.youtube", keyToRootOfPlayer)));
+        socialsToReturn.put("twitter", scanForUriIfNotNull(String.format("%s.twitter", keyToRootOfPlayer)));
+        socialsToReturn.put("speedrunslive", scanForUriIfNotNull(String.format("%s.speedrunslive", keyToRootOfPlayer)));
+
+        return socialsToReturn;
     }
 
     protected String getDateSubmitted(String keyToRootOfRun) {

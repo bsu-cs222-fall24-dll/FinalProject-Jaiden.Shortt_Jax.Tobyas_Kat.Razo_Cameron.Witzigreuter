@@ -19,6 +19,16 @@
                         "names": {
                             "international": "user"
                         },
+
+                        "weblink": "weblink",
+                        "twitch": null,
+                        "hitbox": null,
+                        "youtube": {
+                            "uri": "youtube"
+                        },
+                        "twitter": null,
+                        "speedrunslive": null,
+
                         "links": [
                             {
                                 "rel": "self",

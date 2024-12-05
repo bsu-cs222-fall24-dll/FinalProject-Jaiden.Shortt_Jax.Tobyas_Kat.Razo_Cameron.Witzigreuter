@@ -3,13 +3,20 @@ package edu.bsu.cs.records;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedHashMap;
 import java.util.List;
 
 public class RunStorageTest {
     @Test
     public void test_playernamesForLeaderboard_onePlayer() {
         RunStorage runWithOnePlayer = new RunStorage(
-                List.of(new PlayerStorage("player", "selflink")),
+                List.of(new PlayerStorage(
+                        "player",
+                        "selflink",
+                        "",
+                        "",
+                        new LinkedHashMap<>()
+                )),
                 "date", "time"
         );
 
@@ -22,8 +29,10 @@ public class RunStorageTest {
     @Test
     public void test_playernamesForLeaderboard_morePlayers() {
         RunStorage runWithMorePlayers = new RunStorage(
-                List.of(new PlayerStorage("player 1", "selflink 1"),
-                        new PlayerStorage("player 2", "selflink 2")),
+                List.of(
+                        new PlayerStorage("player 1", "selflink 1", "", "", new LinkedHashMap<>()),
+                        new PlayerStorage("player 2", "selflink 2", "", "", new LinkedHashMap<>())
+                ),
                 "date", "time"
         );
 
