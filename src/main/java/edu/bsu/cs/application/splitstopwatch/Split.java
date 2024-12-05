@@ -54,4 +54,17 @@ public class Split {
         return timeSinceProperty().get();
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s | millis: %d | total: %s | since previous: %s",
+                (getSplitName().isEmpty()) ? "unnamed split" : getSplitName(),
+                timestampMillis,
+                getTimeTotal(),
+                getTimeSince()
+        );
+    }
+
+    public void setSplitName(String splitName) {
+        splitNameProperty().set(splitName);
+    }
 }
