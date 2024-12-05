@@ -43,13 +43,17 @@ Due to how the url is assembled, it's highly recommended that you have the game 
 
 ---
 ## Attribution
-| Contributor          | Username                                                       | Role      | 
-|----------------------|----------------------------------------------------------------|-----------|
-| Jaiden Shortt        | <kbd>[☍](https://github.com/JaidenShortt)</kbd> `JaidenShortt` | Co-author |
-| Jax Tobyas           | <kbd>[☍](https://github.com/JaxT05)</kbd>       `JaxT05`       | Co-author |
-| Kat Razo             | <kbd>[☍](https://github.com/katrazo)</kbd>      `katrazo`      | Co-author | 
-| Cameron Witzigreuter | <kbd>[☍](https://github.com/Cameron311)</kbd>   `Cameron311`   | Co-author |
-| Mr. David L. Largent | <kbd>[☍](https://github.com/dllargent)</kbd>    `dllargent`    | Professor |
+| Contributor          | Resource                                                                                                                                          | Role           | 
+|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------------|
+| Jaiden Shortt        | <kbd>[☍](https://github.com/JaidenShortt)</kbd>                                                                             `JaidenShortt`        | Co-author      |
+| Jax Tobyas           | <kbd>[☍](https://github.com/JaxT05)</kbd>                                                                                   `JaxT05`              | Co-author      |
+| Kat Razo             | <kbd>[☍](https://github.com/katrazo)</kbd>                                                                                  `katrazo`             | Co-author      | 
+| Cameron Witzigreuter | <kbd>[☍](https://github.com/Cameron311)</kbd>                                                                               `Cameron311`          | Co-author      |
+| Mr. David L. Largent | <kbd>[☍](https://github.com/dllargent)</kbd>                                                                                `dllargent`           | Professor      |
+| Team C               | <kbd>[☍](https://github.com/bsu-cs222-fall24-dll/Final-Project---FaviSaaWillAnon)</kbd>                                     `Their Final Project` | Peer Reviewers |
+| Team B               | <kbd>[☍](https://github.com/bsu-cs222-fall24-dll/Final-Priscilla.Zavala-Oluwatoni.Benson-Ikanke.Inyang-Asante.Anglin)</kbd> `Their Final Project` | Peer Reviewers |
+| Team A               | <kbd>[☍](https://github.com/bsu-cs222-fall24-dll/Final_Project-KevinMack-JasonYoder-KolbyAlvey-BrianRaymond)</kbd>          `Their Final Project` | Peer Reviewers |
+
        
 | Dependency       | Source                                                                                   | Usage                                                  |
 |------------------|------------------------------------------------------------------------------------------|--------------------------------------------------------|
