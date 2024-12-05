@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
-<VBox prefHeight="463.0" prefWidth="457.0" stylesheets="@styles/bootstrap3.css" xmlns="http://javafx.com/javafx/17.0.12"
+<VBox prefHeight="463.0" prefWidth="457.0" stylesheets="@../styles/bootstrap3.css" xmlns="http://javafx.com/javafx/17.0.12"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.application.playerprofile.PlayerProfileController">
    <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="5.0" prefHeight="53.0" prefWidth="600.0"
           style="-fx-border-color: black; -fx-border-image-width: 5;" text="Player Profile" textAlignment="CENTER">
@@ -16,31 +16,26 @@
    </Label>
    <Separator prefHeight="9.0" prefWidth="512.0" style="-fx-background-color: black;" />
    <HBox prefHeight="50.0" prefWidth="500.0" style="-fx-border-color: black;">
-      <children>
-         <DialogPane fx:id="name" headerText="Name:" prefHeight="74.0" prefWidth="326.0" />
-         <DialogPane fx:id="id" headerText="ID:" prefHeight="74.0" prefWidth="287.0" />
-         <DialogPane fx:id="role" headerText="Role:" prefHeight="74.0" prefWidth="211.0" />
-         <Separator prefWidth="200.0" />
-      </children></HBox>
+      <DialogPane fx:id="name" headerText="Name:" prefHeight="74.0" prefWidth="326.0"/>
+      <DialogPane fx:id="id" headerText="ID:" prefHeight="74.0" prefWidth="287.0"/>
+      <DialogPane fx:id="role" headerText="Role:" prefHeight="74.0" prefWidth="211.0"/>
+      <Separator prefWidth="200.0"/>
+   </HBox>
    <Separator prefHeight="10.0" prefWidth="512.0" style="-fx-background-color: black;" />
    <HBox prefHeight="192.0" prefWidth="510.0">
-      <children>
-         <VBox prefHeight="260.0" prefWidth="255.0" style="-fx-border-color: black;">
-            <children>
-               <Label alignment="CENTER" prefHeight="25.0" prefWidth="261.0" text="Information" underline="true" />
-               <DialogPane fx:id="weblink" headerText="Web Link:" />
-               <DialogPane fx:id="runs" headerText="Runs:" prefHeight="32.0" prefWidth="253.0" />
-               <DialogPane fx:id="hitBox" headerText="HitBox:" />
-               <DialogPane fx:id="personalBests" headerText="Personal Bests:" />
-            </children>
-         </VBox>
-         <VBox prefHeight="260.0" prefWidth="255.0" style="-fx-border-color: black;">
-            <children>
-               <Label alignment="CENTER" prefHeight="25.0" prefWidth="261.0" text="Socials" underline="true" />
-               <DialogPane fx:id="twitch" headerText="Twitch:" />
-               <DialogPane fx:id="youtube" headerText="YouTube:" />
-               <DialogPane fx:id="twitter" headerText="Twitter:" />
-               <DialogPane fx:id="speedrunsLive" headerText="SpeedRunsLive:" prefHeight="102.0" prefWidth="226.0" />
-            </children></VBox>
-      </children></HBox>
+      <VBox prefHeight="260.0" prefWidth="255.0" style="-fx-border-color: black;">
+         <Label alignment="CENTER" prefHeight="25.0" prefWidth="261.0" text="Information" underline="true"/>
+         <DialogPane fx:id="weblink" headerText="Web Link:"/>
+         <DialogPane fx:id="runs" headerText="Runs:" prefHeight="32.0" prefWidth="253.0"/>
+         <DialogPane fx:id="hitBox" headerText="HitBox:"/>
+         <DialogPane fx:id="personalBests" headerText="Personal Bests:"/>
+      </VBox>
+      <VBox prefHeight="260.0" prefWidth="255.0" style="-fx-border-color: black;">
+         <Label alignment="CENTER" prefHeight="25.0" prefWidth="261.0" text="Socials" underline="true"/>
+         <DialogPane fx:id="twitch" headerText="Twitch:"/>
+         <DialogPane fx:id="youtube" headerText="YouTube:"/>
+         <DialogPane fx:id="twitter" headerText="Twitter:"/>
+         <DialogPane fx:id="speedrunsLive" headerText="SpeedRunsLive:" prefHeight="102.0" prefWidth="226.0"/>
+      </VBox>
+   </HBox>
 </VBox>
