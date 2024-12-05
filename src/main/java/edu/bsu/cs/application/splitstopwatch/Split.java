@@ -3,10 +3,6 @@ package edu.bsu.cs.application.splitstopwatch;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-// Since the TableView that holds these splits is not yet implemented,
-// there is no possible way to have used methods from this class.
-@SuppressWarnings("unused")
-
 public class Split {
 
     private final long timestampMillis;

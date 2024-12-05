@@ -130,7 +130,7 @@ public class CLI {
                     leaderboard.runPlaces().get(i),
                     thisRun.playernamesForLeaderboard(),
                     thisRun.prettyDateSubmitted(),
-                    thisRun.primaryRunTime()
+                    thisRun.formattedRunTime()
             );
         }
 
