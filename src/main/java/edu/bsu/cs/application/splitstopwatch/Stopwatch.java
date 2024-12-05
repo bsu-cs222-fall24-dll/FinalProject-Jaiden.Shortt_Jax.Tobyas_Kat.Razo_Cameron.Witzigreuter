@@ -50,10 +50,14 @@ public class Stopwatch {
     }
 
 
+    public long getTimeElapsedMillis() {
+        return timeElapsedMillis;
+    }
+
     public String getTimeElapsedFormatted() {
         return getTimeElapsedFormatted(timeElapsedMillis);
     }
-    private String getTimeElapsedFormatted(long milliseconds) {
+    public static String getTimeElapsedFormatted(long milliseconds) {
         long millisElapsed, secondsElapsed, minutesElapsed;
         millisElapsed = milliseconds % 1000;
         secondsElapsed = (milliseconds / 1000) % 60;

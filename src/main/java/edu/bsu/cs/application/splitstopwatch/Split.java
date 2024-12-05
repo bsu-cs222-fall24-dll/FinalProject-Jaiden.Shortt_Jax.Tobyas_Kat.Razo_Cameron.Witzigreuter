@@ -9,10 +9,21 @@ import javafx.beans.property.StringProperty;
 
 public class Split {
 
-    public Split(String timeTotal, String timeSince) {
+    private final long timestampMillis;
+
+    public Split(long timestampMillis) {
+        this.timestampMillis = timestampMillis;
+
         splitNameProperty().set("");
-        timeTotalProperty().set(timeTotal);
-        timeSinceProperty().set(timeSince);
+        timeTotalProperty().set(Stopwatch.getTimeElapsedFormatted(timestampMillis));
+        timeSinceProperty().set(getTimeTotal());
+    }
+    public Split(long timestampMillis, Split previousSplit) {
+        this.timestampMillis = timestampMillis;
+
+        splitNameProperty().set("");
+        timeTotalProperty().set(Stopwatch.getTimeElapsedFormatted(timestampMillis));
+        timeSinceProperty().set(Stopwatch.getTimeElapsedFormatted(timestampMillis - previousSplit.timestampMillis));
     }
 
 
@@ -43,4 +54,17 @@ public class Split {
         return timeSinceProperty().get();
     }
 
+    @Override
+    public String toString() {
+        return String.format("%s | millis: %d | total: %s | since previous: %s",
+                (getSplitName().isEmpty()) ? "unnamed split" : getSplitName(),
+                timestampMillis,
+                getTimeTotal(),
+                getTimeSince()
+        );
+    }
+
+    public void setSplitName(String splitName) {
+        splitNameProperty().set(splitName);
+    }
 }
