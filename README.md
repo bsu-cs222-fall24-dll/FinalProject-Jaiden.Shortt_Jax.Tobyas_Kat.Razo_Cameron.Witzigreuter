@@ -7,7 +7,7 @@ The **first iteration** allows users to lookup the top 10-20 speedrunners on a g
 The **second iteration** contains a JavaFX UI that is more flexible and powerful than the CLI version.
 
 The **third iteration** provides users a timer to record their own time splits. It runs both in a JavaFX GUI and in the CLI.  
-This iteration also includes a **Splits Stopwatch**, which can be opened from the main JavaFX Application at `Tools > Open Splits Stopwatch`, and a **Player Profile Viewer** which can be opened by double clicking a user on the leaderboard in the JavaFX GUI. Many JavaFX GUI features are also ported to the CLI.
+This iteration also includes a **Splits Stopwatch**, which can be opened from the main JavaFX Application at `Tools > Open Splits Stopwatch`, and a **Player Profile Viewer** which can be opened by double-clicking a user on the leaderboard in the JavaFX GUI. Many JavaFX GUI features are also ported to the CLI.
 
 
 
@@ -38,6 +38,7 @@ Load the code into your IDE, then run `Main.java`.
 ### To Run The JavaFX Graphical Interface
 Load the code into your IDE, then run the Gradle Task `Tasks > Application > run`.  
 To open the Splits Stopwatch, navigate to `Tools > Open Splits Stopwatch` in the main application's menubar.
+To access a Player Profile, double-click a user in the leaderboard.
 
 ## Searching For A Game
 Due to how the url is assembled, it's highly recommended that you have the game ID/token from the website url when you search.\
