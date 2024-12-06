@@ -19,7 +19,8 @@ This iteration also includes a **Splits Stopwatch**, which can be opened from th
 
 
 ### Getting Set Up
-To run this code, simply clone the code or download the latest release and open it in your IDE. Detailed cloning instructions can be seen below.
+To run this code, simply clone the code or download the latest release and open it in your IDE.
+Detailed cloning instructions can be seen below.
 <details>
    <summary><h3>Step-by-Step Instructions</h3></summary>
        <p>
@@ -37,11 +38,11 @@ Load the code into your IDE, then run `Main.java`.
 
 ### To Run The JavaFX Graphical Interface
 Load the code into your IDE, then run the Gradle Task `Tasks > Application > run`.  
-To open the Splits Stopwatch, navigate to `Tools > Open Splits Stopwatch` in the main application's menubar.\
+To open the Splits Stopwatch, navigate to `Tools > Open Splits Stopwatch` in the main application's menubar.  
 To access a Player Profile, double-click a user in the Leaderboard.
 
 ## Searching For A Game
-Due to how the url is assembled, it's highly recommended that you have the game ID/token from the website url when you search.\
+Due to how the url is assembled, it's highly recommended that you have the game ID/token from the website url when you search.  
 *Ex: the url token for Super Mario Sunshine is 'sms', while the ID is 'v1pxjz68'.*
 
 ---

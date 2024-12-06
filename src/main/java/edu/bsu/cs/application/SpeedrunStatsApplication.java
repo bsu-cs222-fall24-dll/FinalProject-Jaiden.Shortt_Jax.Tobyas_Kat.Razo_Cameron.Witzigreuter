@@ -18,7 +18,7 @@ public class SpeedrunStatsApplication extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("speedrunstats-view.fxml"));
 
         Scene scene = new Scene(fxmlLoader.load());
-        primaryStage.setTitle("Speedrun Stats v0.3.0a");
+        primaryStage.setTitle("Speedrun Stats v0.3.0");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

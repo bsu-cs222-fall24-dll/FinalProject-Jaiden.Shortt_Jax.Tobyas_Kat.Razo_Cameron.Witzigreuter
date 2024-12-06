@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "edu.bsu.cs"
-version = "v0.3.0a"
+version = "v0.3.0"
 
 repositories {
     mavenCentral()

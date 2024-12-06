@@ -14,7 +14,7 @@ public class RunStorageTest {
                 List.of(), "2024-01-21T12:20:16Z", 0
         );
 
-        String expectedPrettyDateAtTimeOfWriting = "10 months ago";
+        String expectedPrettyDateAtTimeOfWriting = "11 months ago";
         String actualPrettyDate = runWithLocalDateTime.prettyDateSubmitted();
 
         Assertions.assertEquals(expectedPrettyDateAtTimeOfWriting, actualPrettyDate);

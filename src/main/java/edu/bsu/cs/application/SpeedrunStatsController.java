@@ -13,9 +13,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-import javafx.scene.input.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -178,10 +178,16 @@ public class SpeedrunStatsController {
 
 
     @FXML void openPlayerProfileWithSelectedCell(MouseEvent event) {
-        if (event.getClickCount() == 2)
-            openPlayerProfile(leaderboardTable.getSelectionModel().getSelectedItem().getPlayer());
+        if (event.getClickCount() == 2) {
+            PlayerStorage playerClicked = leaderboardTable.getSelectionModel().getSelectedItem().getPlayer();
+
+            if (playerClicked.type().equals("user"))
+                openPlayerProfile(playerClicked);
+            else
+                showGuestAlert(playerClicked);
+        }
     }
-    private void openPlayerProfile(PlayerStorage player){
+    private void openPlayerProfile(PlayerStorage player) {
         try {
             FXMLLoader playerProfileLoader = new FXMLLoader(getClass().getResource("playerprofile/playerprofile-view.fxml"));
             Parent root = playerProfileLoader.load();
@@ -198,6 +204,17 @@ public class SpeedrunStatsController {
            handleException(e);
         }
     }
+    private void showGuestAlert(PlayerStorage guestPlayer) {
+        Alert guestDialog = new Alert(Alert.AlertType.INFORMATION);
+        guestDialog.setTitle("Guest Profile");
+        guestDialog.setHeaderText(guestPlayer.name());
+        guestDialog.setContentText(String.format(
+                "This player is a guest. As such, information is very limited.%n%nAPI Link: %s",
+                guestPlayer.selflink()
+        ));
+        guestDialog.setHeight(guestDialog.getHeight() + 100);
+        guestDialog.show();
+    }
 
 
     @FXML void openTimerTool() {
@@ -206,7 +223,7 @@ public class SpeedrunStatsController {
             Parent root = splitStopwatchLoader.load();
 
             Stage splitStopwatchStage = new Stage();
-            splitStopwatchStage.setTitle("Split Stopwatch");
+            splitStopwatchStage.setTitle("Splits Stopwatch");
             splitStopwatchStage.setScene(new Scene(root));
             splitStopwatchStage.show();
         }
