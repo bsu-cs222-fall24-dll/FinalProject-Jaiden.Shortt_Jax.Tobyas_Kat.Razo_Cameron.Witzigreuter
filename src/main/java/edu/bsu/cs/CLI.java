@@ -1,103 +1,197 @@
 package edu.bsu.cs;
 
-import edu.bsu.cs.records.CategoryStorage;
-import edu.bsu.cs.records.GameStorage;
-import edu.bsu.cs.records.LeaderboardStorage;
-import edu.bsu.cs.records.RunStorage;
+import edu.bsu.cs.records.*;
 import edu.bsu.cs.webapihandlers.GameHandler;
 import edu.bsu.cs.webapihandlers.LeaderboardHandler;
+import edu.bsu.cs.webapihandlers.RunsListHandler;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.UnknownHostException;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CLI {
     private static final Scanner consoleScanner = new Scanner(System.in);
 
-    private static GameStorage chosenGame;
-    private static CategoryStorage chosenCategory;
+    private static GameStorage activeGame;
+    private static final List<CategoryStorage> categoriesToChooseFrom = new ArrayList<>();
+    private static CategoryStorage activeCategory;
+    private static LevelStorage activeLevel;
     private static LeaderboardStorage leaderboard;
 
-    private static final boolean LEVELS_ARE_SUPPORTED = false;
-
     public static void main(String[] args) {
-        printGamePromptAndGetChoice();
-        printCategoryMenuAndGetChoice();
-        getAndPrintLeaderboard();
+        activeGame = activateGame();
+        activateCategoryAndLevelForLeaderboard();
+
+        boolean getRunsByPlace = promptForAndGetLeaderboardType();
+
+        getAndPrintLeaderboard(getRunsByPlace);
 
         consoleScanner.close();
         System.exit(0);
     }
 
 
-    private static void printGamePromptAndGetChoice() {
-        System.out.printf("%nPlease enter a game id or abbreviation. (Ex. 'sms', or 'v1pxjz68')%n");
-        getGameChoice();
+    private static GameStorage activateGame() {
+        String userInputGameSlug = promptForAndGetGameFromUserInput();
+        return searchGame(userInputGameSlug);
     }
-    private static void getGameChoice() {
-        String gameNameInput;
-        System.out.print(">> ");
 
+    private static String promptForAndGetGameFromUserInput() {
+        System.out.printf("Enter a game ID or abbreviation.%n");
+        System.out.printf("(ex, 'sms or '‘v1pxjz68’ for Super Mario Sunshine):%n>> ");
+        return consoleScanner.nextLine();
+    }
+    private static GameStorage searchGame(String gameIdOrAbv) {
         try {
-            gameNameInput = consoleScanner.nextLine();
+            System.out.print("Searching... ");
 
-            System.out.printf("%nSearching... ");
-            chosenGame = GameHandler.getGameData(gameNameInput);
-            System.out.printf("Game Found! [%s]%n%n", chosenGame.name());
+            GameStorage toReturn = GameHandler.getGameData(gameIdOrAbv);
+            System.out.printf("Game Found! [%s]%n", toReturn.name());
+
+            return toReturn;
         }
-        catch (Exception e) {
-            handleError(e);
-
-            System.out.println("Please try again.");
-            getGameChoice();
+        catch (FileNotFoundException searchFoundNoGameException) {
+            System.err.println("No game found. Please try again.");
+            return activateGame();
+        }
+        catch (IOException otherWebInteractionException) {
+            System.err.println("An unexpected problem occurred. Please try again.");
+            return activateGame();
         }
     }
 
-    private static void printCategoryMenuAndGetChoice() {
+
+    private static void activateCategoryAndLevelForLeaderboard() {
+        boolean useLevelsAndPerLevelCategories = promptForAndGetCategoryType();
+
+        updateCategoriesToChooseFrom(useLevelsAndPerLevelCategories);
+        printCategoriesToChooseFrom();
+
+        activeCategory = havePlayerChooseCategory();
+
+        if (useLevelsAndPerLevelCategories)
+            printLevelsToChooseFrom();
+        activeLevel = (useLevelsAndPerLevelCategories)
+                ? havePlayerChooseLevel()
+                : null;
+    }
+
+    private static boolean promptForAndGetCategoryType() {
+        System.out.printf("%nWould you like to use per-game categories or per-level categories?%n");
+        System.out.printf("Options: 'game' 'level' / 'g' 'l'%n>> ");
+
+        String userAnswer = consoleScanner.nextLine().toLowerCase().trim();
+
+        if (userAnswer.equals("game") || userAnswer.equals("g"))
+            return false;
+        else if (userAnswer.equals("level") || userAnswer.equals("l"))
+            return true;
+
+        System.err.println("Input is not a valid option. Please try again.");
+        return promptForAndGetCategoryType();
+    }
+    private static void updateCategoriesToChooseFrom(boolean useLevels) {
+        categoriesToChooseFrom.clear();
+
+        for (CategoryStorage category : activeGame.categories()) {
+            if (useLevels && category.type().equals("per-level"))
+                categoriesToChooseFrom.add(category);
+
+            else if (!useLevels && category.type().equals("per-game"))
+                categoriesToChooseFrom.add(category);
+        }
+    }
+
+    private static void printCategoriesToChooseFrom() {
+        System.out.println("-".repeat(50));
+
+        System.out.printf("Showing %s categories for %s:%n",
+                categoriesToChooseFrom.getFirst().type(),
+                activeGame.name()
+        );
+
+        System.out.println("-".repeat(50));
+
+        for (int i = 0; i < categoriesToChooseFrom.size(); i++)
+            System.out.printf("%3d. %s%n", i + 1, categoriesToChooseFrom.get(i).name());
+
+        System.out.println("-".repeat(50));
+    }
+    private static CategoryStorage havePlayerChooseCategory() {
         try {
-            if (!LEVELS_ARE_SUPPORTED)
-                for (int i = chosenGame.categories().size() - 1; i >= 0; i--)
-                    if (chosenGame.categories().get(i).type().equals("per-level"))
-                        chosenGame.categories().remove(i);
+            System.out.printf("Please enter the number associated with a category to choose that category.%n>> ");
+            int categoryIndex = Integer.parseInt(consoleScanner.nextLine()) - 1;
 
-            printCategoryMenu();
-            getCategoryChoice();
+            return categoriesToChooseFrom.get(categoryIndex);
         }
-        catch (Exception e) {
-            handleError(e);
-
-            System.out.println("Please try again.");
-            printCategoryMenuAndGetChoice();
+        catch (NumberFormatException categoryIndexCouldNotBeParsedAsIntException) {
+            System.err.println("Input was not a number. Please try again.");
+            return havePlayerChooseCategory();
+        }
+        catch (IndexOutOfBoundsException numberWasTooHighOrLowException) {
+            System.err.println("That number is not in the list. Please try again.");
+            return havePlayerChooseCategory();
         }
     }
-    private static void printCategoryMenu() {
-        System.out.printf("Enter # for desired Category.%n%s%n", "-".repeat(20));
 
-        for (int i = 1; i <= chosenGame.categories().size(); i++)
-            System.out.printf("* %-3s %s%n", String.format("%d.", i), chosenGame.categories().get(i - 1));
+    private static void printLevelsToChooseFrom() {
+        System.out.println("-".repeat(50));
 
-        System.out.println("-".repeat(20));
+        System.out.printf("Showing levels for %s:%n",
+                activeGame.name()
+        );
+
+        System.out.println("-".repeat(50));
+
+        for (int i = 0; i < activeGame.levels().size(); i++)
+            System.out.printf("%3d. %s%n", i + 1, activeGame.levels().get(i).name());
+
+        System.out.println("-".repeat(50));
     }
-    private static void getCategoryChoice() {
-        int categoryChoiceInput;
-        System.out.print(">> ");
-
+    private static LevelStorage havePlayerChooseLevel() {
         try {
-            categoryChoiceInput = Integer.parseInt(consoleScanner.nextLine());
-            chosenCategory = chosenGame.categories().get(categoryChoiceInput - 1);
-        }
-        catch (Exception e) {
-            handleError(e);
+            System.out.printf("Please enter the number associated with a level to choose that level.%n>> ");
+            int levelIndex = Integer.parseInt(consoleScanner.nextLine()) - 1;
 
-            System.out.println("Please try again.");
-            getCategoryChoice();
+            return activeGame.levels().get(levelIndex);
+        }
+        catch (NumberFormatException categoryIndexCouldNotBeParsedAsIntException) {
+            System.err.println("Input was not a number. Please try again.");
+            return havePlayerChooseLevel();
+        }
+        catch (IndexOutOfBoundsException numberWasTooHighOrLowException) {
+            System.err.println("That number is not in the list. Please try again.");
+            return havePlayerChooseLevel();
         }
     }
 
-    private static void getAndPrintLeaderboard() {
+
+    private static boolean promptForAndGetLeaderboardType() {
+        System.out.println("Would you like to sort runs by place or by date??");
+        System.out.printf("Options: 'place' 'date' / 'p' 'd'%n>> ");
+
+        String userAnswer = consoleScanner.nextLine().toLowerCase().trim();
+
+        if (userAnswer.equals("place") || userAnswer.equals("p"))
+            return true;
+        else if (userAnswer.equals("date") || userAnswer.equals("d"))
+            return false;
+
+        System.err.println("Input is not a valid option. Please try again.");
+        return promptForAndGetLeaderboardType();
+    }
+
+
+    private static void getAndPrintLeaderboard(boolean byPlace) {
         try {
-            leaderboard = LeaderboardHandler.getLeaderboard(chosenGame, chosenCategory, null, 20);
+            if (byPlace)
+                leaderboard = LeaderboardHandler.getLeaderboard(activeGame, activeCategory, activeLevel, 20);
+            else
+                leaderboard = RunsListHandler.getRunsListWithLeaderboardParameters(activeGame, activeCategory, activeLevel, 20,
+                        "orderby=submitted&direction=desc");
+
             printLeaderboard();
         }
         catch (IOException e) {
@@ -115,11 +209,11 @@ public class CLI {
             else if (userInput.equals("see"))
                 e.printStackTrace(System.err);
             else
-                getAndPrintLeaderboard();
+                getAndPrintLeaderboard(byPlace);
         }
     }
     private static void printLeaderboard() {
-        System.out.printf("%nLeaderboard for: %s [%s]%n%s%n", chosenGame.name(), chosenCategory.name(), "-".repeat(56));
+        System.out.printf("%nLeaderboard for: %s [%s]%n%s%n", activeGame.name(), activeCategory.name(), "-".repeat(56));
 
         for (int i = 0; i < leaderboard.runs().size(); i++) {
             RunStorage thisRun = leaderboard.runs().get(i);
@@ -135,44 +229,5 @@ public class CLI {
         }
 
         System.out.println("-".repeat(56));
-    }
-
-
-    private static void handleError(Exception e) {
-        String className = e.getClass().getSimpleName();
-
-        /* As a switch statement, the following if statement:
-         * - ignores pattern variables (creating four warnings)
-         * - misinterprets vertical and horizontal formatting
-         * - becomes less readable
-         *
-         * In light of these conflicts, the warning is hereby suppressed. */
-
-        //noinspection IfCanBeSwitch
-        if (e instanceof UnknownHostException) {
-            System.err.printf("An %s occurred. Please ensure your device is connected to the internet.%n", className);
-        }
-        else if (e instanceof IOException) {
-            System.err.printf("An %s occurred. The web destination may have been incorrect.%n", className);
-        }
-
-        else if (e instanceof NumberFormatException) {
-            System.err.printf("That is not an integer.%n");
-        }
-        else if (e instanceof IndexOutOfBoundsException) {
-            System.err.printf("That number is not in the category menu.%n");
-        }
-
-        else {
-            System.err.printf("An unexpected %s occurred. Please see the stacktrace for more.%n", className);
-
-            System.out.print("Press enter to continue...");
-            consoleScanner.nextLine();
-
-            System.err.println(Arrays.toString(e.getStackTrace()));
-            System.out.print("Press enter to continue...");
-            consoleScanner.nextLine();
-        }
-
     }
 }
