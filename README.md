@@ -7,7 +7,9 @@ The **first iteration** allows users to lookup the top 10-20 speedrunners on a g
 The **second iteration** contains a JavaFX UI that is more flexible and powerful than the CLI version.
 
 The **third iteration** provides users a timer to record their own time splits. It runs both in a JavaFX GUI and in the CLI.  
-This iteration also includes a **Splits Stopwatch**, which can be opened from the main JavaFX Application at `Tools > Open Splits Stopwatch`. Many JavaFX GUI features are also ported to the CLI.
+This iteration also includes a **Splits Stopwatch**, which can be opened from the main JavaFX Application at `Tools > Open Splits Stopwatch`, and a **Player Profile Viewer** which can be opened by double clicking a user on the leaderboard in the JavaFX GUI. Many JavaFX GUI features are also ported to the CLI.
+
+
 
 <i><sup>For information about testing coverage, see <a href="https://github.com/bsu-cs222-fall24-dll/FinalProject-Jaiden.Shortt_Jax.Tobyas_Kat.Razo_Cameron.Witzigreuter/edit/master/src/test/Coverage.md">Coverage.md</a>.</sup></i>
 
@@ -21,7 +23,7 @@ To run this code, simply clone the code or download the latest release and open 
 <details>
    <summary><h3>Step-by-Step Instructions</h3></summary>
        <p>
-       1. <a href="https://www.jetbrains.com/idea/download/" itemprop="Download IntelliJ">Install IntelliJ IDEA</a> if you haven't already, and make sure you have <a href="https://github.com/git-guides/install-git">the latest version of Git installed</a>. 
+       1. <a href="https://www.jetbrains.com/toolbox-app/" itemprop="Download Jetbrains">Download Jetbrains Toolbox</a> and use it to install IntelliJ IDEA Community Edition if you haven't already, and make sure you have <a href="https://github.com/git-guides/install-git">the latest version of Git installed</a>. 
        <p>
        2. Once IntelliJ is open, navigate to <b>File > New > Project from Version Control</b>.
        <p>
