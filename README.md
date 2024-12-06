@@ -37,8 +37,8 @@ Load the code into your IDE, then run `Main.java`.
 
 ### To Run The JavaFX Graphical Interface
 Load the code into your IDE, then run the Gradle Task `Tasks > Application > run`.  
-To open the Splits Stopwatch, navigate to `Tools > Open Splits Stopwatch` in the main application's menubar.
-To access a Player Profile, double-click a user in the leaderboard.
+To open the Splits Stopwatch, navigate to `Tools > Open Splits Stopwatch` in the main application's menubar.\
+To access a Player Profile, double-click a user in the Leaderboard.
 
 ## Searching For A Game
 Due to how the url is assembled, it's highly recommended that you have the game ID/token from the website url when you search.\
